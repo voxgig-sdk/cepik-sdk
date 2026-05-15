@@ -1,0 +1,37 @@
+{
+  "existing": {
+    "driving_license": {
+      "DRIVING_LICENSE00": {
+        "data_waznosci": "s32",
+        "data_wydania": "s33",
+        "id": "DRIVING_LICENSE00",
+        "kategoria": "s35",
+        "wojewodztwo": "s36"
+      },
+      "DRIVING_LICENSE01": {
+        "data_waznosci": "s64",
+        "data_wydania": "s65",
+        "id": "DRIVING_LICENSE01",
+        "kategoria": "s67",
+        "wojewodztwo": "s68"
+      },
+      "DRIVING_LICENSE02": {
+        "data_waznosci": "s96",
+        "data_wydania": "s97",
+        "id": "DRIVING_LICENSE02",
+        "kategoria": "s99",
+        "wojewodztwo": "s9a"
+      }
+    }
+  },
+  "new": {
+    "driving_license": {
+      "driving_license_ref01": {
+        "data_waznosci": "sc8",
+        "data_wydania": "sc9",
+        "kategoria": "scb",
+        "wojewodztwo": "scc"
+      }
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "existing": {
+    "vehicle": {
+      "VEHICLE00": {
+        "data_pierwszej_rejestracji": "s64",
+        "id": "VEHICLE00",
+        "marka": "s66",
+        "masa_wlasna": "s67",
+        "model": "s68",
+        "podrodzaj": "s69",
+        "pojemnosc_silnika": "s6a",
+        "rodzaj": "s6b",
+        "rok_produkcji": "s6c",
+        "wojewodztwo": "s6d"
+      },
+      "VEHICLE01": {
+        "data_pierwszej_rejestracji": "sc8",
+        "id": "VEHICLE01",
+        "marka": "sca",
+        "masa_wlasna": "scb",
+        "model": "scc",
+        "podrodzaj": "scd",
+        "pojemnosc_silnika": "sce",
+        "rodzaj": "scf",
+        "rok_produkcji": "sd0",
+        "wojewodztwo": "sd1"
+      },
+      "VEHICLE02": {
+        "data_pierwszej_rejestracji": "s12c",
+        "id": "VEHICLE02",
+        "marka": "s12e",
+        "masa_wlasna": "s12f",
+        "model": "s130",
+        "podrodzaj": "s131",
+        "pojemnosc_silnika": "s132",
+        "rodzaj": "s133",
+        "rok_produkcji": "s134",
+        "wojewodztwo": "s135"
+      }
+    }
+  },
+  "new": {
+    "vehicle": {
+      "vehicle_ref01": {
+        "data_pierwszej_rejestracji": "s190",
+        "marka": "s192",
+        "masa_wlasna": "s193",
+        "model": "s194",
+        "podrodzaj": "s195",
+        "pojemnosc_silnika": "s196",
+        "rodzaj": "s197",
+        "rok_produkcji": "s198",
+        "wojewodztwo": "s199"
+      }
+    }
+  }
+}

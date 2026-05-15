@@ -1,0 +1,107 @@
+# Entity: permission
+
+main: kit: entity: permission: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "data_uzyskania"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "kategoria"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "wojewodztwo"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "permission"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "data_do"
+                orig: "data_do"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "data_od"
+                orig: "data_od"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 500
+                kind: "query"
+                name: "limit"
+                orig: "limit"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "wojewodztwo"
+                orig: "wojewodztwo"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/uprawnienia"
+          parts: [
+            "uprawnienia"
+          ]
+          select: {
+            exist: [
+              "data_do"
+              "data_od"
+              "limit"
+              "page"
+              "wojewodztwo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

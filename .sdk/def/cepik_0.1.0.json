@@ -1,0 +1,675 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "CEPiK API",
+    "description": "The CEPiK API provides access to various datasets related to vehicles, driving licenses, permissions to drive vehicles, and statistical information about these entities. It includes methods for retrieving data about vehicles, driving licenses, permissions, and associated statistics from the national database.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "CEPiK API Support",
+      "url": "https://api.cepik.gov.pl/doc"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.cepik.gov.pl",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/pojazdy": {
+      "get": {
+        "summary": "Get vehicles data",
+        "description": "Retrieve information about vehicles from the CEPiK national database",
+        "operationId": "getVehicles",
+        "tags": [
+          "Vehicles"
+        ],
+        "parameters": [
+          {
+            "name": "wojewodztwo",
+            "in": "query",
+            "description": "Province/voivodeship filter",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "data-od",
+            "in": "query",
+            "description": "Start date for filtering (YYYY-MM-DD)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "data-do",
+            "in": "query",
+            "description": "End date for filtering (YYYY-MM-DD)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Maximum number of results to return",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 500,
+              "minimum": 1,
+              "maximum": 500
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number for pagination",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1,
+              "minimum": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with vehicle data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Vehicle"
+                      }
+                    },
+                    "links": {
+                      "$ref": "#/components/schemas/PaginationLinks"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/prawo-jazdy": {
+      "get": {
+        "summary": "Get driving licenses data",
+        "description": "Retrieve information about driving licenses from the CEPiK national database",
+        "operationId": "getDrivingLicenses",
+        "tags": [
+          "Driving Licenses"
+        ],
+        "parameters": [
+          {
+            "name": "wojewodztwo",
+            "in": "query",
+            "description": "Province/voivodeship filter",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "data-od",
+            "in": "query",
+            "description": "Start date for filtering (YYYY-MM-DD)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "data-do",
+            "in": "query",
+            "description": "End date for filtering (YYYY-MM-DD)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Maximum number of results to return",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 500,
+              "minimum": 1,
+              "maximum": 500
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number for pagination",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1,
+              "minimum": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with driving license data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/DrivingLicense"
+                      }
+                    },
+                    "links": {
+                      "$ref": "#/components/schemas/PaginationLinks"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/uprawnienia": {
+      "get": {
+        "summary": "Get vehicle driving permissions",
+        "description": "Retrieve information about permissions to drive vehicles from the CEPiK national database",
+        "operationId": "getPermissions",
+        "tags": [
+          "Permissions"
+        ],
+        "parameters": [
+          {
+            "name": "wojewodztwo",
+            "in": "query",
+            "description": "Province/voivodeship filter",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "data-od",
+            "in": "query",
+            "description": "Start date for filtering (YYYY-MM-DD)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "data-do",
+            "in": "query",
+            "description": "End date for filtering (YYYY-MM-DD)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Maximum number of results to return",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 500,
+              "minimum": 1,
+              "maximum": 500
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number for pagination",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1,
+              "minimum": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with permissions data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Permission"
+                      }
+                    },
+                    "links": {
+                      "$ref": "#/components/schemas/PaginationLinks"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/statystyki/pojazdy": {
+      "get": {
+        "summary": "Get vehicle statistics",
+        "description": "Retrieve statistical information about vehicles from the CEPiK national database",
+        "operationId": "getVehicleStatistics",
+        "tags": [
+          "Statistics"
+        ],
+        "parameters": [
+          {
+            "name": "wojewodztwo",
+            "in": "query",
+            "description": "Province/voivodeship filter",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "rok",
+            "in": "query",
+            "description": "Year for statistics",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with vehicle statistics",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/VehicleStatistics"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/statystyki/prawo-jazdy": {
+      "get": {
+        "summary": "Get driving license statistics",
+        "description": "Retrieve statistical information about driving licenses from the CEPiK national database",
+        "operationId": "getDrivingLicenseStatistics",
+        "tags": [
+          "Statistics"
+        ],
+        "parameters": [
+          {
+            "name": "wojewodztwo",
+            "in": "query",
+            "description": "Province/voivodeship filter",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "rok",
+            "in": "query",
+            "description": "Year for statistics",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with driving license statistics",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/DrivingLicenseStatistics"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Vehicle": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique vehicle identifier"
+          },
+          "marka": {
+            "type": "string",
+            "description": "Vehicle brand/make"
+          },
+          "model": {
+            "type": "string",
+            "description": "Vehicle model"
+          },
+          "rodzaj": {
+            "type": "string",
+            "description": "Vehicle type"
+          },
+          "podrodzaj": {
+            "type": "string",
+            "description": "Vehicle subtype"
+          },
+          "rok-produkcji": {
+            "type": "integer",
+            "description": "Year of production"
+          },
+          "pojemnosc-silnika": {
+            "type": "integer",
+            "description": "Engine capacity in cm³"
+          },
+          "masa-wlasna": {
+            "type": "integer",
+            "description": "Curb weight in kg"
+          },
+          "wojewodztwo": {
+            "type": "string",
+            "description": "Province/voivodeship of registration"
+          },
+          "data-pierwszej-rejestracji": {
+            "type": "string",
+            "format": "date",
+            "description": "Date of first registration"
+          }
+        }
+      },
+      "DrivingLicense": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique license identifier"
+          },
+          "kategoria": {
+            "type": "string",
+            "description": "License category"
+          },
+          "data-wydania": {
+            "type": "string",
+            "format": "date",
+            "description": "Date of issue"
+          },
+          "data-waznosci": {
+            "type": "string",
+            "format": "date",
+            "description": "Expiry date"
+          },
+          "wojewodztwo": {
+            "type": "string",
+            "description": "Province/voivodeship of issue"
+          }
+        }
+      },
+      "Permission": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique permission identifier"
+          },
+          "kategoria": {
+            "type": "string",
+            "description": "Category of permission"
+          },
+          "data-uzyskania": {
+            "type": "string",
+            "format": "date",
+            "description": "Date permission was obtained"
+          },
+          "wojewodztwo": {
+            "type": "string",
+            "description": "Province/voivodeship"
+          }
+        }
+      },
+      "VehicleStatistics": {
+        "type": "object",
+        "properties": {
+          "wojewodztwo": {
+            "type": "string",
+            "description": "Province/voivodeship"
+          },
+          "liczba-pojazdow": {
+            "type": "integer",
+            "description": "Total number of vehicles"
+          },
+          "wg-rodzaju": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "description": "Breakdown by vehicle type"
+          },
+          "wg-marki": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "description": "Breakdown by brand"
+          }
+        }
+      },
+      "DrivingLicenseStatistics": {
+        "type": "object",
+        "properties": {
+          "wojewodztwo": {
+            "type": "string",
+            "description": "Province/voivodeship"
+          },
+          "liczba-praw-jazdy": {
+            "type": "integer",
+            "description": "Total number of driving licenses"
+          },
+          "wg-kategorii": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "description": "Breakdown by license category"
+          }
+        }
+      },
+      "PaginationLinks": {
+        "type": "object",
+        "properties": {
+          "first": {
+            "type": "string",
+            "description": "URL to first page"
+          },
+          "last": {
+            "type": "string",
+            "description": "URL to last page"
+          },
+          "prev": {
+            "type": "string",
+            "nullable": true,
+            "description": "URL to previous page"
+          },
+          "next": {
+            "type": "string",
+            "nullable": true,
+            "description": "URL to next page"
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Error message"
+          },
+          "code": {
+            "type": "integer",
+            "description": "Error code"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Vehicles",
+      "description": "Operations related to vehicle data"
+    },
+    {
+      "name": "Driving Licenses",
+      "description": "Operations related to driving license data"
+    },
+    {
+      "name": "Permissions",
+      "description": "Operations related to vehicle driving permissions"
+    },
+    {
+      "name": "Statistics",
+      "description": "Statistical information about vehicles and driving licenses"
+    }
+  ]
+}

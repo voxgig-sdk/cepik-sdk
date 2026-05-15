@@ -1,0 +1,37 @@
+<?php
+declare(strict_types=1);
+
+// Cepik SDK base feature
+
+class CepikBaseFeature
+{
+    public string $version;
+    public string $name;
+    public bool $active;
+
+    public function __construct()
+    {
+        $this->version = '0.0.1';
+        $this->name = 'base';
+        $this->active = true;
+    }
+
+    public function get_version(): string { return $this->version; }
+    public function get_name(): string { return $this->name; }
+    public function get_active(): bool { return $this->active; }
+
+    public function init(CepikContext $ctx, array $options): void {}
+    public function PostConstruct(CepikContext $ctx): void {}
+    public function PostConstructEntity(CepikContext $ctx): void {}
+    public function SetData(CepikContext $ctx): void {}
+    public function GetData(CepikContext $ctx): void {}
+    public function GetMatch(CepikContext $ctx): void {}
+    public function SetMatch(CepikContext $ctx): void {}
+    public function PrePoint(CepikContext $ctx): void {}
+    public function PreSpec(CepikContext $ctx): void {}
+    public function PreRequest(CepikContext $ctx): void {}
+    public function PreResponse(CepikContext $ctx): void {}
+    public function PreResult(CepikContext $ctx): void {}
+    public function PreDone(CepikContext $ctx): void {}
+    public function PreUnexpected(CepikContext $ctx): void {}
+}

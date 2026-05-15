@@ -1,0 +1,98 @@
+# Entity: statistic
+
+main: kit: entity: statistic: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "data"
+      req: false
+      type: "`$OBJECT`"
+    }
+  ]
+
+  name: "statistic"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "rok"
+                orig: "rok"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "wojewodztwo"
+                orig: "wojewodztwo"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/statystyki/pojazdy"
+          parts: [
+            "statystyki"
+            "pojazdy"
+          ]
+          select: {
+            exist: [
+              "rok"
+              "wojewodztwo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "rok"
+                orig: "rok"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "wojewodztwo"
+                orig: "wojewodztwo"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/statystyki/prawo-jazdy"
+          parts: [
+            "statystyki"
+            "prawo-jazdy"
+          ]
+          select: {
+            exist: [
+              "rok"
+              "wojewodztwo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

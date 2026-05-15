@@ -1,0 +1,137 @@
+# Entity: vehicle
+
+main: kit: entity: vehicle: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "data_pierwszej_rejestracji"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "marka"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "masa_wlasna"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "model"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "podrodzaj"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "pojemnosc_silnika"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "rodzaj"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "rok_produkcji"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "wojewodztwo"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "vehicle"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "data_do"
+                orig: "data_do"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "data_od"
+                orig: "data_od"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 500
+                kind: "query"
+                name: "limit"
+                orig: "limit"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "wojewodztwo"
+                orig: "wojewodztwo"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/pojazdy"
+          parts: [
+            "pojazdy"
+          ]
+          select: {
+            exist: [
+              "data_do"
+              "data_od"
+              "limit"
+              "page"
+              "wojewodztwo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

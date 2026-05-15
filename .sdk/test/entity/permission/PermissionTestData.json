@@ -1,0 +1,33 @@
+{
+  "existing": {
+    "permission": {
+      "PERMISSION00": {
+        "data_uzyskania": "s28",
+        "id": "PERMISSION00",
+        "kategoria": "s2a",
+        "wojewodztwo": "s2b"
+      },
+      "PERMISSION01": {
+        "data_uzyskania": "s50",
+        "id": "PERMISSION01",
+        "kategoria": "s52",
+        "wojewodztwo": "s53"
+      },
+      "PERMISSION02": {
+        "data_uzyskania": "s78",
+        "id": "PERMISSION02",
+        "kategoria": "s7a",
+        "wojewodztwo": "s7b"
+      }
+    }
+  },
+  "new": {
+    "permission": {
+      "permission_ref01": {
+        "data_uzyskania": "sa0",
+        "kategoria": "sa2",
+        "wojewodztwo": "sa3"
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+# Guide
+
+guide: {
+  metrics: count: entity: 4
+  metrics: count: path: 5
+  metrics: count: method: 5
+
+  entity: driving_license: {
+    path: "/prawo-jazdy": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: permission: {
+    path: "/uprawnienia": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: statistic: {
+    path: "/statystyki/pojazdy": {
+      op: load: method: *GET
+    }
+    path: "/statystyki/prawo-jazdy": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: vehicle: {
+    path: "/pojazdy": {
+      op: list: method: *GET
+    }
+  }
+
+}

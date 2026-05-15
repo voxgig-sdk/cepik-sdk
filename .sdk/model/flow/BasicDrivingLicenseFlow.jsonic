@@ -1,0 +1,22 @@
+# BasicDrivingLicenseFlow
+
+main: kit: flow: BasicDrivingLicenseFlow:
+{
+  entity: "driving_license",
+  kind: "basic",
+  name: "BasicDrivingLicenseFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "driving_license_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicDrivingLicenseFlow"
+}

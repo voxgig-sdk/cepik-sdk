@@ -1,0 +1,22 @@
+{
+  "existing": {
+    "statistic": {
+      "STATISTIC00": {
+        "data": {}
+      },
+      "STATISTIC01": {
+        "data": {}
+      },
+      "STATISTIC02": {
+        "data": {}
+      }
+    }
+  },
+  "new": {
+    "statistic": {
+      "statistic_ref01": {
+        "data": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        name: "CEPiK API Support"
+        url: "https://api.cepik.gov.pl/doc"
+      }
+      description: "The CEPiK API provides access to various datasets related to vehicles, driving licenses, permissions to drive vehicles, and statistical information about these entities. It includes methods for retrieving data about vehicles, driving licenses, permissions, and associated statistics from the national database."
+      servers: [
+        {
+          description: "Production server"
+          url: "https://api.cepik.gov.pl"
+        }
+      ]
+      title: "CEPiK API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}
