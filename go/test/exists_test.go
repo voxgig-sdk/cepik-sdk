@@ -3,7 +3,7 @@ package sdktest
 import (
 	"testing"
 
-	sdk "github.com/voxgig-sdk/cepik-sdk"
+	sdk "github.com/voxgig-sdk/cepik-sdk/go"
 )
 
 func TestExists(t *testing.T) {

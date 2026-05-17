@@ -1,10 +1,10 @@
 package voxgigcepiksdk
 
 import (
-	"github.com/voxgig-sdk/cepik-sdk/core"
-	"github.com/voxgig-sdk/cepik-sdk/entity"
-	"github.com/voxgig-sdk/cepik-sdk/feature"
-	_ "github.com/voxgig-sdk/cepik-sdk/utility"
+	"github.com/voxgig-sdk/cepik-sdk/go/core"
+	"github.com/voxgig-sdk/cepik-sdk/go/entity"
+	"github.com/voxgig-sdk/cepik-sdk/go/feature"
+	_ "github.com/voxgig-sdk/cepik-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

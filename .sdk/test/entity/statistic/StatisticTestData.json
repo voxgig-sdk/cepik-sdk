@@ -2,13 +2,16 @@
   "existing": {
     "statistic": {
       "STATISTIC00": {
-        "data": {}
+        "data": {},
+        "id": "STATISTIC00"
       },
       "STATISTIC01": {
-        "data": {}
+        "data": {},
+        "id": "STATISTIC01"
       },
       "STATISTIC02": {
-        "data": {}
+        "data": {},
+        "id": "STATISTIC02"
       }
     }
   },

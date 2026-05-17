@@ -1,9 +1,9 @@
 package entity
 
 import (
-	"github.com/voxgig-sdk/cepik-sdk/core"
+	"github.com/voxgig-sdk/cepik-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/cepik-sdk/go/utility/struct"
 )
 
 type VehicleEntity struct {

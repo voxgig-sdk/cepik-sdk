@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/cepik-sdk"
-	"github.com/voxgig-sdk/cepik-sdk/core"
+	sdk "github.com/voxgig-sdk/cepik-sdk/go"
+	"github.com/voxgig-sdk/cepik-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/cepik-sdk/go/utility/struct"
 )
 
 func TestPermissionEntity(t *testing.T) {
