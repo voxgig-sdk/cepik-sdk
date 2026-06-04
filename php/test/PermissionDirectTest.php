@@ -68,14 +68,12 @@ function permission_direct_setup($mockres)
     $env = Runner::env_override([
         "CEPIK_TEST_PERMISSION_ENTID" => [],
         "CEPIK_TEST_LIVE" => "FALSE",
-        "CEPIK_APIKEY" => "NONE",
     ]);
 
     $live = $env["CEPIK_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
-            "apikey" => $env["CEPIK_APIKEY"],
         ];
         $client = new CepikSDK($merged_opts);
         return [

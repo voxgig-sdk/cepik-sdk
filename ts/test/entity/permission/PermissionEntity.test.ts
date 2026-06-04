@@ -113,7 +113,6 @@ function basicSetup(extra?: any) {
     'CEPIK_TEST_PERMISSION_ENTID': idmap,
     'CEPIK_TEST_LIVE': 'FALSE',
     'CEPIK_TEST_EXPLAIN': 'FALSE',
-    'CEPIK_APIKEY': 'NONE',
   })
 
   idmap = env['CEPIK_TEST_PERMISSION_ENTID']
@@ -123,7 +122,6 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new CepikSDK(merge([
       {
-        apikey: env.CEPIK_APIKEY,
       },
       extra
     ]))

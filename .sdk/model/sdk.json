@@ -17,7 +17,18 @@
           }
         ],
         "title": "CEPiK API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "tagline": "Query Poland's Central Register of Vehicles and Drivers (CEPiK) for vehicle, licence, permission and statistical data",
+        "homepage": "https://api.cepik.gov.pl",
+        "docs_url": "https://api.cepik.gov.pl",
+        "about_md": "The CEPiK API exposes data from Poland's *Centralna Ewidencja Pojazdów i Kierowców* (Central Register of Vehicles and Drivers), the national registry that tracks registered vehicles, issued driving licences, and the permissions associated with them. The register is maintained by the Polish state and the API is published at [api.cepik.gov.pl](https://api.cepik.gov.pl).\n\nWhat you get from the API:\n\n- Vehicle records drawn from the national vehicle register\n- Driving licence records issued in Poland\n- Permission records linked to driving licences (the categories a driver is authorised for)\n- Statistical aggregations over the above datasets\n\nThe public catalogue listing at [freepublicapis.com](https://freepublicapis.com/cepik-api) currently reports the endpoint as unreliable, so expect intermittent availability. Treat any integration as best-effort and check `https://api.cepik.gov.pl` for the latest published version before relying on a response shape.",
+        "entity_desc": {
+          "driving_license": "Driving licences (prawa jazdy) issued in Poland and held in the central register.",
+          "permission": "Permissions / categories (uprawnienia) attached to a driving licence, describing which vehicle classes the holder may operate.",
+          "statistic": "Aggregated statistical views (statystyki) derived from the vehicle and driver datasets.",
+          "vehicle": "Records from Poland's national vehicle register (pojazdy) — registered vehicles tracked in CEPiK."
+        },
+        "auth": false
       },
       "config": {
         "auth": {
@@ -25,7 +36,15 @@
         },
         "headers": {
           "content-type": "application/json"
-        }
+        },
+        "docs_order": [
+          "ts",
+          "py",
+          "php",
+          "go",
+          "rb",
+          "lua"
+        ]
       },
       "entity": {
         "driving_license": {

@@ -38,10 +38,6 @@ class Config {
   options = {
     base: 'https://api.cepik.gov.pl',
 
-    auth: {
-      prefix: 'Bearer',
-    },
-
     headers: {
       "content-type": "application/json"
     },

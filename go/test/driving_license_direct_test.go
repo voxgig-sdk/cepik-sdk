@@ -93,14 +93,12 @@ func driving_licenseDirectSetup(mockres any) *driving_licenseDirectSetupResult {
 	env := envOverride(map[string]any{
 		"CEPIK_TEST_DRIVING_LICENSE_ENTID": map[string]any{},
 		"CEPIK_TEST_LIVE":    "FALSE",
-		"CEPIK_APIKEY":       "NONE",
 	})
 
 	live := env["CEPIK_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["CEPIK_APIKEY"],
 		}
 		client := sdk.NewCepikSDK(mergedOpts)
 

@@ -85,7 +85,6 @@ function statistic_basic_setup($extra)
         "CEPIK_TEST_STATISTIC_ENTID" => $idmap,
         "CEPIK_TEST_LIVE" => "FALSE",
         "CEPIK_TEST_EXPLAIN" => "FALSE",
-        "CEPIK_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,7 +96,6 @@ function statistic_basic_setup($extra)
     if ($env["CEPIK_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["CEPIK_APIKEY"],
             ],
             $extra ?? [],
         ]);
