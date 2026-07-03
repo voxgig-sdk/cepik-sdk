@@ -30,12 +30,12 @@ Create a new SDK client instance.
 
 ### Static Methods
 
-#### `sdk.test(testopts, sdkopts)`
+#### `sdk.test(testopts?, sdkopts?)`
 
-Create a test client with mock features active. Both arguments may be `nil`.
+Create a test client with mock features active. Both arguments are optional.
 
 ```lua
-local client = sdk.test(nil, nil)
+local client = sdk.test()
 ```
 
 
@@ -116,7 +116,7 @@ local driving_license = client:DrivingLicense(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:DrivingLicense(nil):list(nil, nil)
+local results, err = client:DrivingLicense():list()
 ```
 
 ### Common Methods
@@ -171,7 +171,7 @@ local permission = client:Permission(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Permission(nil):list(nil, nil)
+local results, err = client:Permission():list()
 ```
 
 ### Common Methods
@@ -223,7 +223,7 @@ local statistic = client:Statistic(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Statistic(nil):load({ id = "statistic_id" }, nil)
+local result, err = client:Statistic():load({ id = "statistic_id" })
 ```
 
 ### Common Methods
@@ -284,7 +284,7 @@ local vehicle = client:Vehicle(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Vehicle(nil):list(nil, nil)
+local results, err = client:Vehicle():list()
 ```
 
 ### Common Methods

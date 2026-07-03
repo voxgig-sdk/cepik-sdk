@@ -62,12 +62,14 @@ def driving_license_direct_setup(mockres)
   env = Runner.env_override({
     "CEPIK_TEST_DRIVING_LICENSE_ENTID" => {},
     "CEPIK_TEST_LIVE" => "FALSE",
+    "CEPIK_APIKEY" => "NONE",
   })
 
   live = env["CEPIK_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {
+      "apikey" => env["CEPIK_APIKEY"],
     }
     client = CepikSDK.new(merged_opts)
     return {

@@ -99,12 +99,14 @@ func statisticDirectSetup(mockres any) *statisticDirectSetupResult {
 	env := envOverride(map[string]any{
 		"CEPIK_TEST_STATISTIC_ENTID": map[string]any{},
 		"CEPIK_TEST_LIVE":    "FALSE",
+		"CEPIK_APIKEY":       "NONE",
 	})
 
 	live := env["CEPIK_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["CEPIK_APIKEY"],
 		}
 		client := sdk.NewCepikSDK(mergedOpts)
 

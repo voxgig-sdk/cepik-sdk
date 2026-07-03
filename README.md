@@ -1,21 +1,8 @@
 # Cepik SDK
 
-Query Poland's Central Register of Vehicles and Drivers (CEPiK) for vehicle, licence, permission and statistical data
+CEPiK API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About CEPiK API
-
-The CEPiK API exposes data from Poland's *Centralna Ewidencja Pojazdów i Kierowców* (Central Register of Vehicles and Drivers), the national registry that tracks registered vehicles, issued driving licences, and the permissions associated with them. The register is maintained by the Polish state and the API is published at [api.cepik.gov.pl](https://api.cepik.gov.pl).
-
-What you get from the API:
-
-- Vehicle records drawn from the national vehicle register
-- Driving licence records issued in Poland
-- Permission records linked to driving licences (the categories a driver is authorised for)
-- Statistical aggregations over the above datasets
-
-The public catalogue listing at [freepublicapis.com](https://freepublicapis.com/cepik-api) currently reports the endpoint as unreliable, so expect intermittent availability. Treat any integration as best-effort and check `https://api.cepik.gov.pl` for the latest published version before relying on a response shape.
 
 ## Try it
 
@@ -49,29 +36,31 @@ gem install cepik-sdk
 luarocks install cepik-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { CepikSDK } from 'cepik'
 
-const client = new CepikSDK({})
+const client = new CepikSDK({
+  apikey: process.env.CEPIK_APIKEY,
+})
 
 // List all drivinglicenses
 const drivinglicenses = await client.DrivingLicense().list()
+console.log(drivinglicenses.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -101,10 +90,10 @@ The API exposes 4 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **DrivingLicense** | Driving licences (prawa jazdy) issued in Poland and held in the central register. | `/prawo-jazdy` |
-| **Permission** | Permissions / categories (uprawnienia) attached to a driving licence, describing which vehicle classes the holder may operate. | `/uprawnienia` |
-| **Statistic** | Aggregated statistical views (statystyki) derived from the vehicle and driver datasets. | `/statystyki/pojazdy` |
-| **Vehicle** | Records from Poland's national vehicle register (pojazdy) — registered vehicles tracked in CEPiK. | `/pojazdy` |
+| **DrivingLicense** |  | `/prawo-jazdy` |
+| **Permission** |  | `/uprawnienia` |
+| **Statistic** |  | `/statystyki/pojazdy` |
+| **Vehicle** |  | `/pojazdy` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -114,12 +103,16 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from cepik_sdk import CepikSDK
 
-client = CepikSDK({})
+client = CepikSDK({
+    "apikey": os.environ.get("CEPIK_APIKEY"),
+})
 
 # List all drivinglicenses
-drivinglicenses, err = client.DrivingLicense(None).list(None, None)
+drivinglicenses, err = client.DrivingLicense().list()
+print(drivinglicenses)
 ```
 
 ### PHP
@@ -128,10 +121,13 @@ drivinglicenses, err = client.DrivingLicense(None).list(None, None)
 <?php
 require_once 'cepik_sdk.php';
 
-$client = new CepikSDK([]);
+$client = new CepikSDK([
+    "apikey" => getenv("CEPIK_APIKEY"),
+]);
 
 // List all drivinglicenses
-[$drivinglicenses, $err] = $client->DrivingLicense(null)->list(null, null);
+[$drivinglicenses, $err] = $client->DrivingLicense()->list();
+print_r($drivinglicenses);
 ```
 
 ### Golang
@@ -139,10 +135,13 @@ $client = new CepikSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/cepik-sdk/go"
 
-client := sdk.NewCepikSDK(map[string]any{})
+client := sdk.NewCepikSDK(map[string]any{
+    "apikey": os.Getenv("CEPIK_APIKEY"),
+})
 
 // List all drivinglicenses
 drivinglicenses, err := client.DrivingLicense(nil).List(nil, nil)
+fmt.Println(drivinglicenses)
 ```
 
 ### Ruby
@@ -150,10 +149,13 @@ drivinglicenses, err := client.DrivingLicense(nil).List(nil, nil)
 ```ruby
 require_relative "Cepik_sdk"
 
-client = CepikSDK.new({})
+client = CepikSDK.new({
+  "apikey" => ENV["CEPIK_APIKEY"],
+})
 
 # List all drivinglicenses
-drivinglicenses, err = client.DrivingLicense(nil).list(nil, nil)
+drivinglicenses, err = client.DrivingLicense().list
+puts drivinglicenses
 ```
 
 ### Lua
@@ -161,10 +163,13 @@ drivinglicenses, err = client.DrivingLicense(nil).list(nil, nil)
 ```lua
 local sdk = require("cepik_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("CEPIK_APIKEY"),
+})
 
 -- List all drivinglicenses
-local drivinglicenses, err = client:DrivingLicense(nil):list(nil, nil)
+local drivinglicenses, err = client:DrivingLicense():list()
+print(drivinglicenses)
 ```
 
 ## Unit testing in offline mode
@@ -183,25 +188,21 @@ const result = await client.DrivingLicense().load({ id: 'test01' })
 ### Python
 
 ```python
-client = CepikSDK.test(None, None)
-result, err = client.DrivingLicense(None).load(
-    {"id": "test01"}, None
-)
+client = CepikSDK.test()
+result, err = client.DrivingLicense().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = CepikSDK::test(null, null);
-[$result, $err] = $client->DrivingLicense(null)->load(
-    ["id" => "test01"], null
-);
+$client = CepikSDK::test();
+[$result, $err] = $client->DrivingLicense()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.DrivingLicense(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -210,19 +211,15 @@ result, err := client.DrivingLicense(nil).Load(
 ### Ruby
 
 ```ruby
-client = CepikSDK.test(nil, nil)
-result, err = client.DrivingLicense(nil).load(
-  { "id" => "test01" }, nil
-)
+client = CepikSDK.test
+result, err = client.DrivingLicense().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:DrivingLicense(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:DrivingLicense():load({ id = "test01" })
 ```
 
 ## How it works
@@ -326,10 +323,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the CEPiK API
-
-- Upstream: [https://api.cepik.gov.pl](https://api.cepik.gov.pl)
 
 ---
 

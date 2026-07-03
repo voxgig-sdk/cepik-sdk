@@ -59,12 +59,14 @@ def _statistic_direct_setup(mockres):
     env = runner.env_override({
         "CEPIK_TEST_STATISTIC_ENTID": {},
         "CEPIK_TEST_LIVE": "FALSE",
+        "CEPIK_APIKEY": "NONE",
     })
 
     live = env.get("CEPIK_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
+            "apikey": env.get("CEPIK_APIKEY"),
         }
         client = CepikSDK(merged_opts)
         return {

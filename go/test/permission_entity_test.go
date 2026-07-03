@@ -119,6 +119,7 @@ func permissionBasicSetup(extra map[string]any) *entityTestSetup {
 		"CEPIK_TEST_PERMISSION_ENTID": idmap,
 		"CEPIK_TEST_LIVE":      "FALSE",
 		"CEPIK_TEST_EXPLAIN":   "FALSE",
+		"CEPIK_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["CEPIK_TEST_PERMISSION_ENTID"])
@@ -129,6 +130,7 @@ func permissionBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["CEPIK_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
+				"apikey": env["CEPIK_APIKEY"],
 			},
 			extra,
 		})

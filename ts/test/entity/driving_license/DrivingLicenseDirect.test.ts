@@ -79,12 +79,14 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'CEPIK_TEST_DRIVING_LICENSE_ENTID': {},
     'CEPIK_TEST_LIVE': 'FALSE',
+    'CEPIK_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.CEPIK_TEST_LIVE
 
   if (live) {
     const client = new CepikSDK({
+      apikey: env.CEPIK_APIKEY,
     })
 
     let idmap: any = env['CEPIK_TEST_DRIVING_LICENSE_ENTID']

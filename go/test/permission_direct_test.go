@@ -93,12 +93,14 @@ func permissionDirectSetup(mockres any) *permissionDirectSetupResult {
 	env := envOverride(map[string]any{
 		"CEPIK_TEST_PERMISSION_ENTID": map[string]any{},
 		"CEPIK_TEST_LIVE":    "FALSE",
+		"CEPIK_APIKEY":       "NONE",
 	})
 
 	live := env["CEPIK_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["CEPIK_APIKEY"],
 		}
 		client := sdk.NewCepikSDK(mergedOpts)
 

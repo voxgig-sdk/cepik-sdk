@@ -1,6 +1,11 @@
 # Cepik PHP SDK
 
-The PHP SDK for the Cepik API. Provides an entity-oriented interface using PHP conventions.
+
+
+The PHP SDK for the Cepik API — an entity-oriented client using PHP conventions.
+
+> Other languages, the CLI, and MCP server live alongside this one — see
+> the [top-level README](../README.md).
 
 
 ## Install
@@ -20,13 +25,15 @@ loading a specific record.
 <?php
 require_once 'cepik_sdk.php';
 
-$client = new CepikSDK([]);
+$client = new CepikSDK([
+    "apikey" => getenv("CEPIK_APIKEY"),
+]);
 ```
 
 ### 2. List drivinglicenses
 
 ```php
-[$result, $err] = $client->DrivingLicense(null)->list(null, null);
+[$result, $err] = $client->DrivingLicense()->list();
 if ($err) { throw new \Exception($err); }
 
 if (is_array($result)) {
@@ -78,11 +85,9 @@ print_r($fetchdef["headers"]);
 Create a mock client for unit testing — no server required:
 
 ```php
-$client = CepikSDK::test(null, null);
+$client = CepikSDK::test();
 
-[$result, $err] = $client->Cepik(null)->load(
-    ["id" => "test01"], null
-);
+[$result, $err] = $client->Cepik()->load(["id" => "test01"]);
 // $result contains mock response data
 ```
 
@@ -117,6 +122,7 @@ Create a `.env.local` file at the project root:
 
 ```
 CEPIK_TEST_LIVE=TRUE
+CEPIK_APIKEY=<your-key>
 ```
 
 Then run:
@@ -139,6 +145,7 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
+| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
