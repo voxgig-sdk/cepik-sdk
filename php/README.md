@@ -10,7 +10,7 @@ The PHP SDK for the Cepik API — an entity-oriented client using PHP convention
 
 ## Install
 ```bash
-composer require voxgig/cepik-sdk
+composer require voxgig-sdk/cepik
 ```
 
 

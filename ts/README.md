@@ -10,7 +10,7 @@ The TypeScript SDK for the Cepik API — a type-safe, entity-oriented client wit
 
 ## Install
 ```bash
-npm install cepik
+npm install @voxgig-sdk/cepik
 ```
 ## Tutorial: your first API call
 

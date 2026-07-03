@@ -10,7 +10,7 @@ The Lua SDK for the Cepik API — an entity-oriented client using Lua convention
 
 ## Install
 ```bash
-luarocks install cepik-sdk
+luarocks install voxgig-sdk-cepik
 ```
 
 If the module is not yet published, add the source directory to

@@ -10,7 +10,7 @@ The Python SDK for the Cepik API — an entity-oriented client following Pythoni
 
 ## Install
 ```bash
-pip install cepik-sdk
+pip install voxgig-sdk-cepik
 ```
 
 Or install from source:

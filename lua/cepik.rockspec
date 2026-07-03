@@ -8,12 +8,14 @@ source = {
   dir = "cepik-sdk/lua"
 }
 description = {
-  summary = "Cepik SDK for Lua",
-  license = "MIT"
+  summary = "Unofficial generated Lua SDK for the CEPiK public API. Not affiliated with or endorsed by the upstream API provider.",
+  homepage = "https://github.com/voxgig-sdk/cepik-sdk",
+  issues_url = "https://github.com/voxgig-sdk/cepik-sdk/issues",
+  license = "MIT",
+  labels = { "voxgig", "sdk", "generated-sdk", "openapi", "api-client", "cepik" }
 }
 dependencies = {
   "lua >= 5.3",
-  "dkjson >= 2.5",
   "dkjson >= 2.5",
 }
 build = {

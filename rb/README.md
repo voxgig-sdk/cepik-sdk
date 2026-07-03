@@ -10,13 +10,13 @@ The Ruby SDK for the Cepik API — an entity-oriented client using idiomatic Rub
 
 ## Install
 ```bash
-gem install cepik-sdk
+gem install voxgig-sdk-cepik
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "cepik-sdk"
+gem "voxgig-sdk-cepik"
 ```
 
 Then run:
