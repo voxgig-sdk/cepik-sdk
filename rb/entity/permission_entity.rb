@@ -45,6 +45,7 @@ class PermissionEntity
     end
   end
 
+  # @return [Permission, Hash] the current Permission data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,6 +58,7 @@ class PermissionEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of Permission fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
@@ -65,6 +67,11 @@ class PermissionEntity
   
 
   
+  # List Permission items matching the given filter.
+  #
+  # @param reqmatch [PermissionListMatch, Hash, nil] match filter (any subset of Permission fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Array<Permission>, Array] the matching Permission items; raises CepikError on failure
   def list(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

@@ -45,6 +45,7 @@ class VehicleEntity
     end
   end
 
+  # @return [Vehicle, Hash] the current Vehicle data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,6 +58,7 @@ class VehicleEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of Vehicle fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
@@ -65,6 +67,11 @@ class VehicleEntity
   
 
   
+  # List Vehicle items matching the given filter.
+  #
+  # @param reqmatch [VehicleListMatch, Hash, nil] match filter (any subset of Vehicle fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Array<Vehicle>, Array] the matching Vehicle items; raises CepikError on failure
   def list(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

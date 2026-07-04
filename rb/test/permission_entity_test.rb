@@ -43,8 +43,7 @@ class PermissionEntityTest < Minitest::Test
     permission_ref01_ent = client.Permission(nil)
     permission_ref01_match = {}
 
-    permission_ref01_list_result, err = permission_ref01_ent.list(permission_ref01_match, nil)
-    assert_nil err
+    permission_ref01_list_result = permission_ref01_ent.list(permission_ref01_match, nil)
     assert permission_ref01_list_result.is_a?(Array)
 
   end
@@ -83,7 +82,6 @@ def permission_basic_setup(extra)
     "CEPIK_TEST_PERMISSION_ENTID" => idmap,
     "CEPIK_TEST_LIVE" => "FALSE",
     "CEPIK_TEST_EXPLAIN" => "FALSE",
-    "CEPIK_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -95,7 +93,6 @@ def permission_basic_setup(extra)
   if env["CEPIK_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["CEPIK_APIKEY"],
       },
       extra || {},
     ])

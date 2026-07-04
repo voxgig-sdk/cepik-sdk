@@ -43,8 +43,7 @@ class VehicleEntityTest < Minitest::Test
     vehicle_ref01_ent = client.Vehicle(nil)
     vehicle_ref01_match = {}
 
-    vehicle_ref01_list_result, err = vehicle_ref01_ent.list(vehicle_ref01_match, nil)
-    assert_nil err
+    vehicle_ref01_list_result = vehicle_ref01_ent.list(vehicle_ref01_match, nil)
     assert vehicle_ref01_list_result.is_a?(Array)
 
   end
@@ -83,7 +82,6 @@ def vehicle_basic_setup(extra)
     "CEPIK_TEST_VEHICLE_ENTID" => idmap,
     "CEPIK_TEST_LIVE" => "FALSE",
     "CEPIK_TEST_EXPLAIN" => "FALSE",
-    "CEPIK_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -95,7 +93,6 @@ def vehicle_basic_setup(extra)
   if env["CEPIK_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["CEPIK_APIKEY"],
       },
       extra || {},
     ])

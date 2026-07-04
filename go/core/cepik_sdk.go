@@ -245,21 +245,33 @@ func (sdk *CepikSDK) Direct(fetchargs map[string]any) (map[string]any, error) {
 }
 
 
+// DrivingLicense returns a DrivingLicense entity bound to this client.
+// Idiomatic usage: client.DrivingLicense(nil).List(nil, nil) or
+// client.DrivingLicense(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *CepikSDK) DrivingLicense(data map[string]any) CepikEntity {
 	return NewDrivingLicenseEntityFunc(sdk, data)
 }
 
 
+// Permission returns a Permission entity bound to this client.
+// Idiomatic usage: client.Permission(nil).List(nil, nil) or
+// client.Permission(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *CepikSDK) Permission(data map[string]any) CepikEntity {
 	return NewPermissionEntityFunc(sdk, data)
 }
 
 
+// Statistic returns a Statistic entity bound to this client.
+// Idiomatic usage: client.Statistic(nil).List(nil, nil) or
+// client.Statistic(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *CepikSDK) Statistic(data map[string]any) CepikEntity {
 	return NewStatisticEntityFunc(sdk, data)
 }
 
 
+// Vehicle returns a Vehicle entity bound to this client.
+// Idiomatic usage: client.Vehicle(nil).List(nil, nil) or
+// client.Vehicle(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *CepikSDK) Vehicle(data map[string]any) CepikEntity {
 	return NewVehicleEntityFunc(sdk, data)
 }

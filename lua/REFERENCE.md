@@ -19,7 +19,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `table` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -96,7 +95,7 @@ same parameters as `direct()`.
 ## DrivingLicenseEntity
 
 ```lua
-local driving_license = client:DrivingLicense(nil)
+local driving_license = client:driving_license(nil)
 ```
 
 ### Fields
@@ -116,7 +115,7 @@ local driving_license = client:DrivingLicense(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:DrivingLicense():list()
+local results, err = client:driving_license():list()
 ```
 
 ### Common Methods
@@ -152,7 +151,7 @@ Return the entity name.
 ## PermissionEntity
 
 ```lua
-local permission = client:Permission(nil)
+local permission = client:permission(nil)
 ```
 
 ### Fields
@@ -171,7 +170,7 @@ local permission = client:Permission(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Permission():list()
+local results, err = client:permission():list()
 ```
 
 ### Common Methods
@@ -207,7 +206,7 @@ Return the entity name.
 ## StatisticEntity
 
 ```lua
-local statistic = client:Statistic(nil)
+local statistic = client:statistic(nil)
 ```
 
 ### Fields
@@ -223,7 +222,7 @@ local statistic = client:Statistic(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Statistic():load({ id = "statistic_id" })
+local result, err = client:statistic():load({ id = "statistic_id" })
 ```
 
 ### Common Methods
@@ -259,7 +258,7 @@ Return the entity name.
 ## VehicleEntity
 
 ```lua
-local vehicle = client:Vehicle(nil)
+local vehicle = client:vehicle(nil)
 ```
 
 ### Fields
@@ -284,7 +283,7 @@ local vehicle = client:Vehicle(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Vehicle():list()
+local results, err = client:vehicle():list()
 ```
 
 ### Common Methods

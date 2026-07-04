@@ -50,8 +50,7 @@ class TestDrivingLicenseEntity:
         driving_license_ref01_ent = client.DrivingLicense(None)
         driving_license_ref01_match = {}
 
-        driving_license_ref01_list_result, err = driving_license_ref01_ent.list(driving_license_ref01_match, None)
-        assert err is None
+        driving_license_ref01_list_result = driving_license_ref01_ent.list(driving_license_ref01_match, None)
         assert isinstance(driving_license_ref01_list_result, list)
 
 
@@ -92,7 +91,6 @@ def _driving_license_basic_setup(extra):
         "CEPIK_TEST_DRIVING_LICENSE_ENTID": idmap,
         "CEPIK_TEST_LIVE": "FALSE",
         "CEPIK_TEST_EXPLAIN": "FALSE",
-        "CEPIK_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +101,6 @@ def _driving_license_basic_setup(extra):
     if env.get("CEPIK_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("CEPIK_APIKEY"),
             },
             extra or {},
         ])

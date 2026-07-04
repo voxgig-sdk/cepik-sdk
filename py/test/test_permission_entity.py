@@ -50,8 +50,7 @@ class TestPermissionEntity:
         permission_ref01_ent = client.Permission(None)
         permission_ref01_match = {}
 
-        permission_ref01_list_result, err = permission_ref01_ent.list(permission_ref01_match, None)
-        assert err is None
+        permission_ref01_list_result = permission_ref01_ent.list(permission_ref01_match, None)
         assert isinstance(permission_ref01_list_result, list)
 
 
@@ -92,7 +91,6 @@ def _permission_basic_setup(extra):
         "CEPIK_TEST_PERMISSION_ENTID": idmap,
         "CEPIK_TEST_LIVE": "FALSE",
         "CEPIK_TEST_EXPLAIN": "FALSE",
-        "CEPIK_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +101,6 @@ def _permission_basic_setup(extra):
     if env.get("CEPIK_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("CEPIK_APIKEY"),
             },
             extra or {},
         ])

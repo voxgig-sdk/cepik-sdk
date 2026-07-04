@@ -9,9 +9,10 @@ The PHP SDK for the Cepik API — an entity-oriented client using PHP convention
 
 
 ## Install
-```bash
-composer require voxgig-sdk/cepik
-```
+This package is not yet published to Packagist. Install it from the
+GitHub release tag (`php/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/cepik-sdk/releases](https://github.com/voxgig-sdk/cepik-sdk/releases)
 
 
 ## Tutorial: your first API call
@@ -25,22 +26,22 @@ loading a specific record.
 <?php
 require_once 'cepik_sdk.php';
 
-$client = new CepikSDK([
-    "apikey" => getenv("CEPIK_APIKEY"),
-]);
+$client = new CepikSDK();
 ```
 
 ### 2. List drivinglicenses
 
 ```php
-[$result, $err] = $client->DrivingLicense()->list();
-if ($err) { throw new \Exception($err); }
-
-if (is_array($result)) {
-    foreach ($result as $item) {
-        $d = $item->data_get();
-        echo $d["id"] . " " . $d["name"] . "\n";
+try {
+    $result = $client->drivinglicense()->list();
+    if (is_array($result)) {
+        foreach ($result as $item) {
+            $d = $item->data_get();
+            echo $d["id"] . " " . $d["name"] . "\n";
+        }
     }
+} catch (\Exception $err) {
+    echo "Error: " . $err->getMessage();
 }
 ```
 
@@ -52,28 +53,31 @@ if (is_array($result)) {
 For endpoints not covered by entity methods:
 
 ```php
-[$result, $err] = $client->direct([
+// direct() is the raw-HTTP escape hatch: it returns a result array
+// (it does not throw). Branch on $result["ok"].
+$result = $client->direct([
     "path" => "/api/resource/{id}",
     "method" => "GET",
     "params" => ["id" => "example"],
 ]);
-if ($err) { throw new \Exception($err); }
 
 if ($result["ok"]) {
     echo $result["status"];  // 200
     print_r($result["data"]);  // response body
+} else {
+    echo "Error: " . $result["err"]->getMessage();
 }
 ```
 
 ### Prepare a request without sending it
 
 ```php
-[$fetchdef, $err] = $client->prepare([
+// prepare() throws on error and returns the fetch definition.
+$fetchdef = $client->prepare([
     "path" => "/api/resource/{id}",
     "method" => "DELETE",
     "params" => ["id" => "example"],
 ]);
-if ($err) { throw new \Exception($err); }
 
 echo $fetchdef["url"];
 echo $fetchdef["method"];
@@ -87,7 +91,7 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = CepikSDK::test();
 
-[$result, $err] = $client->Cepik()->load(["id" => "test01"]);
+$result = $client->drivinglicense()->load(["id" => "test01"]);
 // $result contains mock response data
 ```
 
@@ -122,7 +126,6 @@ Create a `.env.local` file at the project root:
 
 ```
 CEPIK_TEST_LIVE=TRUE
-CEPIK_APIKEY=<your-key>
 ```
 
 Then run:
@@ -145,7 +148,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -194,8 +196,12 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return `[$result, $err]`. The first value is an
-`array` with these keys:
+Entity operations return the bare result data (an `array` for single-entity
+ops, a `list` for `list`) and throw on error. Wrap calls in
+`try`/`catch` to handle failures.
+
+The `direct()` escape hatch never throws — it returns a result `array`
+you branch on via `$result["ok"]`:
 
 | Key | Type | Description |
 | --- | --- | --- |
@@ -271,7 +277,7 @@ API path: `/pojazdy`
 
 ### DrivingLicense
 
-Create an instance: `const driving_license = client.DrivingLicense()`
+Create an instance: `const driving_license = client.driving_license`
 
 #### Operations
 
@@ -292,13 +298,13 @@ Create an instance: `const driving_license = client.DrivingLicense()`
 #### Example: List
 
 ```ts
-const driving_licenses = await client.DrivingLicense().list()
+const driving_licenses = await client.driving_license.list()
 ```
 
 
 ### Permission
 
-Create an instance: `const permission = client.Permission()`
+Create an instance: `const permission = client.permission`
 
 #### Operations
 
@@ -318,13 +324,13 @@ Create an instance: `const permission = client.Permission()`
 #### Example: List
 
 ```ts
-const permissions = await client.Permission().list()
+const permissions = await client.permission.list()
 ```
 
 
 ### Statistic
 
-Create an instance: `const statistic = client.Statistic()`
+Create an instance: `const statistic = client.statistic`
 
 #### Operations
 
@@ -341,13 +347,13 @@ Create an instance: `const statistic = client.Statistic()`
 #### Example: Load
 
 ```ts
-const statistic = await client.Statistic().load({ id: 'statistic_id' })
+const statistic = await client.statistic.load({ id: 'statistic_id' })
 ```
 
 
 ### Vehicle
 
-Create an instance: `const vehicle = client.Vehicle()`
+Create an instance: `const vehicle = client.vehicle`
 
 #### Operations
 
@@ -373,7 +379,7 @@ Create an instance: `const vehicle = client.Vehicle()`
 #### Example: List
 
 ```ts
-const vehicles = await client.Vehicle().list()
+const vehicles = await client.vehicle.list()
 ```
 
 
@@ -448,11 +454,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$moon = $client->Moon();
-[$result, $err] = $moon->load(["planet_id" => "earth", "id" => "luna"]);
+$drivinglicense = $client->drivinglicense();
+$drivinglicense->load(["id" => "example_id"]);
 
-// $moon->dataGet() now returns the loaded moon data
-// $moon->matchGet() returns the last match criteria
+// $drivinglicense->dataGet() now returns the loaded drivinglicense data
+// $drivinglicense->matchGet() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

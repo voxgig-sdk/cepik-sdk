@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Vehicle,
+  VehicleListMatch,
+} from '../CepikTypes'
 
 // TODO: needs Entity superclass
-class VehicleEntity extends CepikEntityBase {
+class VehicleEntity extends CepikEntityBase<Vehicle> {
 
   constructor(client: CepikSDK, entopts: any) {
     super(client, entopts)
@@ -33,7 +37,7 @@ class VehicleEntity extends CepikEntityBase {
 
 
 
-  async list(this: any, reqmatch?: any, ctrl?: Control) {
+  async list(this: any, reqmatch?: VehicleListMatch, ctrl?: Control): Promise<Vehicle[]> {
 
     const utility = this._utility
 
@@ -133,7 +137,9 @@ class VehicleEntity extends CepikEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Vehicle[]> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

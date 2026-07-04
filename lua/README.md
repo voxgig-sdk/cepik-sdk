@@ -9,12 +9,9 @@ The Lua SDK for the Cepik API — an entity-oriented client using Lua convention
 
 
 ## Install
-```bash
-luarocks install voxgig-sdk-cepik
-```
-
-If the module is not yet published, add the source directory to
-your `LUA_PATH`:
+This package is not yet published to LuaRocks. Install it from the
+GitHub release tag (`lua/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/cepik-sdk/releases)),
+or add the source directory to your `LUA_PATH`:
 
 ```bash
 export LUA_PATH="path/to/lua/?.lua;path/to/lua/?/init.lua;;"
@@ -31,15 +28,13 @@ loading a specific record.
 ```lua
 local sdk = require("cepik_sdk")
 
-local client = sdk.new({
-  apikey = os.getenv("CEPIK_APIKEY"),
-})
+local client = sdk.new()
 ```
 
 ### 2. List drivinglicenses
 
 ```lua
-local result, err = client:DrivingLicense():list()
+local result, err = client:drivinglicense():list()
 if err then error(err) end
 
 if type(result) == "table" then
@@ -93,7 +88,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:Cepik():load({ id = "test01" })
+local result, err = client:drivinglicense():load({ id = "test01" })
 -- result contains mock response data
 ```
 
@@ -127,7 +122,6 @@ Create a `.env.local` file at the project root:
 
 ```
 CEPIK_TEST_LIVE=TRUE
-CEPIK_APIKEY=<your-key>
 ```
 
 Then run:
@@ -150,7 +144,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -276,7 +269,7 @@ API path: `/pojazdy`
 
 ### DrivingLicense
 
-Create an instance: `const driving_license = client.DrivingLicense()`
+Create an instance: `const driving_license = client.driving_license`
 
 #### Operations
 
@@ -297,13 +290,13 @@ Create an instance: `const driving_license = client.DrivingLicense()`
 #### Example: List
 
 ```ts
-const driving_licenses = await client.DrivingLicense().list()
+const driving_licenses = await client.driving_license.list()
 ```
 
 
 ### Permission
 
-Create an instance: `const permission = client.Permission()`
+Create an instance: `const permission = client.permission`
 
 #### Operations
 
@@ -323,13 +316,13 @@ Create an instance: `const permission = client.Permission()`
 #### Example: List
 
 ```ts
-const permissions = await client.Permission().list()
+const permissions = await client.permission.list()
 ```
 
 
 ### Statistic
 
-Create an instance: `const statistic = client.Statistic()`
+Create an instance: `const statistic = client.statistic`
 
 #### Operations
 
@@ -346,13 +339,13 @@ Create an instance: `const statistic = client.Statistic()`
 #### Example: Load
 
 ```ts
-const statistic = await client.Statistic().load({ id: 'statistic_id' })
+const statistic = await client.statistic.load({ id: 'statistic_id' })
 ```
 
 
 ### Vehicle
 
-Create an instance: `const vehicle = client.Vehicle()`
+Create an instance: `const vehicle = client.vehicle`
 
 #### Operations
 
@@ -378,7 +371,7 @@ Create an instance: `const vehicle = client.Vehicle()`
 #### Example: List
 
 ```ts
-const vehicles = await client.Vehicle().list()
+const vehicles = await client.vehicle.list()
 ```
 
 
@@ -453,11 +446,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local moon = client:Moon(nil)
-moon:load({ planet_id = "earth", id = "luna" }, nil)
+local drivinglicense = client:drivinglicense()
+drivinglicense:load({ id = "example_id" })
 
--- moon:data_get() now returns the loaded moon data
--- moon:match_get() returns the last match criteria
+-- drivinglicense:data_get() now returns the loaded drivinglicense data
+-- drivinglicense:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

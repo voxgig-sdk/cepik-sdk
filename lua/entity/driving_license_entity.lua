@@ -81,6 +81,10 @@ end
 
 
 
+---@param reqmatch DrivingLicenseListMatch
+---@param ctrl? table
+---@return DrivingLicense[]
+---@return string? err
 function DrivingLicenseEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

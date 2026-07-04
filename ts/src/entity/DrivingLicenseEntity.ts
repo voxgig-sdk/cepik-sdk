@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  DrivingLicense,
+  DrivingLicenseListMatch,
+} from '../CepikTypes'
 
 // TODO: needs Entity superclass
-class DrivingLicenseEntity extends CepikEntityBase {
+class DrivingLicenseEntity extends CepikEntityBase<DrivingLicense> {
 
   constructor(client: CepikSDK, entopts: any) {
     super(client, entopts)
@@ -33,7 +37,7 @@ class DrivingLicenseEntity extends CepikEntityBase {
 
 
 
-  async list(this: any, reqmatch?: any, ctrl?: Control) {
+  async list(this: any, reqmatch?: DrivingLicenseListMatch, ctrl?: Control): Promise<DrivingLicense[]> {
 
     const utility = this._utility
 
@@ -133,7 +137,9 @@ class DrivingLicenseEntity extends CepikEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<DrivingLicense[]> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

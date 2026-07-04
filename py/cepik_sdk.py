@@ -144,16 +144,23 @@ class CepikSDK:
 
         _, err = utility.prepare_auth(ctx)
         if err is not None:
-            return None, err
+            raise err
 
-        return utility.make_fetch_def(ctx)
+        fetchdef, err = utility.make_fetch_def(ctx)
+        if err is not None:
+            raise err
+
+        return fetchdef
 
     def direct(self, fetchargs=None):
         utility = self._utility
 
-        fetchdef, err = self.prepare(fetchargs)
-        if err is not None:
-            return {"ok": False, "err": err}, None
+        try:
+            fetchdef = self.prepare(fetchargs)
+        except Exception as err:
+            # direct() is the raw-HTTP escape hatch: it never raises, it
+            # returns a result object callers branch on via result["ok"].
+            return {"ok": False, "err": err}
 
         if fetchargs is None:
             fetchargs = {}
@@ -170,13 +177,13 @@ class CepikSDK:
         fetched, fetch_err = utility.fetcher(ctx, url, fetchdef)
 
         if fetch_err is not None:
-            return {"ok": False, "err": fetch_err}, None
+            return {"ok": False, "err": fetch_err}
 
         if fetched is None:
             return {
                 "ok": False,
                 "err": ctx.make_error("direct_no_response", "response: undefined"),
-            }, None
+            }
 
         if isinstance(fetched, dict):
             status = helpers.to_int(vs.getprop(fetched, "status"))
@@ -205,30 +212,74 @@ class CepikSDK:
                 "status": status,
                 "headers": headers,
                 "data": json_data,
-            }, None
+            }
 
         return {
             "ok": False,
             "err": ctx.make_error("direct_invalid", "invalid response type"),
-        }, None
+        }
 
+
+    @property
+    def driving_license(self):
+        """Idiomatic facade: client.driving_license.list() / client.driving_license.load({"id": ...})."""
+        from entity.driving_license_entity import DrivingLicenseEntity
+        cached = getattr(self, "_driving_license", None)
+        if cached is None:
+            cached = DrivingLicenseEntity(self, None)
+            self._driving_license = cached
+        return cached
 
     def DrivingLicense(self, data=None):
+        # Deprecated: use client.driving_license instead.
         from entity.driving_license_entity import DrivingLicenseEntity
         return DrivingLicenseEntity(self, data)
 
 
+    @property
+    def permission(self):
+        """Idiomatic facade: client.permission.list() / client.permission.load({"id": ...})."""
+        from entity.permission_entity import PermissionEntity
+        cached = getattr(self, "_permission", None)
+        if cached is None:
+            cached = PermissionEntity(self, None)
+            self._permission = cached
+        return cached
+
     def Permission(self, data=None):
+        # Deprecated: use client.permission instead.
         from entity.permission_entity import PermissionEntity
         return PermissionEntity(self, data)
 
 
+    @property
+    def statistic(self):
+        """Idiomatic facade: client.statistic.list() / client.statistic.load({"id": ...})."""
+        from entity.statistic_entity import StatisticEntity
+        cached = getattr(self, "_statistic", None)
+        if cached is None:
+            cached = StatisticEntity(self, None)
+            self._statistic = cached
+        return cached
+
     def Statistic(self, data=None):
+        # Deprecated: use client.statistic instead.
         from entity.statistic_entity import StatisticEntity
         return StatisticEntity(self, data)
 
 
+    @property
+    def vehicle(self):
+        """Idiomatic facade: client.vehicle.list() / client.vehicle.load({"id": ...})."""
+        from entity.vehicle_entity import VehicleEntity
+        cached = getattr(self, "_vehicle", None)
+        if cached is None:
+            cached = VehicleEntity(self, None)
+            self._vehicle = cached
+        return cached
+
     def Vehicle(self, data=None):
+        # Deprecated: use client.vehicle instead.
         from entity.vehicle_entity import VehicleEntity
         return VehicleEntity(self, data)
 

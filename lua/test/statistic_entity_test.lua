@@ -91,7 +91,6 @@ function statistic_basic_setup(extra)
     ["CEPIK_TEST_STATISTIC_ENTID"] = idmap,
     ["CEPIK_TEST_LIVE"] = "FALSE",
     ["CEPIK_TEST_EXPLAIN"] = "FALSE",
-    ["CEPIK_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -103,7 +102,6 @@ function statistic_basic_setup(extra)
   if env["CEPIK_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
-        apikey = env["CEPIK_APIKEY"],
       },
       extra or {},
     })

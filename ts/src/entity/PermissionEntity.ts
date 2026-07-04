@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Permission,
+  PermissionListMatch,
+} from '../CepikTypes'
 
 // TODO: needs Entity superclass
-class PermissionEntity extends CepikEntityBase {
+class PermissionEntity extends CepikEntityBase<Permission> {
 
   constructor(client: CepikSDK, entopts: any) {
     super(client, entopts)
@@ -33,7 +37,7 @@ class PermissionEntity extends CepikEntityBase {
 
 
 
-  async list(this: any, reqmatch?: any, ctrl?: Control) {
+  async list(this: any, reqmatch?: PermissionListMatch, ctrl?: Control): Promise<Permission[]> {
 
     const utility = this._utility
 
@@ -133,7 +137,9 @@ class PermissionEntity extends CepikEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Permission[]> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

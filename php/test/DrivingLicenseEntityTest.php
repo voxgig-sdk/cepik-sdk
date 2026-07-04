@@ -50,8 +50,7 @@ class DrivingLicenseEntityTest extends TestCase
         $driving_license_ref01_ent = $client->DrivingLicense(null);
         $driving_license_ref01_match = [];
 
-        [$driving_license_ref01_list_result, $err] = $driving_license_ref01_ent->list($driving_license_ref01_match, null);
-        $this->assertNull($err);
+        $driving_license_ref01_list_result = $driving_license_ref01_ent->list($driving_license_ref01_match, null);
         $this->assertIsArray($driving_license_ref01_list_result);
 
     }
@@ -86,7 +85,6 @@ function driving_license_basic_setup($extra)
         "CEPIK_TEST_DRIVING_LICENSE_ENTID" => $idmap,
         "CEPIK_TEST_LIVE" => "FALSE",
         "CEPIK_TEST_EXPLAIN" => "FALSE",
-        "CEPIK_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -98,7 +96,6 @@ function driving_license_basic_setup($extra)
     if ($env["CEPIK_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["CEPIK_APIKEY"],
             ],
             $extra ?? [],
         ]);

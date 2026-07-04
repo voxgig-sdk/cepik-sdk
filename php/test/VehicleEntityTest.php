@@ -50,8 +50,7 @@ class VehicleEntityTest extends TestCase
         $vehicle_ref01_ent = $client->Vehicle(null);
         $vehicle_ref01_match = [];
 
-        [$vehicle_ref01_list_result, $err] = $vehicle_ref01_ent->list($vehicle_ref01_match, null);
-        $this->assertNull($err);
+        $vehicle_ref01_list_result = $vehicle_ref01_ent->list($vehicle_ref01_match, null);
         $this->assertIsArray($vehicle_ref01_list_result);
 
     }
@@ -86,7 +85,6 @@ function vehicle_basic_setup($extra)
         "CEPIK_TEST_VEHICLE_ENTID" => $idmap,
         "CEPIK_TEST_LIVE" => "FALSE",
         "CEPIK_TEST_EXPLAIN" => "FALSE",
-        "CEPIK_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -98,7 +96,6 @@ function vehicle_basic_setup($extra)
     if ($env["CEPIK_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["CEPIK_APIKEY"],
             ],
             $extra ?? [],
         ]);

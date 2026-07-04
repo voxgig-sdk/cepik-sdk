@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -146,7 +145,7 @@ Alias for `CepikSDK.test()`.
 ## DrivingLicenseEntity
 
 ```ts
-const driving_license = client.DrivingLicense()
+const driving_license = client.driving_license
 ```
 
 ### Fields
@@ -166,7 +165,7 @@ const driving_license = client.DrivingLicense()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.DrivingLicense().list()
+const results = await client.driving_license.list()
 ```
 
 ### Common Methods
@@ -200,7 +199,7 @@ Return a copy of the entity options.
 ## PermissionEntity
 
 ```ts
-const permission = client.Permission()
+const permission = client.permission
 ```
 
 ### Fields
@@ -219,7 +218,7 @@ const permission = client.Permission()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Permission().list()
+const results = await client.permission.list()
 ```
 
 ### Common Methods
@@ -253,7 +252,7 @@ Return a copy of the entity options.
 ## StatisticEntity
 
 ```ts
-const statistic = client.Statistic()
+const statistic = client.statistic
 ```
 
 ### Fields
@@ -269,7 +268,7 @@ const statistic = client.Statistic()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Statistic().load({ id: 'statistic_id' })
+const result = await client.statistic.load({ id: 'statistic_id' })
 ```
 
 ### Common Methods
@@ -303,7 +302,7 @@ Return a copy of the entity options.
 ## VehicleEntity
 
 ```ts
-const vehicle = client.Vehicle()
+const vehicle = client.vehicle
 ```
 
 ### Fields
@@ -328,7 +327,7 @@ const vehicle = client.Vehicle()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Vehicle().list()
+const results = await client.vehicle.list()
 ```
 
 ### Common Methods

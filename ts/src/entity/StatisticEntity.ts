@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Statistic,
+  StatisticLoadMatch,
+} from '../CepikTypes'
 
 // TODO: needs Entity superclass
-class StatisticEntity extends CepikEntityBase {
+class StatisticEntity extends CepikEntityBase<Statistic> {
 
   constructor(client: CepikSDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class StatisticEntity extends CepikEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: StatisticLoadMatch, ctrl?: Control): Promise<Statistic> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class StatisticEntity extends CepikEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Statistic> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }
