@@ -208,52 +208,28 @@ class CepikSDK
   end
 
 
-  # Idiomatic facade: client.driving_license.list / client.driving_license.load({ "id" => ... })
-  def driving_license
-    require_relative 'entity/driving_license_entity'
-    @driving_license ||= DrivingLicenseEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.driving_license instead.
+  # Canonical facade: client.DrivingLicense.list / client.DrivingLicense.load({ "id" => ... })
   def DrivingLicense(data = nil)
     require_relative 'entity/driving_license_entity'
     DrivingLicenseEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.permission.list / client.permission.load({ "id" => ... })
-  def permission
-    require_relative 'entity/permission_entity'
-    @permission ||= PermissionEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.permission instead.
+  # Canonical facade: client.Permission.list / client.Permission.load({ "id" => ... })
   def Permission(data = nil)
     require_relative 'entity/permission_entity'
     PermissionEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.statistic.list / client.statistic.load({ "id" => ... })
-  def statistic
-    require_relative 'entity/statistic_entity'
-    @statistic ||= StatisticEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.statistic instead.
+  # Canonical facade: client.Statistic.list / client.Statistic.load({ "id" => ... })
   def Statistic(data = nil)
     require_relative 'entity/statistic_entity'
     StatisticEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.vehicle.list / client.vehicle.load({ "id" => ... })
-  def vehicle
-    require_relative 'entity/vehicle_entity'
-    @vehicle ||= VehicleEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.vehicle instead.
+  # Canonical facade: client.Vehicle.list / client.Vehicle.load({ "id" => ... })
   def Vehicle(data = nil)
     require_relative 'entity/vehicle_entity'
     VehicleEntity.new(self, data)

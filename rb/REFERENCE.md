@@ -98,7 +98,7 @@ same parameters as `direct()`. Raises on error.
 ## DrivingLicenseEntity
 
 ```ruby
-driving_license = client.driving_license
+driving_license = client.DrivingLicense
 ```
 
 ### Fields
@@ -118,7 +118,7 @@ driving_license = client.driving_license
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.driving_license.list(nil)
+results = client.DrivingLicense.list(nil)
 ```
 
 ### Common Methods
@@ -154,7 +154,7 @@ Return the entity name.
 ## PermissionEntity
 
 ```ruby
-permission = client.permission
+permission = client.Permission
 ```
 
 ### Fields
@@ -173,7 +173,7 @@ permission = client.permission
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.permission.list(nil)
+results = client.Permission.list(nil)
 ```
 
 ### Common Methods
@@ -209,7 +209,7 @@ Return the entity name.
 ## StatisticEntity
 
 ```ruby
-statistic = client.statistic
+statistic = client.Statistic
 ```
 
 ### Fields
@@ -225,7 +225,7 @@ statistic = client.statistic
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.statistic.load({ "id" => "statistic_id" })
+result = client.Statistic.load({ "id" => "statistic_id" })
 ```
 
 ### Common Methods
@@ -261,7 +261,7 @@ Return the entity name.
 ## VehicleEntity
 
 ```ruby
-vehicle = client.vehicle
+vehicle = client.Vehicle
 ```
 
 ### Fields
@@ -286,7 +286,7 @@ vehicle = client.vehicle
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.vehicle.list(nil)
+results = client.Vehicle.list(nil)
 ```
 
 ### Common Methods

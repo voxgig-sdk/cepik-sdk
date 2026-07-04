@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:driving_license():list() / client:driving_license():load({ id = ... })
-function CepikSDK:driving_license(data)
+-- Idiomatic facade: client:DrivingLicense():list() / client:DrivingLicense():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function CepikSDK:DrivingLicense(data)
   local EntityMod = require("entity.driving_license_entity")
   if data == nil then
     if self._driving_license == nil then
@@ -256,15 +257,10 @@ function CepikSDK:driving_license(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:driving_license() instead.
-function CepikSDK:DrivingLicense(data)
-  local EntityMod = require("entity.driving_license_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:permission():list() / client:permission():load({ id = ... })
-function CepikSDK:permission(data)
+-- Idiomatic facade: client:Permission():list() / client:Permission():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function CepikSDK:Permission(data)
   local EntityMod = require("entity.permission_entity")
   if data == nil then
     if self._permission == nil then
@@ -275,15 +271,10 @@ function CepikSDK:permission(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:permission() instead.
-function CepikSDK:Permission(data)
-  local EntityMod = require("entity.permission_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:statistic():list() / client:statistic():load({ id = ... })
-function CepikSDK:statistic(data)
+-- Idiomatic facade: client:Statistic():list() / client:Statistic():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function CepikSDK:Statistic(data)
   local EntityMod = require("entity.statistic_entity")
   if data == nil then
     if self._statistic == nil then
@@ -294,15 +285,10 @@ function CepikSDK:statistic(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:statistic() instead.
-function CepikSDK:Statistic(data)
-  local EntityMod = require("entity.statistic_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:vehicle():list() / client:vehicle():load({ id = ... })
-function CepikSDK:vehicle(data)
+-- Idiomatic facade: client:Vehicle():list() / client:Vehicle():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function CepikSDK:Vehicle(data)
   local EntityMod = require("entity.vehicle_entity")
   if data == nil then
     if self._vehicle == nil then
@@ -310,12 +296,6 @@ function CepikSDK:vehicle(data)
     end
     return self._vehicle
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:vehicle() instead.
-function CepikSDK:Vehicle(data)
-  local EntityMod = require("entity.vehicle_entity")
   return EntityMod.new(self, data)
 end
 

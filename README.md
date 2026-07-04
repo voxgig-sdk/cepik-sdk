@@ -26,9 +26,11 @@ import { CepikSDK } from '@voxgig-sdk/cepik'
 
 const client = new CepikSDK()
 
-// List all drivinglicenses
-const drivinglicenses = await client.drivinglicense.list()
-console.log(drivinglicenses.data)
+// List all drivinglicenses (returns DrivingLicense[])
+const drivinglicenses = await client.DrivingLicense().list()
+for (const drivinglicense of drivinglicenses) {
+  console.log(drivinglicense)
+}
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -86,9 +88,10 @@ from cepik_sdk import CepikSDK
 
 client = CepikSDK()
 
-# List all drivinglicenses
-drivinglicenses = client.drivinglicense.list()
-print(drivinglicenses)
+# List all drivinglicenses (returns a list, raises on error)
+drivinglicenses = client.DrivingLicense().list({})
+for drivinglicense in drivinglicenses:
+    print(drivinglicense)
 ```
 
 ### PHP
@@ -99,8 +102,8 @@ require_once 'cepik_sdk.php';
 
 $client = new CepikSDK();
 
-// List all drivinglicenses (throws on error)
-$drivinglicenses = $client->drivinglicense()->list();
+// List all drivinglicenses (returns an array; throws on error)
+$drivinglicenses = $client->DrivingLicense()->list();
 print_r($drivinglicenses);
 ```
 
@@ -123,8 +126,8 @@ require_relative "Cepik_sdk"
 
 client = CepikSDK.new
 
-# List all drivinglicenses
-drivinglicenses = client.drivinglicense.list
+# List all drivinglicenses (returns an Array; raises on error)
+drivinglicenses = client.DrivingLicense.list
 puts drivinglicenses
 ```
 
@@ -136,7 +139,7 @@ local sdk = require("cepik_sdk")
 local client = sdk.new()
 
 -- List all drivinglicenses
-local drivinglicenses, err = client:drivinglicense():list()
+local drivinglicenses, err = client:DrivingLicense():list()
 print(drivinglicenses)
 ```
 
@@ -149,22 +152,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = CepikSDK.test()
-const result = await client.drivinglicense.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const drivinglicense = await client.DrivingLicense().load({ id: 'test01' })
+// drivinglicense is a bare DrivingLicense populated with mock data
+console.log(drivinglicense)
 ```
 
 ### Python
 
 ```python
 client = CepikSDK.test()
-result = client.drivinglicense.load({"id": "test01"})
+drivinglicense = client.DrivingLicense().load({"id": "test01"})
+print(drivinglicense)
 ```
 
 ### PHP
 
 ```php
-$client = CepikSDK::test();
-$result = $client->drivinglicense()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = CepikSDK::test([
+    "entity" => ["drivinglicense" => ["test01" => ["id" => "test01"]]],
+]);
+$drivinglicense = $client->DrivingLicense()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -179,15 +187,18 @@ result, err := client.DrivingLicense(nil).Load(
 ### Ruby
 
 ```ruby
-client = CepikSDK.test
-result = client.drivinglicense.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = CepikSDK.test({
+  "entity" => { "drivinglicense" => { "test01" => { "id" => "test01" } } },
+})
+drivinglicense = client.DrivingLicense.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:drivinglicense():load({ id = "test01" })
+local result, err = client:DrivingLicense():load({ id = "test01" })
 ```
 
 ## How it works
@@ -235,6 +246,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

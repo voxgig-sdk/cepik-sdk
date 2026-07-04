@@ -97,7 +97,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## DrivingLicenseEntity
 
 ```php
-$driving_license = $client->driving_license();
+$driving_license = $client->DrivingLicense();
 ```
 
 ### Fields
@@ -117,7 +117,7 @@ $driving_license = $client->driving_license();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->driving_license()->list([]);
+$results = $client->DrivingLicense()->list([]);
 ```
 
 ### Common Methods
@@ -153,7 +153,7 @@ Return the entity name.
 ## PermissionEntity
 
 ```php
-$permission = $client->permission();
+$permission = $client->Permission();
 ```
 
 ### Fields
@@ -172,7 +172,7 @@ $permission = $client->permission();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->permission()->list([]);
+$results = $client->Permission()->list([]);
 ```
 
 ### Common Methods
@@ -208,7 +208,7 @@ Return the entity name.
 ## StatisticEntity
 
 ```php
-$statistic = $client->statistic();
+$statistic = $client->Statistic();
 ```
 
 ### Fields
@@ -224,7 +224,7 @@ $statistic = $client->statistic();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->statistic()->load(["id" => "statistic_id"]);
+$result = $client->Statistic()->load(["id" => "statistic_id"]);
 ```
 
 ### Common Methods
@@ -260,7 +260,7 @@ Return the entity name.
 ## VehicleEntity
 
 ```php
-$vehicle = $client->vehicle();
+$vehicle = $client->Vehicle();
 ```
 
 ### Fields
@@ -285,7 +285,7 @@ $vehicle = $client->vehicle();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->vehicle()->list([]);
+$results = $client->Vehicle()->list([]);
 ```
 
 ### Common Methods

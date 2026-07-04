@@ -233,10 +233,10 @@ class CepikSDK
 
     private $_driving_license = null;
 
-    // Idiomatic facade: $client->driving_license()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias DrivingLicense() (PHP method
-    // names are case-insensitive).
-    public function driving_license($data = null)
+    // Canonical facade: $client->DrivingLicense()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->driving_license()
+    // resolves here too.
+    public function DrivingLicense($data = null)
     {
         require_once __DIR__ . '/entity/driving_license_entity.php';
         if ($data === null) {
@@ -251,10 +251,10 @@ class CepikSDK
 
     private $_permission = null;
 
-    // Idiomatic facade: $client->permission()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Permission() (PHP method
-    // names are case-insensitive).
-    public function permission($data = null)
+    // Canonical facade: $client->Permission()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->permission()
+    // resolves here too.
+    public function Permission($data = null)
     {
         require_once __DIR__ . '/entity/permission_entity.php';
         if ($data === null) {
@@ -269,10 +269,10 @@ class CepikSDK
 
     private $_statistic = null;
 
-    // Idiomatic facade: $client->statistic()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Statistic() (PHP method
-    // names are case-insensitive).
-    public function statistic($data = null)
+    // Canonical facade: $client->Statistic()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->statistic()
+    // resolves here too.
+    public function Statistic($data = null)
     {
         require_once __DIR__ . '/entity/statistic_entity.php';
         if ($data === null) {
@@ -287,10 +287,10 @@ class CepikSDK
 
     private $_vehicle = null;
 
-    // Idiomatic facade: $client->vehicle()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Vehicle() (PHP method
-    // names are case-insensitive).
-    public function vehicle($data = null)
+    // Canonical facade: $client->Vehicle()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->vehicle()
+    // resolves here too.
+    public function Vehicle($data = null)
     {
         require_once __DIR__ . '/entity/vehicle_entity.php';
         if ($data === null) {

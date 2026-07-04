@@ -29,18 +29,16 @@ require_once 'cepik_sdk.php';
 $client = new CepikSDK();
 ```
 
-### 2. List drivinglicenses
+### 2. List drivinglicense records
 
 ```php
 try {
-    $result = $client->drivinglicense()->list();
-    if (is_array($result)) {
-        foreach ($result as $item) {
-            $d = $item->data_get();
-            echo $d["id"] . " " . $d["name"] . "\n";
-        }
+    // list() returns an array of DrivingLicense records — iterate directly.
+    $drivinglicenses = $client->DrivingLicense()->list();
+    foreach ($drivinglicenses as $item) {
+        echo $item["id"] . " " . $item["name"] . "\n";
     }
-} catch (\Exception $err) {
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -86,13 +84,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = CepikSDK::test();
+$client = CepikSDK::test([
+    "entity" => ["drivinglicense" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->drivinglicense()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$drivinglicense = $client->DrivingLicense()->load(["id" => "test01"]);
+print_r($drivinglicense);
 ```
 
 ### Use a custom fetch function
@@ -277,7 +279,7 @@ API path: `/pojazdy`
 
 ### DrivingLicense
 
-Create an instance: `const driving_license = client.driving_license`
+Create an instance: `$driving_license = $client->DrivingLicense();`
 
 #### Operations
 
@@ -297,14 +299,15 @@ Create an instance: `const driving_license = client.driving_license`
 
 #### Example: List
 
-```ts
-const driving_licenses = await client.driving_license.list()
+```php
+// list() returns an array of DrivingLicense records (throws on error).
+$driving_licenses = $client->DrivingLicense()->list();
 ```
 
 
 ### Permission
 
-Create an instance: `const permission = client.permission`
+Create an instance: `$permission = $client->Permission();`
 
 #### Operations
 
@@ -323,14 +326,15 @@ Create an instance: `const permission = client.permission`
 
 #### Example: List
 
-```ts
-const permissions = await client.permission.list()
+```php
+// list() returns an array of Permission records (throws on error).
+$permissions = $client->Permission()->list();
 ```
 
 
 ### Statistic
 
-Create an instance: `const statistic = client.statistic`
+Create an instance: `$statistic = $client->Statistic();`
 
 #### Operations
 
@@ -346,14 +350,15 @@ Create an instance: `const statistic = client.statistic`
 
 #### Example: Load
 
-```ts
-const statistic = await client.statistic.load({ id: 'statistic_id' })
+```php
+// load() returns the bare Statistic record (throws on error).
+$statistic = $client->Statistic()->load(["id" => "statistic_id"]);
 ```
 
 
 ### Vehicle
 
-Create an instance: `const vehicle = client.vehicle`
+Create an instance: `$vehicle = $client->Vehicle();`
 
 #### Operations
 
@@ -378,8 +383,9 @@ Create an instance: `const vehicle = client.vehicle`
 
 #### Example: List
 
-```ts
-const vehicles = await client.vehicle.list()
+```php
+// list() returns an array of Vehicle records (throws on error).
+$vehicles = $client->Vehicle()->list();
 ```
 
 
@@ -454,7 +460,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$drivinglicense = $client->drivinglicense();
+$drivinglicense = $client->DrivingLicense();
 $drivinglicense->load(["id" => "example_id"]);
 
 // $drivinglicense->dataGet() now returns the loaded drivinglicense data

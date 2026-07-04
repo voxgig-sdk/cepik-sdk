@@ -31,17 +31,17 @@ local sdk = require("cepik_sdk")
 local client = sdk.new()
 ```
 
-### 2. List drivinglicenses
+### 2. List drivinglicense records
+
+Entity operations return `(value, err)`. For `list`, `value` is the
+array of records itself — iterate it directly (there is no wrapper).
 
 ```lua
-local result, err = client:drivinglicense():list()
+local drivinglicenses, err = client:DrivingLicense():list()
 if err then error(err) end
 
-if type(result) == "table" then
-  for _, item in ipairs(result) do
-    local d = item:data_get()
-    print(d["id"], d["name"])
-  end
+for _, item in ipairs(drivinglicenses) do
+  print(item["id"], item["name"])
 end
 ```
 
@@ -88,8 +88,8 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:drivinglicense():load({ id = "test01" })
--- result contains mock response data
+local result, err = client:DrivingLicense():load({ id = "test01" })
+-- result is the loaded data; err is set on failure
 ```
 
 ### Use a custom fetch function
@@ -192,17 +192,22 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return `(any, err)`. The first value is a
-`table` with these keys:
+Entity operations return `(value, err)`. The `value` is the operation's
+data **directly** — there is no wrapper:
 
-| Key | Type | Description |
-| --- | --- | --- |
-| `ok` | `boolean` | `true` if the HTTP status is 2xx. |
-| `status` | `number` | HTTP status code. |
-| `headers` | `table` | Response headers. |
-| `data` | `any` | Parsed JSON response body. |
+| Operation | `value` |
+| --- | --- |
+| `load` / `create` / `update` / `remove` | the entity record (a `table`) |
+| `list` | an array (`table`) of entity records |
 
-On error, `ok` is `false` and `err` contains the error value.
+Check `err` first (it is non-`nil` on failure), then use `value`:
+
+    local driving_license, err = client:DrivingLicense():load({ id = "example_id" })
+    if err then error(err) end
+    -- driving_license is the loaded record
+
+Only `direct()` returns a response envelope — a `table` with `ok`,
+`status`, `headers`, and `data` keys.
 
 ### Entities
 
@@ -269,7 +274,7 @@ API path: `/pojazdy`
 
 ### DrivingLicense
 
-Create an instance: `const driving_license = client.driving_license`
+Create an instance: `local driving_license = client:DrivingLicense(nil)`
 
 #### Operations
 
@@ -289,14 +294,14 @@ Create an instance: `const driving_license = client.driving_license`
 
 #### Example: List
 
-```ts
-const driving_licenses = await client.driving_license.list()
+```lua
+local driving_licenses, err = client:DrivingLicense():list()
 ```
 
 
 ### Permission
 
-Create an instance: `const permission = client.permission`
+Create an instance: `local permission = client:Permission(nil)`
 
 #### Operations
 
@@ -315,14 +320,14 @@ Create an instance: `const permission = client.permission`
 
 #### Example: List
 
-```ts
-const permissions = await client.permission.list()
+```lua
+local permissions, err = client:Permission():list()
 ```
 
 
 ### Statistic
 
-Create an instance: `const statistic = client.statistic`
+Create an instance: `local statistic = client:Statistic(nil)`
 
 #### Operations
 
@@ -338,14 +343,14 @@ Create an instance: `const statistic = client.statistic`
 
 #### Example: Load
 
-```ts
-const statistic = await client.statistic.load({ id: 'statistic_id' })
+```lua
+local statistic, err = client:Statistic():load({ id = "statistic_id" })
 ```
 
 
 ### Vehicle
 
-Create an instance: `const vehicle = client.vehicle`
+Create an instance: `local vehicle = client:Vehicle(nil)`
 
 #### Operations
 
@@ -370,8 +375,8 @@ Create an instance: `const vehicle = client.vehicle`
 
 #### Example: List
 
-```ts
-const vehicles = await client.vehicle.list()
+```lua
+local vehicles, err = client:Vehicle():list()
 ```
 
 
@@ -446,7 +451,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local drivinglicense = client:drivinglicense()
+local drivinglicense = client:DrivingLicense()
 drivinglicense:load({ id = "example_id" })
 
 -- drivinglicense:data_get() now returns the loaded drivinglicense data

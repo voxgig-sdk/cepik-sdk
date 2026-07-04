@@ -31,14 +31,16 @@ from cepik_sdk import CepikSDK
 client = CepikSDK()
 ```
 
-### 2. List drivinglicenses
+### 2. List drivinglicense records
+
+`list()` returns a `list` of records (each a `dict`) and raises on
+error — iterate it directly.
 
 ```python
 try:
-    result = client.drivinglicense.list()
-    for item in result:
-        d = item.data_get()
-        print(d["id"], d["name"])
+    drivinglicenses = client.DrivingLicense().list({})
+    for drivinglicense in drivinglicenses:
+        print(drivinglicense)
 except Exception as err:
     print(f"list failed: {err}")
 ```
@@ -86,8 +88,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = CepikSDK.test()
 
-result = client.drivinglicense.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+drivinglicense = client.DrivingLicense().load({"id": "test01"})
+# drivinglicense contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -269,7 +272,7 @@ API path: `/pojazdy`
 
 ### DrivingLicense
 
-Create an instance: `const driving_license = client.driving_license`
+Create an instance: `driving_license = client.DrivingLicense()`
 
 #### Operations
 
@@ -289,14 +292,14 @@ Create an instance: `const driving_license = client.driving_license`
 
 #### Example: List
 
-```ts
-const driving_licenses = await client.driving_license.list()
+```python
+driving_licenses = client.DrivingLicense().list({})
 ```
 
 
 ### Permission
 
-Create an instance: `const permission = client.permission`
+Create an instance: `permission = client.Permission()`
 
 #### Operations
 
@@ -315,14 +318,14 @@ Create an instance: `const permission = client.permission`
 
 #### Example: List
 
-```ts
-const permissions = await client.permission.list()
+```python
+permissions = client.Permission().list({})
 ```
 
 
 ### Statistic
 
-Create an instance: `const statistic = client.statistic`
+Create an instance: `statistic = client.Statistic()`
 
 #### Operations
 
@@ -338,14 +341,14 @@ Create an instance: `const statistic = client.statistic`
 
 #### Example: Load
 
-```ts
-const statistic = await client.statistic.load({ id: 'statistic_id' })
+```python
+statistic = client.Statistic().load({"id": "statistic_id"})
 ```
 
 
 ### Vehicle
 
-Create an instance: `const vehicle = client.vehicle`
+Create an instance: `vehicle = client.Vehicle()`
 
 #### Operations
 
@@ -370,8 +373,8 @@ Create an instance: `const vehicle = client.vehicle`
 
 #### Example: List
 
-```ts
-const vehicles = await client.vehicle.list()
+```python
+vehicles = client.Vehicle().list({})
 ```
 
 
@@ -445,7 +448,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-drivinglicense = client.drivinglicense
+drivinglicense = client.DrivingLicense()
 drivinglicense.load({"id": "example_id"})
 
 # drivinglicense.data_get() now returns the loaded drivinglicense data

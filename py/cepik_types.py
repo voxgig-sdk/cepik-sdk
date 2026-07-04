@@ -4,81 +4,77 @@
 # params (op.<name>.points[].args.params[]). Field/param types come from the
 # canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 # @voxgig/apidef VALID_CANON). Do not edit by hand.
+#
+# These are TypedDicts, not dataclasses: the SDK ops return/accept plain dicts
+# at runtime, and a TypedDict IS a dict shape, so the types match the runtime.
+# Optional (req:false) keys are modelled as TypedDict key-optionality
+# (total=False), split into a required base + total=False subclass when a type
+# has both required and optional keys.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Optional, Any
+from typing import TypedDict, Any
 
 
-@dataclass
-class DrivingLicense:
-    data_waznosci: Optional[str] = None
-    data_wydania: Optional[str] = None
-    id: Optional[str] = None
-    kategoria: Optional[str] = None
-    wojewodztwo: Optional[str] = None
+class DrivingLicense(TypedDict, total=False):
+    data_waznosci: str
+    data_wydania: str
+    id: str
+    kategoria: str
+    wojewodztwo: str
 
 
-@dataclass
-class DrivingLicenseListMatch:
-    data_waznosci: Optional[str] = None
-    data_wydania: Optional[str] = None
-    id: Optional[str] = None
-    kategoria: Optional[str] = None
-    wojewodztwo: Optional[str] = None
+class DrivingLicenseListMatch(TypedDict, total=False):
+    data_waznosci: str
+    data_wydania: str
+    id: str
+    kategoria: str
+    wojewodztwo: str
 
 
-@dataclass
-class Permission:
-    data_uzyskania: Optional[str] = None
-    id: Optional[str] = None
-    kategoria: Optional[str] = None
-    wojewodztwo: Optional[str] = None
+class Permission(TypedDict, total=False):
+    data_uzyskania: str
+    id: str
+    kategoria: str
+    wojewodztwo: str
 
 
-@dataclass
-class PermissionListMatch:
-    data_uzyskania: Optional[str] = None
-    id: Optional[str] = None
-    kategoria: Optional[str] = None
-    wojewodztwo: Optional[str] = None
+class PermissionListMatch(TypedDict, total=False):
+    data_uzyskania: str
+    id: str
+    kategoria: str
+    wojewodztwo: str
 
 
-@dataclass
-class Statistic:
-    data: Optional[dict] = None
+class Statistic(TypedDict, total=False):
+    data: dict
 
 
-@dataclass
-class StatisticLoadMatch:
-    data: Optional[dict] = None
+class StatisticLoadMatch(TypedDict, total=False):
+    data: dict
 
 
-@dataclass
-class Vehicle:
-    data_pierwszej_rejestracji: Optional[str] = None
-    id: Optional[str] = None
-    marka: Optional[str] = None
-    masa_wlasna: Optional[int] = None
-    model: Optional[str] = None
-    podrodzaj: Optional[str] = None
-    pojemnosc_silnika: Optional[int] = None
-    rodzaj: Optional[str] = None
-    rok_produkcji: Optional[int] = None
-    wojewodztwo: Optional[str] = None
+class Vehicle(TypedDict, total=False):
+    data_pierwszej_rejestracji: str
+    id: str
+    marka: str
+    masa_wlasna: int
+    model: str
+    podrodzaj: str
+    pojemnosc_silnika: int
+    rodzaj: str
+    rok_produkcji: int
+    wojewodztwo: str
 
 
-@dataclass
-class VehicleListMatch:
-    data_pierwszej_rejestracji: Optional[str] = None
-    id: Optional[str] = None
-    marka: Optional[str] = None
-    masa_wlasna: Optional[int] = None
-    model: Optional[str] = None
-    podrodzaj: Optional[str] = None
-    pojemnosc_silnika: Optional[int] = None
-    rodzaj: Optional[str] = None
-    rok_produkcji: Optional[int] = None
-    wojewodztwo: Optional[str] = None
-
+class VehicleListMatch(TypedDict, total=False):
+    data_pierwszej_rejestracji: str
+    id: str
+    marka: str
+    masa_wlasna: int
+    model: str
+    podrodzaj: str
+    pojemnosc_silnika: int
+    rodzaj: str
+    rok_produkcji: int
+    wojewodztwo: str

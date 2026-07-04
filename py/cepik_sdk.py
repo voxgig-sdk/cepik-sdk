@@ -220,73 +220,33 @@ class CepikSDK:
         }
 
 
-    @property
-    def driving_license(self):
-        """Idiomatic facade: client.driving_license.list() / client.driving_license.load({"id": ...})."""
-        from entity.driving_license_entity import DrivingLicenseEntity
-        cached = getattr(self, "_driving_license", None)
-        if cached is None:
-            cached = DrivingLicenseEntity(self, None)
-            self._driving_license = cached
-        return cached
-
-    def DrivingLicense(self, data=None):
-        # Deprecated: use client.driving_license instead.
+    def DrivingLicense(self, data=None) -> "DrivingLicenseEntity":
+        """Entity factory: client.DrivingLicense().list({}) / client.DrivingLicense().load({"id": ...})."""
         from entity.driving_license_entity import DrivingLicenseEntity
         return DrivingLicenseEntity(self, data)
 
 
-    @property
-    def permission(self):
-        """Idiomatic facade: client.permission.list() / client.permission.load({"id": ...})."""
-        from entity.permission_entity import PermissionEntity
-        cached = getattr(self, "_permission", None)
-        if cached is None:
-            cached = PermissionEntity(self, None)
-            self._permission = cached
-        return cached
-
-    def Permission(self, data=None):
-        # Deprecated: use client.permission instead.
+    def Permission(self, data=None) -> "PermissionEntity":
+        """Entity factory: client.Permission().list({}) / client.Permission().load({"id": ...})."""
         from entity.permission_entity import PermissionEntity
         return PermissionEntity(self, data)
 
 
-    @property
-    def statistic(self):
-        """Idiomatic facade: client.statistic.list() / client.statistic.load({"id": ...})."""
-        from entity.statistic_entity import StatisticEntity
-        cached = getattr(self, "_statistic", None)
-        if cached is None:
-            cached = StatisticEntity(self, None)
-            self._statistic = cached
-        return cached
-
-    def Statistic(self, data=None):
-        # Deprecated: use client.statistic instead.
+    def Statistic(self, data=None) -> "StatisticEntity":
+        """Entity factory: client.Statistic().list({}) / client.Statistic().load({"id": ...})."""
         from entity.statistic_entity import StatisticEntity
         return StatisticEntity(self, data)
 
 
-    @property
-    def vehicle(self):
-        """Idiomatic facade: client.vehicle.list() / client.vehicle.load({"id": ...})."""
-        from entity.vehicle_entity import VehicleEntity
-        cached = getattr(self, "_vehicle", None)
-        if cached is None:
-            cached = VehicleEntity(self, None)
-            self._vehicle = cached
-        return cached
-
-    def Vehicle(self, data=None):
-        # Deprecated: use client.vehicle instead.
+    def Vehicle(self, data=None) -> "VehicleEntity":
+        """Entity factory: client.Vehicle().list({}) / client.Vehicle().load({"id": ...})."""
         from entity.vehicle_entity import VehicleEntity
         return VehicleEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "CepikSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -306,3 +266,12 @@ class CepikSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.driving_license_entity import DrivingLicenseEntity
+    from entity.permission_entity import PermissionEntity
+    from entity.statistic_entity import StatisticEntity
+    from entity.vehicle_entity import VehicleEntity

@@ -28,16 +28,14 @@ require_relative "Cepik_sdk"
 client = CepikSDK.new
 ```
 
-### 2. List drivinglicenses
+### 2. List drivinglicense records
 
 ```ruby
 begin
-  result = client.drivinglicense.list
-  if result.is_a?(Array)
-    result.each do |item|
-      d = item.data_get
-      puts "#{d["id"]} #{d["name"]}"
-    end
+  # list returns an Array of DrivingLicense records — iterate directly.
+  drivinglicenses = client.DrivingLicense.list
+  drivinglicenses.each do |item|
+    puts "#{item["id"]} #{item["name"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -85,13 +83,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = CepikSDK.test
+client = CepikSDK.test({
+  "entity" => { "drivinglicense" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.drivinglicense.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+drivinglicense = client.DrivingLicense.load({ "id" => "test01" })
+puts drivinglicense
 ```
 
 ### Use a custom fetch function
@@ -272,7 +274,7 @@ API path: `/pojazdy`
 
 ### DrivingLicense
 
-Create an instance: `const driving_license = client.driving_license`
+Create an instance: `driving_license = client.DrivingLicense`
 
 #### Operations
 
@@ -292,14 +294,15 @@ Create an instance: `const driving_license = client.driving_license`
 
 #### Example: List
 
-```ts
-const driving_licenses = await client.driving_license.list()
+```ruby
+# list returns an Array of DrivingLicense records (raises on error).
+driving_licenses = client.DrivingLicense.list
 ```
 
 
 ### Permission
 
-Create an instance: `const permission = client.permission`
+Create an instance: `permission = client.Permission`
 
 #### Operations
 
@@ -318,14 +321,15 @@ Create an instance: `const permission = client.permission`
 
 #### Example: List
 
-```ts
-const permissions = await client.permission.list()
+```ruby
+# list returns an Array of Permission records (raises on error).
+permissions = client.Permission.list
 ```
 
 
 ### Statistic
 
-Create an instance: `const statistic = client.statistic`
+Create an instance: `statistic = client.Statistic`
 
 #### Operations
 
@@ -341,14 +345,15 @@ Create an instance: `const statistic = client.statistic`
 
 #### Example: Load
 
-```ts
-const statistic = await client.statistic.load({ id: 'statistic_id' })
+```ruby
+# load returns the bare Statistic record (raises on error).
+statistic = client.Statistic.load({ "id" => "statistic_id" })
 ```
 
 
 ### Vehicle
 
-Create an instance: `const vehicle = client.vehicle`
+Create an instance: `vehicle = client.Vehicle`
 
 #### Operations
 
@@ -373,8 +378,9 @@ Create an instance: `const vehicle = client.vehicle`
 
 #### Example: List
 
-```ts
-const vehicles = await client.vehicle.list()
+```ruby
+# list returns an Array of Vehicle records (raises on error).
+vehicles = client.Vehicle.list
 ```
 
 
@@ -449,7 +455,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-drivinglicense = client.drivinglicense
+drivinglicense = client.DrivingLicense
 drivinglicense.load({ "id" => "example_id" })
 
 # drivinglicense.data_get now returns the loaded drivinglicense data

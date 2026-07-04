@@ -95,7 +95,7 @@ same parameters as `direct()`.
 ## DrivingLicenseEntity
 
 ```lua
-local driving_license = client:driving_license(nil)
+local driving_license = client:DrivingLicense(nil)
 ```
 
 ### Fields
@@ -115,7 +115,7 @@ local driving_license = client:driving_license(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:driving_license():list()
+local results, err = client:DrivingLicense():list()
 ```
 
 ### Common Methods
@@ -151,7 +151,7 @@ Return the entity name.
 ## PermissionEntity
 
 ```lua
-local permission = client:permission(nil)
+local permission = client:Permission(nil)
 ```
 
 ### Fields
@@ -170,7 +170,7 @@ local permission = client:permission(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:permission():list()
+local results, err = client:Permission():list()
 ```
 
 ### Common Methods
@@ -206,7 +206,7 @@ Return the entity name.
 ## StatisticEntity
 
 ```lua
-local statistic = client:statistic(nil)
+local statistic = client:Statistic(nil)
 ```
 
 ### Fields
@@ -222,7 +222,7 @@ local statistic = client:statistic(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:statistic():load({ id = "statistic_id" })
+local result, err = client:Statistic():load({ id = "statistic_id" })
 ```
 
 ### Common Methods
@@ -258,7 +258,7 @@ Return the entity name.
 ## VehicleEntity
 
 ```lua
-local vehicle = client:vehicle(nil)
+local vehicle = client:Vehicle(nil)
 ```
 
 ### Fields
@@ -283,7 +283,7 @@ local vehicle = client:vehicle(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:vehicle():list()
+local results, err = client:Vehicle():list()
 ```
 
 ### Common Methods

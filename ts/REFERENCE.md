@@ -145,7 +145,7 @@ Alias for `CepikSDK.test()`.
 ## DrivingLicenseEntity
 
 ```ts
-const driving_license = client.driving_license
+const driving_license = client.DrivingLicense()
 ```
 
 ### Fields
@@ -165,7 +165,7 @@ const driving_license = client.driving_license
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.driving_license.list()
+const results = await client.DrivingLicense().list()
 ```
 
 ### Common Methods
@@ -199,7 +199,7 @@ Return a copy of the entity options.
 ## PermissionEntity
 
 ```ts
-const permission = client.permission
+const permission = client.Permission()
 ```
 
 ### Fields
@@ -218,7 +218,7 @@ const permission = client.permission
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.permission.list()
+const results = await client.Permission().list()
 ```
 
 ### Common Methods
@@ -252,7 +252,7 @@ Return a copy of the entity options.
 ## StatisticEntity
 
 ```ts
-const statistic = client.statistic
+const statistic = client.Statistic()
 ```
 
 ### Fields
@@ -268,7 +268,7 @@ const statistic = client.statistic
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.statistic.load({ id: 'statistic_id' })
+const result = await client.Statistic().load({ id: 'statistic_id' })
 ```
 
 ### Common Methods
@@ -302,7 +302,7 @@ Return a copy of the entity options.
 ## VehicleEntity
 
 ```ts
-const vehicle = client.vehicle
+const vehicle = client.Vehicle()
 ```
 
 ### Fields
@@ -327,7 +327,7 @@ const vehicle = client.vehicle
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.vehicle.list()
+const results = await client.Vehicle().list()
 ```
 
 ### Common Methods

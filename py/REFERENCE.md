@@ -92,7 +92,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## DrivingLicenseEntity
 
 ```python
-driving_license = client.driving_license
+driving_license = client.DrivingLicense()
 ```
 
 ### Fields
@@ -112,7 +112,9 @@ driving_license = client.driving_license
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.driving_license.list({})
+results = client.DrivingLicense().list({})
+for driving_license in results:
+    print(driving_license)
 ```
 
 ### Common Methods
@@ -147,7 +149,7 @@ Return the entity name.
 ## PermissionEntity
 
 ```python
-permission = client.permission
+permission = client.Permission()
 ```
 
 ### Fields
@@ -166,7 +168,9 @@ permission = client.permission
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.permission.list({})
+results = client.Permission().list({})
+for permission in results:
+    print(permission)
 ```
 
 ### Common Methods
@@ -201,7 +205,7 @@ Return the entity name.
 ## StatisticEntity
 
 ```python
-statistic = client.statistic
+statistic = client.Statistic()
 ```
 
 ### Fields
@@ -217,7 +221,7 @@ statistic = client.statistic
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.statistic.load({"id": "statistic_id"})
+result = client.Statistic().load({"id": "statistic_id"})
 ```
 
 ### Common Methods
@@ -252,7 +256,7 @@ Return the entity name.
 ## VehicleEntity
 
 ```python
-vehicle = client.vehicle
+vehicle = client.Vehicle()
 ```
 
 ### Fields
@@ -277,7 +281,9 @@ vehicle = client.vehicle
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.vehicle.list({})
+results = client.Vehicle().list({})
+for vehicle in results:
+    print(vehicle)
 ```
 
 ### Common Methods

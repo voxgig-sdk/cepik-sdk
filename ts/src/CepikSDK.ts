@@ -207,56 +207,28 @@ class CepikSDK {
 
 
 
-  _driving_license?: DrivingLicenseEntity
-
-  // Idiomatic facade: `client.driving_license.list()` / `client.driving_license.load({ id })`.
-  get driving_license(): DrivingLicenseEntity {
-    return (this._driving_license ??= new DrivingLicenseEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.driving_license` instead. */
+  // Entity access: `client.DrivingLicense().list()` / `client.DrivingLicense().load({ id })`.
   DrivingLicense(data?: any) {
     const self = this
     return new DrivingLicenseEntity(self,data)
   }
 
 
-  _permission?: PermissionEntity
-
-  // Idiomatic facade: `client.permission.list()` / `client.permission.load({ id })`.
-  get permission(): PermissionEntity {
-    return (this._permission ??= new PermissionEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.permission` instead. */
+  // Entity access: `client.Permission().list()` / `client.Permission().load({ id })`.
   Permission(data?: any) {
     const self = this
     return new PermissionEntity(self,data)
   }
 
 
-  _statistic?: StatisticEntity
-
-  // Idiomatic facade: `client.statistic.list()` / `client.statistic.load({ id })`.
-  get statistic(): StatisticEntity {
-    return (this._statistic ??= new StatisticEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.statistic` instead. */
+  // Entity access: `client.Statistic().list()` / `client.Statistic().load({ id })`.
   Statistic(data?: any) {
     const self = this
     return new StatisticEntity(self,data)
   }
 
 
-  _vehicle?: VehicleEntity
-
-  // Idiomatic facade: `client.vehicle.list()` / `client.vehicle.load({ id })`.
-  get vehicle(): VehicleEntity {
-    return (this._vehicle ??= new VehicleEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.vehicle` instead. */
+  // Entity access: `client.Vehicle().list()` / `client.Vehicle().load({ id })`.
   Vehicle(data?: any) {
     const self = this
     return new VehicleEntity(self,data)
