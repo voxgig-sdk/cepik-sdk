@@ -109,11 +109,11 @@ driving_license := client.DrivingLicense(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data_waznosci` | ``$STRING`` | No |  |
-| `data_wydania` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `kategoria` | ``$STRING`` | No |  |
-| `wojewodztwo` | ``$STRING`` | No |  |
+| `data_waznosci` | `string` | No |  |
+| `data_wydania` | `string` | No |  |
+| `id` | `string` | No |  |
+| `kategoria` | `string` | No |  |
+| `wojewodztwo` | `string` | No |  |
 
 ### Operations
 
@@ -159,10 +159,10 @@ permission := client.Permission(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data_uzyskania` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `kategoria` | ``$STRING`` | No |  |
-| `wojewodztwo` | ``$STRING`` | No |  |
+| `data_uzyskania` | `string` | No |  |
+| `id` | `string` | No |  |
+| `kategoria` | `string` | No |  |
+| `wojewodztwo` | `string` | No |  |
 
 ### Operations
 
@@ -208,7 +208,7 @@ statistic := client.Statistic(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | ``$OBJECT`` | No |  |
+| `data` | `map[string]any` | No |  |
 
 ### Operations
 
@@ -217,7 +217,7 @@ statistic := client.Statistic(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.Statistic(nil).Load(map[string]any{"id": "statistic_id"}, nil)
+result, err := client.Statistic(nil).Load(nil, nil)
 ```
 
 ### Common Methods
@@ -254,16 +254,16 @@ vehicle := client.Vehicle(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data_pierwszej_rejestracji` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `marka` | ``$STRING`` | No |  |
-| `masa_wlasna` | ``$INTEGER`` | No |  |
-| `model` | ``$STRING`` | No |  |
-| `podrodzaj` | ``$STRING`` | No |  |
-| `pojemnosc_silnika` | ``$INTEGER`` | No |  |
-| `rodzaj` | ``$STRING`` | No |  |
-| `rok_produkcji` | ``$INTEGER`` | No |  |
-| `wojewodztwo` | ``$STRING`` | No |  |
+| `data_pierwszej_rejestracji` | `string` | No |  |
+| `id` | `string` | No |  |
+| `marka` | `string` | No |  |
+| `masa_wlasna` | `int` | No |  |
+| `model` | `string` | No |  |
+| `podrodzaj` | `string` | No |  |
+| `pojemnosc_silnika` | `int` | No |  |
+| `rodzaj` | `string` | No |  |
+| `rok_produkcji` | `int` | No |  |
+| `wojewodztwo` | `string` | No |  |
 
 ### Operations
 

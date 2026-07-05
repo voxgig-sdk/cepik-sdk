@@ -66,8 +66,12 @@ class DrivingLicenseEntity:
     
 
     
-    def list(self, reqmatch: DrivingLicenseListMatch, ctrl=None) -> list[DrivingLicense]:
+    def list(self, reqmatch=None, ctrl=None) -> list[DrivingLicense]:
         utility = self._utility
+        # reqmatch is optional: an omitted match lists all records. Treat None
+        # as an empty match so client.DrivingLicense().list() works with no args.
+        if reqmatch is None:
+            reqmatch = {}
         ctx = utility.make_context({
             "opname": "list",
             "ctrl": ctrl,

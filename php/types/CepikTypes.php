@@ -22,7 +22,7 @@ class DrivingLicense
     public ?string $wojewodztwo = null;
 }
 
-/** Match filter for DrivingLicense#list (any subset of DrivingLicense fields). */
+/** Request payload for DrivingLicense#list. */
 class DrivingLicenseListMatch
 {
     public ?string $data_waznosci = null;
@@ -41,7 +41,7 @@ class Permission
     public ?string $wojewodztwo = null;
 }
 
-/** Match filter for Permission#list (any subset of Permission fields). */
+/** Request payload for Permission#list. */
 class PermissionListMatch
 {
     public ?string $data_uzyskania = null;
@@ -56,7 +56,7 @@ class Statistic
     public ?array $data = null;
 }
 
-/** Match filter for Statistic#load (any subset of Statistic fields). */
+/** Request payload for Statistic#load. */
 class StatisticLoadMatch
 {
     public ?array $data = null;
@@ -77,7 +77,7 @@ class Vehicle
     public ?string $wojewodztwo = null;
 }
 
-/** Match filter for Vehicle#list (any subset of Vehicle fields). */
+/** Request payload for Vehicle#list. */
 class VehicleListMatch
 {
     public ?string $data_pierwszej_rejestracji = null;

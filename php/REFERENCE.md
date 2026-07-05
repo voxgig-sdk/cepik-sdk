@@ -57,11 +57,11 @@ Create a new `StatisticEntity` instance. Pass `null` for no initial data.
 
 Create a new `VehicleEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): CepikUtility`
 
 Return a copy of the SDK utility object.
 
@@ -104,37 +104,37 @@ $driving_license = $client->DrivingLicense();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data_waznosci` | ``$STRING`` | No |  |
-| `data_wydania` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `kategoria` | ``$STRING`` | No |  |
-| `wojewodztwo` | ``$STRING`` | No |  |
+| `data_waznosci` | `string` | No |  |
+| `data_wydania` | `string` | No |  |
+| `id` | `string` | No |  |
+| `kategoria` | `string` | No |  |
+| `wojewodztwo` | `string` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->DrivingLicense()->list([]);
+$results = $client->DrivingLicense()->list();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -143,7 +143,7 @@ Set the entity match criteria.
 Create a new `DrivingLicenseEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -160,36 +160,36 @@ $permission = $client->Permission();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data_uzyskania` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `kategoria` | ``$STRING`` | No |  |
-| `wojewodztwo` | ``$STRING`` | No |  |
+| `data_uzyskania` | `string` | No |  |
+| `id` | `string` | No |  |
+| `kategoria` | `string` | No |  |
+| `wojewodztwo` | `string` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->Permission()->list([]);
+$results = $client->Permission()->list();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -198,7 +198,7 @@ Set the entity match criteria.
 Create a new `PermissionEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -215,7 +215,7 @@ $statistic = $client->Statistic();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | ``$OBJECT`` | No |  |
+| `data` | `array` | No |  |
 
 ### Operations
 
@@ -224,24 +224,24 @@ $statistic = $client->Statistic();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->Statistic()->load(["id" => "statistic_id"]);
+$result = $client->Statistic()->load();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -250,7 +250,7 @@ Set the entity match criteria.
 Create a new `StatisticEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -267,42 +267,42 @@ $vehicle = $client->Vehicle();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data_pierwszej_rejestracji` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `marka` | ``$STRING`` | No |  |
-| `masa_wlasna` | ``$INTEGER`` | No |  |
-| `model` | ``$STRING`` | No |  |
-| `podrodzaj` | ``$STRING`` | No |  |
-| `pojemnosc_silnika` | ``$INTEGER`` | No |  |
-| `rodzaj` | ``$STRING`` | No |  |
-| `rok_produkcji` | ``$INTEGER`` | No |  |
-| `wojewodztwo` | ``$STRING`` | No |  |
+| `data_pierwszej_rejestracji` | `string` | No |  |
+| `id` | `string` | No |  |
+| `marka` | `string` | No |  |
+| `masa_wlasna` | `int` | No |  |
+| `model` | `string` | No |  |
+| `podrodzaj` | `string` | No |  |
+| `pojemnosc_silnika` | `int` | No |  |
+| `rodzaj` | `string` | No |  |
+| `rok_produkcji` | `int` | No |  |
+| `wojewodztwo` | `string` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->Vehicle()->list([]);
+$results = $client->Vehicle()->list();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -311,7 +311,7 @@ Set the entity match criteria.
 Create a new `VehicleEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

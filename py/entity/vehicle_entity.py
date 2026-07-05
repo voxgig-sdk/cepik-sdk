@@ -66,8 +66,12 @@ class VehicleEntity:
     
 
     
-    def list(self, reqmatch: VehicleListMatch, ctrl=None) -> list[Vehicle]:
+    def list(self, reqmatch=None, ctrl=None) -> list[Vehicle]:
         utility = self._utility
+        # reqmatch is optional: an omitted match lists all records. Treat None
+        # as an empty match so client.Vehicle().list() works with no args.
+        if reqmatch is None:
+            reqmatch = {}
         ctx = utility.make_context({
             "opname": "list",
             "ctrl": ctrl,

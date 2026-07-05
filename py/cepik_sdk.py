@@ -221,25 +221,25 @@ class CepikSDK:
 
 
     def DrivingLicense(self, data=None) -> "DrivingLicenseEntity":
-        """Entity factory: client.DrivingLicense().list({}) / client.DrivingLicense().load({"id": ...})."""
+        """Entity factory: client.DrivingLicense().list() / client.DrivingLicense().load({"id": ...})."""
         from entity.driving_license_entity import DrivingLicenseEntity
         return DrivingLicenseEntity(self, data)
 
 
     def Permission(self, data=None) -> "PermissionEntity":
-        """Entity factory: client.Permission().list({}) / client.Permission().load({"id": ...})."""
+        """Entity factory: client.Permission().list() / client.Permission().load({"id": ...})."""
         from entity.permission_entity import PermissionEntity
         return PermissionEntity(self, data)
 
 
     def Statistic(self, data=None) -> "StatisticEntity":
-        """Entity factory: client.Statistic().list({}) / client.Statistic().load({"id": ...})."""
+        """Entity factory: client.Statistic().list() / client.Statistic().load({"id": ...})."""
         from entity.statistic_entity import StatisticEntity
         return StatisticEntity(self, data)
 
 
     def Vehicle(self, data=None) -> "VehicleEntity":
-        """Entity factory: client.Vehicle().list({}) / client.Vehicle().load({"id": ...})."""
+        """Entity factory: client.Vehicle().list() / client.Vehicle().load({"id": ...})."""
         from entity.vehicle_entity import VehicleEntity
         return VehicleEntity(self, data)
 

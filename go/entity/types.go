@@ -17,8 +17,7 @@ type DrivingLicense struct {
 	Wojewodztwo *string `json:"wojewodztwo,omitempty"`
 }
 
-// DrivingLicenseListMatch mirrors the driving_license fields as an all-optional match
-// filter (Go analog of Partial<DrivingLicense>).
+// DrivingLicenseListMatch is the typed request payload for DrivingLicense.ListTyped.
 type DrivingLicenseListMatch struct {
 	DataWaznosci *string `json:"data_waznosci,omitempty"`
 	DataWydania *string `json:"data_wydania,omitempty"`
@@ -35,8 +34,7 @@ type Permission struct {
 	Wojewodztwo *string `json:"wojewodztwo,omitempty"`
 }
 
-// PermissionListMatch mirrors the permission fields as an all-optional match
-// filter (Go analog of Partial<Permission>).
+// PermissionListMatch is the typed request payload for Permission.ListTyped.
 type PermissionListMatch struct {
 	DataUzyskania *string `json:"data_uzyskania,omitempty"`
 	Id *string `json:"id,omitempty"`
@@ -49,8 +47,7 @@ type Statistic struct {
 	Data *map[string]any `json:"data,omitempty"`
 }
 
-// StatisticLoadMatch mirrors the statistic fields as an all-optional match
-// filter (Go analog of Partial<Statistic>).
+// StatisticLoadMatch is the typed request payload for Statistic.LoadTyped.
 type StatisticLoadMatch struct {
 	Data *map[string]any `json:"data,omitempty"`
 }
@@ -69,8 +66,7 @@ type Vehicle struct {
 	Wojewodztwo *string `json:"wojewodztwo,omitempty"`
 }
 
-// VehicleListMatch mirrors the vehicle fields as an all-optional match
-// filter (Go analog of Partial<Vehicle>).
+// VehicleListMatch is the typed request payload for Vehicle.ListTyped.
 type VehicleListMatch struct {
 	DataPierwszejRejestracji *string `json:"data_pierwszej_rejestracji,omitempty"`
 	Id *string `json:"id,omitempty"`

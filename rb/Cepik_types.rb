@@ -33,7 +33,7 @@ DrivingLicense = Struct.new(
   keyword_init: true
 )
 
-# Match filter for DrivingLicense#list (any subset of DrivingLicense fields).
+# Request payload for DrivingLicense#list.
 #
 # @!attribute [rw] data_waznosci
 #   @return [String, nil]
@@ -79,7 +79,7 @@ Permission = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Permission#list (any subset of Permission fields).
+# Request payload for Permission#list.
 #
 # @!attribute [rw] data_uzyskania
 #   @return [String, nil]
@@ -109,7 +109,7 @@ Statistic = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Statistic#load (any subset of Statistic fields).
+# Request payload for Statistic#load.
 #
 # @!attribute [rw] data
 #   @return [Hash, nil]
@@ -163,7 +163,7 @@ Vehicle = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Vehicle#list (any subset of Vehicle fields).
+# Request payload for Vehicle#list.
 #
 # @!attribute [rw] data_pierwszej_rejestracji
 #   @return [String, nil]

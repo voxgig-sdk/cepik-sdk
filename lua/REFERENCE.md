@@ -102,11 +102,11 @@ local driving_license = client:DrivingLicense(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data_waznosci` | ``$STRING`` | No |  |
-| `data_wydania` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `kategoria` | ``$STRING`` | No |  |
-| `wojewodztwo` | ``$STRING`` | No |  |
+| `data_waznosci` | `string` | No |  |
+| `data_wydania` | `string` | No |  |
+| `id` | `string` | No |  |
+| `kategoria` | `string` | No |  |
+| `wojewodztwo` | `string` | No |  |
 
 ### Operations
 
@@ -158,10 +158,10 @@ local permission = client:Permission(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data_uzyskania` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `kategoria` | ``$STRING`` | No |  |
-| `wojewodztwo` | ``$STRING`` | No |  |
+| `data_uzyskania` | `string` | No |  |
+| `id` | `string` | No |  |
+| `kategoria` | `string` | No |  |
+| `wojewodztwo` | `string` | No |  |
 
 ### Operations
 
@@ -213,7 +213,7 @@ local statistic = client:Statistic(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | ``$OBJECT`` | No |  |
+| `data` | `table` | No |  |
 
 ### Operations
 
@@ -222,7 +222,7 @@ local statistic = client:Statistic(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Statistic():load({ id = "statistic_id" })
+local result, err = client:Statistic():load()
 ```
 
 ### Common Methods
@@ -265,16 +265,16 @@ local vehicle = client:Vehicle(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data_pierwszej_rejestracji` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `marka` | ``$STRING`` | No |  |
-| `masa_wlasna` | ``$INTEGER`` | No |  |
-| `model` | ``$STRING`` | No |  |
-| `podrodzaj` | ``$STRING`` | No |  |
-| `pojemnosc_silnika` | ``$INTEGER`` | No |  |
-| `rodzaj` | ``$STRING`` | No |  |
-| `rok_produkcji` | ``$INTEGER`` | No |  |
-| `wojewodztwo` | ``$STRING`` | No |  |
+| `data_pierwszej_rejestracji` | `string` | No |  |
+| `id` | `string` | No |  |
+| `marka` | `string` | No |  |
+| `masa_wlasna` | `number` | No |  |
+| `model` | `string` | No |  |
+| `podrodzaj` | `string` | No |  |
+| `pojemnosc_silnika` | `number` | No |  |
+| `rodzaj` | `string` | No |  |
+| `rok_produkcji` | `number` | No |  |
+| `wojewodztwo` | `string` | No |  |
 
 ### Operations
 

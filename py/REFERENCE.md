@@ -99,20 +99,20 @@ driving_license = client.DrivingLicense()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data_waznosci` | ``$STRING`` | No |  |
-| `data_wydania` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `kategoria` | ``$STRING`` | No |  |
-| `wojewodztwo` | ``$STRING`` | No |  |
+| `data_waznosci` | `str` | No |  |
+| `data_wydania` | `str` | No |  |
+| `id` | `str` | No |  |
+| `kategoria` | `str` | No |  |
+| `wojewodztwo` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.DrivingLicense().list({})
+results = client.DrivingLicense().list()
 for driving_license in results:
     print(driving_license)
 ```
@@ -156,19 +156,19 @@ permission = client.Permission()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data_uzyskania` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `kategoria` | ``$STRING`` | No |  |
-| `wojewodztwo` | ``$STRING`` | No |  |
+| `data_uzyskania` | `str` | No |  |
+| `id` | `str` | No |  |
+| `kategoria` | `str` | No |  |
+| `wojewodztwo` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Permission().list({})
+results = client.Permission().list()
 for permission in results:
     print(permission)
 ```
@@ -212,7 +212,7 @@ statistic = client.Statistic()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | ``$OBJECT`` | No |  |
+| `data` | `dict` | No |  |
 
 ### Operations
 
@@ -221,7 +221,7 @@ statistic = client.Statistic()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Statistic().load({"id": "statistic_id"})
+result = client.Statistic().load()
 ```
 
 ### Common Methods
@@ -263,25 +263,25 @@ vehicle = client.Vehicle()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data_pierwszej_rejestracji` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `marka` | ``$STRING`` | No |  |
-| `masa_wlasna` | ``$INTEGER`` | No |  |
-| `model` | ``$STRING`` | No |  |
-| `podrodzaj` | ``$STRING`` | No |  |
-| `pojemnosc_silnika` | ``$INTEGER`` | No |  |
-| `rodzaj` | ``$STRING`` | No |  |
-| `rok_produkcji` | ``$INTEGER`` | No |  |
-| `wojewodztwo` | ``$STRING`` | No |  |
+| `data_pierwszej_rejestracji` | `str` | No |  |
+| `id` | `str` | No |  |
+| `marka` | `str` | No |  |
+| `masa_wlasna` | `int` | No |  |
+| `model` | `str` | No |  |
+| `podrodzaj` | `str` | No |  |
+| `pojemnosc_silnika` | `int` | No |  |
+| `rodzaj` | `str` | No |  |
+| `rok_produkcji` | `int` | No |  |
+| `wojewodztwo` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Vehicle().list({})
+results = client.Vehicle().list()
 for vehicle in results:
     print(vehicle)
 ```

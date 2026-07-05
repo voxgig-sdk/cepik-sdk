@@ -8,7 +8,7 @@ Complete API reference for the Cepik Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'cepik_sdk'
+require_relative 'Cepik_sdk'
 
 client = CepikSDK.new(options)
 ```
@@ -105,20 +105,20 @@ driving_license = client.DrivingLicense
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data_waznosci` | ``$STRING`` | No |  |
-| `data_wydania` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `kategoria` | ``$STRING`` | No |  |
-| `wojewodztwo` | ``$STRING`` | No |  |
+| `data_waznosci` | `String` | No |  |
+| `data_wydania` | `String` | No |  |
+| `id` | `String` | No |  |
+| `kategoria` | `String` | No |  |
+| `wojewodztwo` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.DrivingLicense.list(nil)
+results = client.DrivingLicense.list
 ```
 
 ### Common Methods
@@ -161,19 +161,19 @@ permission = client.Permission
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data_uzyskania` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `kategoria` | ``$STRING`` | No |  |
-| `wojewodztwo` | ``$STRING`` | No |  |
+| `data_uzyskania` | `String` | No |  |
+| `id` | `String` | No |  |
+| `kategoria` | `String` | No |  |
+| `wojewodztwo` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Permission.list(nil)
+results = client.Permission.list
 ```
 
 ### Common Methods
@@ -216,7 +216,7 @@ statistic = client.Statistic
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | ``$OBJECT`` | No |  |
+| `data` | `Hash` | No |  |
 
 ### Operations
 
@@ -225,7 +225,7 @@ statistic = client.Statistic
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.Statistic.load({ "id" => "statistic_id" })
+result = client.Statistic.load()
 ```
 
 ### Common Methods
@@ -268,25 +268,25 @@ vehicle = client.Vehicle
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data_pierwszej_rejestracji` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `marka` | ``$STRING`` | No |  |
-| `masa_wlasna` | ``$INTEGER`` | No |  |
-| `model` | ``$STRING`` | No |  |
-| `podrodzaj` | ``$STRING`` | No |  |
-| `pojemnosc_silnika` | ``$INTEGER`` | No |  |
-| `rodzaj` | ``$STRING`` | No |  |
-| `rok_produkcji` | ``$INTEGER`` | No |  |
-| `wojewodztwo` | ``$STRING`` | No |  |
+| `data_pierwszej_rejestracji` | `String` | No |  |
+| `id` | `String` | No |  |
+| `marka` | `String` | No |  |
+| `masa_wlasna` | `Integer` | No |  |
+| `model` | `String` | No |  |
+| `podrodzaj` | `String` | No |  |
+| `pojemnosc_silnika` | `Integer` | No |  |
+| `rodzaj` | `String` | No |  |
+| `rok_produkcji` | `Integer` | No |  |
+| `wojewodztwo` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Vehicle.list(nil)
+results = client.Vehicle.list
 ```
 
 ### Common Methods
