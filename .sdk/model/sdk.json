@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -724,14 +721,17 @@
           "url": "https://api.cepik.gov.pl/doc"
         },
         "description": "The CEPiK API provides access to various datasets related to vehicles, driving licenses, permissions to drive vehicles, and statistical information about these entities. It includes methods for retrieving data about vehicles, driving licenses, permissions, and associated statistics from the national database.",
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Production server",
             "url": "https://api.cepik.gov.pl"
           }
         ],
+        "summary": "The CEPiK API provides access to various datasets related to vehicles, driving licenses, permissions to drive vehicles, and statistical information about these entities.",
         "title": "CEPiK API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://cepik.gov.pl"
       },
       "option": {},
       "target": {
@@ -784,6 +784,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -834,6 +837,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },

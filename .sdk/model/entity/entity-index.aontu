@@ -1,0 +1,6 @@
+# Entity Models
+
+@"driving_license.aontu"
+@"permission.aontu"
+@"statistic.aontu"
+@"vehicle.aontu"

@@ -102,7 +102,8 @@ same parameters as `Direct()`.
 ## DrivingLicenseEntity
 
 ```go
-driving_license := client.DrivingLicense(nil)
+drivingLicense := client.DrivingLicense(nil)
+fmt.Println(drivingLicense.GetName()) // "driving_license"
 ```
 
 ### Fields
@@ -123,6 +124,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.DrivingLicense(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 ### Common Methods
@@ -153,6 +158,7 @@ Return the entity name.
 
 ```go
 permission := client.Permission(nil)
+fmt.Println(permission.GetName()) // "permission"
 ```
 
 ### Fields
@@ -172,6 +178,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.Permission(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 ### Common Methods
@@ -202,6 +212,7 @@ Return the entity name.
 
 ```go
 statistic := client.Statistic(nil)
+fmt.Println(statistic.GetName()) // "statistic"
 ```
 
 ### Fields
@@ -218,6 +229,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.Statistic(nil).Load(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -248,6 +263,7 @@ Return the entity name.
 
 ```go
 vehicle := client.Vehicle(nil)
+fmt.Println(vehicle.GetName()) // "vehicle"
 ```
 
 ### Fields
@@ -273,6 +289,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.Vehicle(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 ### Common Methods

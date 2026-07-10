@@ -16,9 +16,9 @@ main: {
           url: "https://api.cepik.gov.pl"
         }
       ]
+      summary: "The CEPiK API provides access to various datasets related to vehicles, driving licenses, permissions to drive vehicles, and statistical information about these entities."
       title: "CEPiK API"
       version: "1.0.0"
+      website: "https://cepik.gov.pl"
     }
   }
-}
-
