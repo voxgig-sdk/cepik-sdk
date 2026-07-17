@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- Cepik SDK exists test
 
 local sdk = require("cepik_sdk")
 
