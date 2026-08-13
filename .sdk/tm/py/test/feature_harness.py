@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import CepikControl
-from core.error import CepikError
-from core.result import CepikResult
-from core.spec import CepikSpec
+from projectname_sdk.config import make_config
+from projectname_sdk.features import _make_feature
+from projectname_sdk.core.control import CepikControl
+from projectname_sdk.core.error import CepikError
+from projectname_sdk.core.result import CepikResult
+from projectname_sdk.core.spec import CepikSpec
 
 
 # True when this SDK was generated with the named feature.

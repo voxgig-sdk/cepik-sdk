@@ -38,18 +38,27 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = CepikSDK.test()
-const drivinglicenses = await client.DrivingLicense().list()
-// drivinglicenses is an array of bare DrivingLicense records populated with mock data
-console.log(drivinglicenses)
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = CepikSDK.test({
+  entity: {
+    statistic: {
+      test01: { id: 'test01' },
+    },
+  },
+})
+const statistic = await client.Statistic().load()
+// statistic is the Statistic entity, populated with mock data
+// — call statistic.data() for the record itself
+console.log(statistic)
 ```
 
 ### Python
 
 ```python
 client = CepikSDK.test()
-drivinglicenses = client.DrivingLicense().list()
-print(drivinglicenses)
+statistic = client.Statistic().load()
+print(statistic)
 ```
 
 ### PHP
@@ -57,16 +66,16 @@ print(drivinglicenses)
 ```php
 // Seed fixture data so offline calls resolve without a live server.
 $client = CepikSDK::test([
-    "entity" => ["drivinglicense" => ["test01" => []]],
+    "entity" => ["statistic" => ["test01" => []]],
 ]);
-$drivinglicenses = $client->DrivingLicense()->list();
+$statistic = $client->Statistic()->load();
 ```
 
 ### Golang
 
 ```go
 client := sdk.Test()
-result, err := client.DrivingLicense(nil).List(
+result, err := client.Statistic(nil).Load(
     nil, nil,
 )
 ```
@@ -76,16 +85,16 @@ result, err := client.DrivingLicense(nil).List(
 ```ruby
 # Seed fixture data so offline calls resolve without a live server.
 client = CepikSDK.test({
-  "entity" => { "drivinglicense" => { "test01" => {} } },
+  "entity" => { "statistic" => { "test01" => {} } },
 })
-drivinglicenses = client.DrivingLicense.list()
+statistic = client.Statistic.load()
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local results, err = client:DrivingLicense():list()
+local result, err = client:Statistic():load()
 ```
 
 ## Packages
@@ -110,7 +119,7 @@ import { CepikSDK } from '@voxgig-sdk/cepik'
 
 const client = new CepikSDK()
 
-// List all drivinglicenses (returns DrivingLicense[])
+// List all drivinglicenses (returns DrivingLicenseEntity[] — .data() for the record)
 const drivinglicenses = await client.DrivingLicense().list()
 for (const drivinglicense of drivinglicenses) {
   console.log(drivinglicense)
@@ -346,6 +355,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://api.cepik.gov.pl/doc](https://api.cepik.gov.pl/doc)
 

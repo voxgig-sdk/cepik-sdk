@@ -38,7 +38,7 @@ try {
     // list() returns an array of DrivingLicense records — iterate directly.
     $drivinglicenses = $client->DrivingLicense()->list();
     foreach ($drivinglicenses as $item) {
-        echo $item["id"] . " " . $item["data_waznosci"] . "\n";
+        echo $item["id"] . " " . $item["datawaznosci"] . "\n";
     }
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
@@ -53,7 +53,7 @@ Entity operations throw a `\Throwable` on failure, so wrap them in
 
 ```php
 try {
-    $drivinglicenses = $client->DrivingLicense()->list();
+    $statistic = $client->Statistic()->load();
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
@@ -125,9 +125,10 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = CepikSDK::test();
 
-// Entity ops return the bare mock record (throws on error).
-$drivinglicense = $client->DrivingLicense()->list();
-print_r($drivinglicense);
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
+$statistic = $client->Statistic()->load();
+print_r($statistic);
 ```
 
 ### Use a custom fetch function
@@ -228,7 +229,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -250,8 +251,8 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `data_waznosci` |  |
-| `data_wydania` |  |
+| `datawaznosci` |  |
+| `datawydania` |  |
 | `id` |  |
 | `kategoria` |  |
 | `wojewodztwo` |  |
@@ -264,7 +265,7 @@ API path: `/prawo-jazdy`
 
 | Field | Description |
 | --- | --- |
-| `data_uzyskania` |  |
+| `datauzyskania` |  |
 | `id` |  |
 | `kategoria` |  |
 | `wojewodztwo` |  |
@@ -277,7 +278,12 @@ API path: `/uprawnienia`
 
 | Field | Description |
 | --- | --- |
-| `data` |  |
+| `liczbapojazdow` |  |
+| `liczbaprawjazdy` |  |
+| `wgkategorii` |  |
+| `wgmarki` |  |
+| `wgrodzaju` |  |
+| `wojewodztwo` |  |
 
 Operations: Load.
 
@@ -287,15 +293,15 @@ API path: `/statystyki/pojazdy`
 
 | Field | Description |
 | --- | --- |
-| `data_pierwszej_rejestracji` |  |
+| `datapierwszejrejestracji` |  |
 | `id` |  |
 | `marka` |  |
-| `masa_wlasna` |  |
+| `masawlasna` |  |
 | `model` |  |
 | `podrodzaj` |  |
-| `pojemnosc_silnika` |  |
+| `pojemnoscsilnika` |  |
 | `rodzaj` |  |
-| `rok_produkcji` |  |
+| `rokprodukcji` |  |
 | `wojewodztwo` |  |
 
 Operations: List.
@@ -321,8 +327,8 @@ Create an instance: `$driving_license = $client->DrivingLicense();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data_waznosci` | `string` |  |
-| `data_wydania` | `string` |  |
+| `datawaznosci` | `string` |  |
+| `datawydania` | `string` |  |
 | `id` | `string` |  |
 | `kategoria` | `string` |  |
 | `wojewodztwo` | `string` |  |
@@ -349,7 +355,7 @@ Create an instance: `$permission = $client->Permission();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data_uzyskania` | `string` |  |
+| `datauzyskania` | `string` |  |
 | `id` | `string` |  |
 | `kategoria` | `string` |  |
 | `wojewodztwo` | `string` |  |
@@ -376,12 +382,17 @@ Create an instance: `$statistic = $client->Statistic();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | `array` |  |
+| `liczbapojazdow` | `int` |  |
+| `liczbaprawjazdy` | `int` |  |
+| `wgkategorii` | `array` |  |
+| `wgmarki` | `array` |  |
+| `wgrodzaju` | `array` |  |
+| `wojewodztwo` | `string` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare Statistic record (throws on error).
+// load() returns the ENTITY — call data_get() for the Statistic record (throws on error).
 $statistic = $client->Statistic()->load();
 ```
 
@@ -400,15 +411,15 @@ Create an instance: `$vehicle = $client->Vehicle();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data_pierwszej_rejestracji` | `string` |  |
+| `datapierwszejrejestracji` | `string` |  |
 | `id` | `string` |  |
 | `marka` | `string` |  |
-| `masa_wlasna` | `int` |  |
+| `masawlasna` | `int` |  |
 | `model` | `string` |  |
 | `podrodzaj` | `string` |  |
-| `pojemnosc_silnika` | `int` |  |
+| `pojemnoscsilnika` | `int` |  |
 | `rodzaj` | `string` |  |
-| `rok_produkcji` | `int` |  |
+| `rokprodukcji` | `int` |  |
 | `wojewodztwo` | `string` |  |
 
 #### Example: List
@@ -491,15 +502,15 @@ when needed.
 
 ### Entity state
 
-Entity instances are stateful. After a successful `list`, the entity
+Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$drivinglicense = $client->DrivingLicense();
-$drivinglicense->list();
+$statistic = $client->Statistic();
+$statistic->load();
 
-// $drivinglicense->data_get() now returns the drivinglicense data from the last list
-// $drivinglicense->match_get() returns the last match criteria
+// $statistic->data_get() now returns the statistic data from the last load
+// $statistic->match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

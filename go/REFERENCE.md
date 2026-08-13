@@ -110,8 +110,8 @@ fmt.Println(drivingLicense.GetName()) // "driving_license"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data_waznosci` | `string` | No |  |
-| `data_wydania` | `string` | No |  |
+| `datawaznosci` | `string` | No |  |
+| `datawydania` | `string` | No |  |
 | `id` | `string` | No |  |
 | `kategoria` | `string` | No |  |
 | `wojewodztwo` | `string` | No |  |
@@ -165,7 +165,7 @@ fmt.Println(permission.GetName()) // "permission"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data_uzyskania` | `string` | No |  |
+| `datauzyskania` | `string` | No |  |
 | `id` | `string` | No |  |
 | `kategoria` | `string` | No |  |
 | `wojewodztwo` | `string` | No |  |
@@ -219,7 +219,12 @@ fmt.Println(statistic.GetName()) // "statistic"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | `map[string]any` | No |  |
+| `liczbapojazdow` | `int` | No |  |
+| `liczbaprawjazdy` | `int` | No |  |
+| `wgkategorii` | `map[string]any` | No |  |
+| `wgmarki` | `map[string]any` | No |  |
+| `wgrodzaju` | `map[string]any` | No |  |
+| `wojewodztwo` | `string` | No |  |
 
 ### Operations
 
@@ -270,15 +275,15 @@ fmt.Println(vehicle.GetName()) // "vehicle"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data_pierwszej_rejestracji` | `string` | No |  |
+| `datapierwszejrejestracji` | `string` | No |  |
 | `id` | `string` | No |  |
 | `marka` | `string` | No |  |
-| `masa_wlasna` | `int` | No |  |
+| `masawlasna` | `int` | No |  |
 | `model` | `string` | No |  |
 | `podrodzaj` | `string` | No |  |
-| `pojemnosc_silnika` | `int` | No |  |
+| `pojemnoscsilnika` | `int` | No |  |
 | `rodzaj` | `string` | No |  |
-| `rok_produkcji` | `int` | No |  |
+| `rokprodukcji` | `int` | No |  |
 | `wojewodztwo` | `string` | No |  |
 
 ### Operations

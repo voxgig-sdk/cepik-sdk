@@ -10,10 +10,10 @@
 
 # DrivingLicense entity data model.
 #
-# @!attribute [rw] data_waznosci
+# @!attribute [rw] datawaznosci
 #   @return [String, nil]
 #
-# @!attribute [rw] data_wydania
+# @!attribute [rw] datawydania
 #   @return [String, nil]
 #
 # @!attribute [rw] id
@@ -25,8 +25,8 @@
 # @!attribute [rw] wojewodztwo
 #   @return [String, nil]
 DrivingLicense = Struct.new(
-  :data_waznosci,
-  :data_wydania,
+  :datawaznosci,
+  :datawydania,
   :id,
   :kategoria,
   :wojewodztwo,
@@ -35,10 +35,10 @@ DrivingLicense = Struct.new(
 
 # Request payload for DrivingLicense#list.
 #
-# @!attribute [rw] data_waznosci
+# @!attribute [rw] datawaznosci
 #   @return [String, nil]
 #
-# @!attribute [rw] data_wydania
+# @!attribute [rw] datawydania
 #   @return [String, nil]
 #
 # @!attribute [rw] id
@@ -50,8 +50,8 @@ DrivingLicense = Struct.new(
 # @!attribute [rw] wojewodztwo
 #   @return [String, nil]
 DrivingLicenseListMatch = Struct.new(
-  :data_waznosci,
-  :data_wydania,
+  :datawaznosci,
+  :datawydania,
   :id,
   :kategoria,
   :wojewodztwo,
@@ -60,7 +60,7 @@ DrivingLicenseListMatch = Struct.new(
 
 # Permission entity data model.
 #
-# @!attribute [rw] data_uzyskania
+# @!attribute [rw] datauzyskania
 #   @return [String, nil]
 #
 # @!attribute [rw] id
@@ -72,7 +72,7 @@ DrivingLicenseListMatch = Struct.new(
 # @!attribute [rw] wojewodztwo
 #   @return [String, nil]
 Permission = Struct.new(
-  :data_uzyskania,
+  :datauzyskania,
   :id,
   :kategoria,
   :wojewodztwo,
@@ -81,7 +81,7 @@ Permission = Struct.new(
 
 # Request payload for Permission#list.
 #
-# @!attribute [rw] data_uzyskania
+# @!attribute [rw] datauzyskania
 #   @return [String, nil]
 #
 # @!attribute [rw] id
@@ -93,7 +93,7 @@ Permission = Struct.new(
 # @!attribute [rw] wojewodztwo
 #   @return [String, nil]
 PermissionListMatch = Struct.new(
-  :data_uzyskania,
+  :datauzyskania,
   :id,
   :kategoria,
   :wojewodztwo,
@@ -102,25 +102,65 @@ PermissionListMatch = Struct.new(
 
 # Statistic entity data model.
 #
-# @!attribute [rw] data
+# @!attribute [rw] liczbapojazdow
+#   @return [Integer, nil]
+#
+# @!attribute [rw] liczbaprawjazdy
+#   @return [Integer, nil]
+#
+# @!attribute [rw] wgkategorii
 #   @return [Hash, nil]
+#
+# @!attribute [rw] wgmarki
+#   @return [Hash, nil]
+#
+# @!attribute [rw] wgrodzaju
+#   @return [Hash, nil]
+#
+# @!attribute [rw] wojewodztwo
+#   @return [String, nil]
 Statistic = Struct.new(
-  :data,
+  :liczbapojazdow,
+  :liczbaprawjazdy,
+  :wgkategorii,
+  :wgmarki,
+  :wgrodzaju,
+  :wojewodztwo,
   keyword_init: true
 )
 
 # Request payload for Statistic#load.
 #
-# @!attribute [rw] data
+# @!attribute [rw] liczbapojazdow
+#   @return [Integer, nil]
+#
+# @!attribute [rw] liczbaprawjazdy
+#   @return [Integer, nil]
+#
+# @!attribute [rw] wgkategorii
 #   @return [Hash, nil]
+#
+# @!attribute [rw] wgmarki
+#   @return [Hash, nil]
+#
+# @!attribute [rw] wgrodzaju
+#   @return [Hash, nil]
+#
+# @!attribute [rw] wojewodztwo
+#   @return [String, nil]
 StatisticLoadMatch = Struct.new(
-  :data,
+  :liczbapojazdow,
+  :liczbaprawjazdy,
+  :wgkategorii,
+  :wgmarki,
+  :wgrodzaju,
+  :wojewodztwo,
   keyword_init: true
 )
 
 # Vehicle entity data model.
 #
-# @!attribute [rw] data_pierwszej_rejestracji
+# @!attribute [rw] datapierwszejrejestracji
 #   @return [String, nil]
 #
 # @!attribute [rw] id
@@ -129,7 +169,7 @@ StatisticLoadMatch = Struct.new(
 # @!attribute [rw] marka
 #   @return [String, nil]
 #
-# @!attribute [rw] masa_wlasna
+# @!attribute [rw] masawlasna
 #   @return [Integer, nil]
 #
 # @!attribute [rw] model
@@ -138,34 +178,34 @@ StatisticLoadMatch = Struct.new(
 # @!attribute [rw] podrodzaj
 #   @return [String, nil]
 #
-# @!attribute [rw] pojemnosc_silnika
+# @!attribute [rw] pojemnoscsilnika
 #   @return [Integer, nil]
 #
 # @!attribute [rw] rodzaj
 #   @return [String, nil]
 #
-# @!attribute [rw] rok_produkcji
+# @!attribute [rw] rokprodukcji
 #   @return [Integer, nil]
 #
 # @!attribute [rw] wojewodztwo
 #   @return [String, nil]
 Vehicle = Struct.new(
-  :data_pierwszej_rejestracji,
+  :datapierwszejrejestracji,
   :id,
   :marka,
-  :masa_wlasna,
+  :masawlasna,
   :model,
   :podrodzaj,
-  :pojemnosc_silnika,
+  :pojemnoscsilnika,
   :rodzaj,
-  :rok_produkcji,
+  :rokprodukcji,
   :wojewodztwo,
   keyword_init: true
 )
 
 # Request payload for Vehicle#list.
 #
-# @!attribute [rw] data_pierwszej_rejestracji
+# @!attribute [rw] datapierwszejrejestracji
 #   @return [String, nil]
 #
 # @!attribute [rw] id
@@ -174,7 +214,7 @@ Vehicle = Struct.new(
 # @!attribute [rw] marka
 #   @return [String, nil]
 #
-# @!attribute [rw] masa_wlasna
+# @!attribute [rw] masawlasna
 #   @return [Integer, nil]
 #
 # @!attribute [rw] model
@@ -183,27 +223,27 @@ Vehicle = Struct.new(
 # @!attribute [rw] podrodzaj
 #   @return [String, nil]
 #
-# @!attribute [rw] pojemnosc_silnika
+# @!attribute [rw] pojemnoscsilnika
 #   @return [Integer, nil]
 #
 # @!attribute [rw] rodzaj
 #   @return [String, nil]
 #
-# @!attribute [rw] rok_produkcji
+# @!attribute [rw] rokprodukcji
 #   @return [Integer, nil]
 #
 # @!attribute [rw] wojewodztwo
 #   @return [String, nil]
 VehicleListMatch = Struct.new(
-  :data_pierwszej_rejestracji,
+  :datapierwszejrejestracji,
   :id,
   :marka,
-  :masa_wlasna,
+  :masawlasna,
   :model,
   :podrodzaj,
-  :pojemnosc_silnika,
+  :pojemnoscsilnika,
   :rodzaj,
-  :rok_produkcji,
+  :rokprodukcji,
   :wojewodztwo,
   keyword_init: true
 )

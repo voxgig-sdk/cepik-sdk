@@ -2,39 +2,39 @@
   "existing": {
     "vehicle": {
       "VEHICLE00": {
-        "data_pierwszej_rejestracji": "s64",
+        "datapierwszejrejestracji": "s64",
         "id": "VEHICLE00",
         "marka": "s66",
-        "masa_wlasna": "s67",
+        "masawlasna": "s67",
         "model": "s68",
         "podrodzaj": "s69",
-        "pojemnosc_silnika": "s6a",
+        "pojemnoscsilnika": "s6a",
         "rodzaj": "s6b",
-        "rok_produkcji": "s6c",
+        "rokprodukcji": "s6c",
         "wojewodztwo": "s6d"
       },
       "VEHICLE01": {
-        "data_pierwszej_rejestracji": "sc8",
+        "datapierwszejrejestracji": "sc8",
         "id": "VEHICLE01",
         "marka": "sca",
-        "masa_wlasna": "scb",
+        "masawlasna": "scb",
         "model": "scc",
         "podrodzaj": "scd",
-        "pojemnosc_silnika": "sce",
+        "pojemnoscsilnika": "sce",
         "rodzaj": "scf",
-        "rok_produkcji": "sd0",
+        "rokprodukcji": "sd0",
         "wojewodztwo": "sd1"
       },
       "VEHICLE02": {
-        "data_pierwszej_rejestracji": "s12c",
+        "datapierwszejrejestracji": "s12c",
         "id": "VEHICLE02",
         "marka": "s12e",
-        "masa_wlasna": "s12f",
+        "masawlasna": "s12f",
         "model": "s130",
         "podrodzaj": "s131",
-        "pojemnosc_silnika": "s132",
+        "pojemnoscsilnika": "s132",
         "rodzaj": "s133",
-        "rok_produkcji": "s134",
+        "rokprodukcji": "s134",
         "wojewodztwo": "s135"
       }
     }
@@ -42,14 +42,14 @@
   "new": {
     "vehicle": {
       "vehicle_ref01": {
-        "data_pierwszej_rejestracji": "s190",
+        "datapierwszejrejestracji": "s190",
         "marka": "s192",
-        "masa_wlasna": "s193",
+        "masawlasna": "s193",
         "model": "s194",
         "podrodzaj": "s195",
-        "pojemnosc_silnika": "s196",
+        "pojemnoscsilnika": "s196",
         "rodzaj": "s197",
-        "rok_produkcji": "s198",
+        "rokprodukcji": "s198",
         "wojewodztwo": "s199"
       }
     }

@@ -37,7 +37,7 @@ begin
   # list returns an Array of DrivingLicense records — iterate directly.
   drivinglicenses = client.DrivingLicense.list
   drivinglicenses.each do |item|
-    puts "#{item["id"]} #{item["data_waznosci"]}"
+    puts "#{item["id"]} #{item["datawaznosci"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -51,9 +51,9 @@ Entity operations raise on failure, so rescue them:
 
 ```ruby
 begin
-  drivinglicenses = client.DrivingLicense.list()
+  statistic = client.Statistic.load()
 rescue => err
-  warn "list failed: #{err}"
+  warn "load failed: #{err}"
 end
 ```
 
@@ -119,9 +119,10 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = CepikSDK.test
 
-# Entity ops return the bare mock record (raises on error).
-drivinglicense = client.DrivingLicense.list()
-puts drivinglicense
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
+statistic = client.Statistic.load()
+puts statistic
 ```
 
 ### Use a custom fetch function
@@ -240,8 +241,8 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `data_waznosci` |  |
-| `data_wydania` |  |
+| `datawaznosci` |  |
+| `datawydania` |  |
 | `id` |  |
 | `kategoria` |  |
 | `wojewodztwo` |  |
@@ -254,7 +255,7 @@ API path: `/prawo-jazdy`
 
 | Field | Description |
 | --- | --- |
-| `data_uzyskania` |  |
+| `datauzyskania` |  |
 | `id` |  |
 | `kategoria` |  |
 | `wojewodztwo` |  |
@@ -267,7 +268,12 @@ API path: `/uprawnienia`
 
 | Field | Description |
 | --- | --- |
-| `data` |  |
+| `liczbapojazdow` |  |
+| `liczbaprawjazdy` |  |
+| `wgkategorii` |  |
+| `wgmarki` |  |
+| `wgrodzaju` |  |
+| `wojewodztwo` |  |
 
 Operations: Load.
 
@@ -277,15 +283,15 @@ API path: `/statystyki/pojazdy`
 
 | Field | Description |
 | --- | --- |
-| `data_pierwszej_rejestracji` |  |
+| `datapierwszejrejestracji` |  |
 | `id` |  |
 | `marka` |  |
-| `masa_wlasna` |  |
+| `masawlasna` |  |
 | `model` |  |
 | `podrodzaj` |  |
-| `pojemnosc_silnika` |  |
+| `pojemnoscsilnika` |  |
 | `rodzaj` |  |
-| `rok_produkcji` |  |
+| `rokprodukcji` |  |
 | `wojewodztwo` |  |
 
 Operations: List.
@@ -311,8 +317,8 @@ Create an instance: `driving_license = client.DrivingLicense`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data_waznosci` | `String` |  |
-| `data_wydania` | `String` |  |
+| `datawaznosci` | `String` |  |
+| `datawydania` | `String` |  |
 | `id` | `String` |  |
 | `kategoria` | `String` |  |
 | `wojewodztwo` | `String` |  |
@@ -339,7 +345,7 @@ Create an instance: `permission = client.Permission`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data_uzyskania` | `String` |  |
+| `datauzyskania` | `String` |  |
 | `id` | `String` |  |
 | `kategoria` | `String` |  |
 | `wojewodztwo` | `String` |  |
@@ -366,12 +372,17 @@ Create an instance: `statistic = client.Statistic`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | `Hash` |  |
+| `liczbapojazdow` | `Integer` |  |
+| `liczbaprawjazdy` | `Integer` |  |
+| `wgkategorii` | `Hash` |  |
+| `wgmarki` | `Hash` |  |
+| `wgrodzaju` | `Hash` |  |
+| `wojewodztwo` | `String` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare Statistic record (raises on error).
+# load returns the ENTITY — call data_get for the Statistic record (raises on error).
 statistic = client.Statistic.load()
 ```
 
@@ -390,15 +401,15 @@ Create an instance: `vehicle = client.Vehicle`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data_pierwszej_rejestracji` | `String` |  |
+| `datapierwszejrejestracji` | `String` |  |
 | `id` | `String` |  |
 | `marka` | `String` |  |
-| `masa_wlasna` | `Integer` |  |
+| `masawlasna` | `Integer` |  |
 | `model` | `String` |  |
 | `podrodzaj` | `String` |  |
-| `pojemnosc_silnika` | `Integer` |  |
+| `pojemnoscsilnika` | `Integer` |  |
 | `rodzaj` | `String` |  |
-| `rok_produkcji` | `Integer` |  |
+| `rokprodukcji` | `Integer` |  |
 | `wojewodztwo` | `String` |  |
 
 #### Example: List
@@ -481,15 +492,15 @@ when needed.
 
 ### Entity state
 
-Entity instances are stateful. After a successful `list`, the entity
+Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-drivinglicense = client.DrivingLicense
-drivinglicense.list()
+statistic = client.Statistic
+statistic.load()
 
-# drivinglicense.data_get now returns the drivinglicense data from the last list
-# drivinglicense.match_get returns the last match criteria
+# statistic.data_get now returns the statistic data from the last load
+# statistic.match_get returns the last match criteria
 ```
 
 Call `make` to create a fresh instance with the same configuration

@@ -6,7 +6,7 @@ main: kit: entity: vehicle: {
 
   fields: [
     {
-      name: "data_pierwszej_rejestracji"
+      name: "datapierwszejrejestracji"
       req: false
       type: "`$STRING`"
     }
@@ -21,7 +21,7 @@ main: kit: entity: vehicle: {
       type: "`$STRING`"
     }
     {
-      name: "masa_wlasna"
+      name: "masawlasna"
       req: false
       type: "`$INTEGER`"
     }
@@ -36,7 +36,7 @@ main: kit: entity: vehicle: {
       type: "`$STRING`"
     }
     {
-      name: "pojemnosc_silnika"
+      name: "pojemnoscsilnika"
       req: false
       type: "`$INTEGER`"
     }
@@ -46,7 +46,7 @@ main: kit: entity: vehicle: {
       type: "`$STRING`"
     }
     {
-      name: "rok_produkcji"
+      name: "rokprodukcji"
       req: false
       type: "`$INTEGER`"
     }

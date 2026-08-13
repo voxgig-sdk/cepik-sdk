@@ -43,7 +43,7 @@ local drivinglicenses, err = client:DrivingLicense():list()
 if err then error(err) end
 
 for _, item in ipairs(drivinglicenses) do
-  print(item["id"], item["data_waznosci"])
+  print(item["id"], item["datawaznosci"])
 end
 ```
 
@@ -54,7 +54,7 @@ Entity operations return `(value, err)`. Check `err` before using
 the value:
 
 ```lua
-local drivinglicenses, err = client:DrivingLicense():list()
+local statistic, err = client:Statistic():load()
 if err then error(err) end
 ```
 
@@ -112,7 +112,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:DrivingLicense():list()
+local result, err = client:Statistic():load()
 -- result is the returned data; err is set on failure
 ```
 
@@ -223,9 +223,9 @@ data **directly** — there is no wrapper:
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
 
-    local driving_license, err = client:DrivingLicense():load()
+    local statistic, err = client:Statistic():load()
     if err then error(err) end
-    -- driving_license is the loaded record
+    -- statistic is the loaded record
 
 Only `direct()` returns a response envelope — a `table` with `ok`,
 `status`, `headers`, and `data` keys.
@@ -236,8 +236,8 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `data_waznosci` |  |
-| `data_wydania` |  |
+| `datawaznosci` |  |
+| `datawydania` |  |
 | `id` |  |
 | `kategoria` |  |
 | `wojewodztwo` |  |
@@ -250,7 +250,7 @@ API path: `/prawo-jazdy`
 
 | Field | Description |
 | --- | --- |
-| `data_uzyskania` |  |
+| `datauzyskania` |  |
 | `id` |  |
 | `kategoria` |  |
 | `wojewodztwo` |  |
@@ -263,7 +263,12 @@ API path: `/uprawnienia`
 
 | Field | Description |
 | --- | --- |
-| `data` |  |
+| `liczbapojazdow` |  |
+| `liczbaprawjazdy` |  |
+| `wgkategorii` |  |
+| `wgmarki` |  |
+| `wgrodzaju` |  |
+| `wojewodztwo` |  |
 
 Operations: Load.
 
@@ -273,15 +278,15 @@ API path: `/statystyki/pojazdy`
 
 | Field | Description |
 | --- | --- |
-| `data_pierwszej_rejestracji` |  |
+| `datapierwszejrejestracji` |  |
 | `id` |  |
 | `marka` |  |
-| `masa_wlasna` |  |
+| `masawlasna` |  |
 | `model` |  |
 | `podrodzaj` |  |
-| `pojemnosc_silnika` |  |
+| `pojemnoscsilnika` |  |
 | `rodzaj` |  |
-| `rok_produkcji` |  |
+| `rokprodukcji` |  |
 | `wojewodztwo` |  |
 
 Operations: List.
@@ -307,8 +312,8 @@ Create an instance: `local driving_license = client:DrivingLicense(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data_waznosci` | `string` |  |
-| `data_wydania` | `string` |  |
+| `datawaznosci` | `string` |  |
+| `datawydania` | `string` |  |
 | `id` | `string` |  |
 | `kategoria` | `string` |  |
 | `wojewodztwo` | `string` |  |
@@ -334,7 +339,7 @@ Create an instance: `local permission = client:Permission(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data_uzyskania` | `string` |  |
+| `datauzyskania` | `string` |  |
 | `id` | `string` |  |
 | `kategoria` | `string` |  |
 | `wojewodztwo` | `string` |  |
@@ -360,7 +365,12 @@ Create an instance: `local statistic = client:Statistic(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | `table` |  |
+| `liczbapojazdow` | `number` |  |
+| `liczbaprawjazdy` | `number` |  |
+| `wgkategorii` | `table` |  |
+| `wgmarki` | `table` |  |
+| `wgrodzaju` | `table` |  |
+| `wojewodztwo` | `string` |  |
 
 #### Example: Load
 
@@ -383,15 +393,15 @@ Create an instance: `local vehicle = client:Vehicle(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data_pierwszej_rejestracji` | `string` |  |
+| `datapierwszejrejestracji` | `string` |  |
 | `id` | `string` |  |
 | `marka` | `string` |  |
-| `masa_wlasna` | `number` |  |
+| `masawlasna` | `number` |  |
 | `model` | `string` |  |
 | `podrodzaj` | `string` |  |
-| `pojemnosc_silnika` | `number` |  |
+| `pojemnoscsilnika` | `number` |  |
 | `rodzaj` | `string` |  |
-| `rok_produkcji` | `number` |  |
+| `rokprodukcji` | `number` |  |
 | `wojewodztwo` | `string` |  |
 
 #### Example: List
@@ -473,15 +483,15 @@ when needed.
 
 ### Entity state
 
-Entity instances are stateful. After a successful `list`, the entity
+Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local drivinglicense = client:DrivingLicense()
-drivinglicense:list()
+local statistic = client:Statistic()
+statistic:load()
 
--- drivinglicense:data_get() now returns the drivinglicense data from the last list
--- drivinglicense:match_get() returns the last match criteria
+-- statistic:data_get() now returns the statistic data from the last load
+-- statistic:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

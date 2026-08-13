@@ -63,7 +63,7 @@ describe('DrivingLicenseEntity', async () => {
     const driving_license_ref01_ent = client.DrivingLicense()
     const driving_license_ref01_match: any = {}
 
-    const driving_license_ref01_list = await driving_license_ref01_ent.list(driving_license_ref01_match)
+    const driving_license_ref01_list = (await driving_license_ref01_ent.list(driving_license_ref01_match)).map((e: any) => e.data())
 
 
   })

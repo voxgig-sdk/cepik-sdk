@@ -37,7 +37,7 @@ class PermissionEntity extends CepikEntityBase<Permission> {
 
 
 
-  async list(this: any, reqmatch?: PermissionListMatch, ctrl?: Control): Promise<Permission[]> {
+  async list(this: any, reqmatch?: PermissionListMatch, ctrl?: Control): Promise<PermissionEntity[]> {
 
     const utility = this._utility
 

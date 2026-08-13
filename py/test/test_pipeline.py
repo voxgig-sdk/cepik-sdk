@@ -16,11 +16,11 @@
 import pytest
 
 from cepik_sdk import CepikSDK
-from core.error import CepikError
-from core.result import CepikResult
-from core.response import CepikResponse
-from core.spec import CepikSpec
-from feature.base_feature import CepikBaseFeature
+from cepik_sdk.core.error import CepikError
+from cepik_sdk.core.result import CepikResult
+from cepik_sdk.core.response import CepikResponse
+from cepik_sdk.core.spec import CepikSpec
+from cepik_sdk.feature.base_feature import CepikBaseFeature
 
 
 def _client():

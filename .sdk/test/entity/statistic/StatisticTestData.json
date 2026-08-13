@@ -2,15 +2,30 @@
   "existing": {
     "statistic": {
       "STATISTIC00": {
-        "data": {},
+        "liczbapojazdow": "s3c",
+        "liczbaprawjazdy": "s3d",
+        "wgkategorii": {},
+        "wgmarki": {},
+        "wgrodzaju": {},
+        "wojewodztwo": "s41",
         "id": "STATISTIC00"
       },
       "STATISTIC01": {
-        "data": {},
+        "liczbapojazdow": "s78",
+        "liczbaprawjazdy": "s79",
+        "wgkategorii": {},
+        "wgmarki": {},
+        "wgrodzaju": {},
+        "wojewodztwo": "s7d",
         "id": "STATISTIC01"
       },
       "STATISTIC02": {
-        "data": {},
+        "liczbapojazdow": "sb4",
+        "liczbaprawjazdy": "sb5",
+        "wgkategorii": {},
+        "wgmarki": {},
+        "wgrodzaju": {},
+        "wojewodztwo": "sb9",
         "id": "STATISTIC02"
       }
     }
@@ -18,7 +33,12 @@
   "new": {
     "statistic": {
       "statistic_ref01": {
-        "data": {}
+        "liczbapojazdow": "sf0",
+        "liczbaprawjazdy": "sf1",
+        "wgkategorii": {},
+        "wgmarki": {},
+        "wgrodzaju": {},
+        "wojewodztwo": "sf5"
       }
     }
   }

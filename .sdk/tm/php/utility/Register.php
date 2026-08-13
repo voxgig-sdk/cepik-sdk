@@ -23,6 +23,7 @@ require_once __DIR__ . '/MakeUrl.php';
 require_once __DIR__ . '/Param.php';
 require_once __DIR__ . '/PrepareAuth.php';
 require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
 require_once __DIR__ . '/PrepareHeaders.php';
 require_once __DIR__ . '/PrepareMethod.php';
 require_once __DIR__ . '/PrepareParams.php';
@@ -59,6 +60,8 @@ CepikUtility::setRegistrar(function (CepikUtility $u): void {
     $u->prepare_params = [CepikPrepareParams::class, 'call'];
     $u->prepare_path = [CepikPreparePath::class, 'call'];
     $u->prepare_query = [CepikPrepareQuery::class, 'call'];
+    $u->graphql_body = [CepikGraphql::class, 'body'];
+    $u->graphql_errors = [CepikGraphql::class, 'errors'];
     $u->result_basic = [CepikResultBasic::class, 'call'];
     $u->result_body = [CepikResultBody::class, 'call'];
     $u->result_headers = [CepikResultHeaders::class, 'call'];

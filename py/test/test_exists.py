@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# Cepik SDK exists test
 
 import pytest
 from cepik_sdk import CepikSDK

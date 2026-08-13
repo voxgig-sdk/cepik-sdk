@@ -63,7 +63,7 @@ describe('VehicleEntity', async () => {
     const vehicle_ref01_ent = client.Vehicle()
     const vehicle_ref01_match: any = {}
 
-    const vehicle_ref01_list = await vehicle_ref01_ent.list(vehicle_ref01_match)
+    const vehicle_ref01_list = (await vehicle_ref01_ent.list(vehicle_ref01_match)).map((e: any) => e.data())
 
 
   })

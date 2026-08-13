@@ -37,7 +37,7 @@ class VehicleEntity extends CepikEntityBase<Vehicle> {
 
 
 
-  async list(this: any, reqmatch?: VehicleListMatch, ctrl?: Control): Promise<Vehicle[]> {
+  async list(this: any, reqmatch?: VehicleListMatch, ctrl?: Control): Promise<VehicleEntity[]> {
 
     const utility = this._utility
 

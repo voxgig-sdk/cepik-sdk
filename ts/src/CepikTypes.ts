@@ -6,66 +6,76 @@
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 
 export interface DrivingLicense {
-  data_waznosci?: string
-  data_wydania?: string
+  datawaznosci?: string
+  datawydania?: string
   id?: string
   kategoria?: string
   wojewodztwo?: string
 }
 
 export interface DrivingLicenseListMatch {
-  data_waznosci?: string
-  data_wydania?: string
+  datawaznosci?: string
+  datawydania?: string
   id?: string
   kategoria?: string
   wojewodztwo?: string
 }
 
 export interface Permission {
-  data_uzyskania?: string
+  datauzyskania?: string
   id?: string
   kategoria?: string
   wojewodztwo?: string
 }
 
 export interface PermissionListMatch {
-  data_uzyskania?: string
+  datauzyskania?: string
   id?: string
   kategoria?: string
   wojewodztwo?: string
 }
 
 export interface Statistic {
-  data?: Record<string, any>
+  liczbapojazdow?: number
+  liczbaprawjazdy?: number
+  wgkategorii?: Record<string, any>
+  wgmarki?: Record<string, any>
+  wgrodzaju?: Record<string, any>
+  wojewodztwo?: string
 }
 
 export interface StatisticLoadMatch {
-  data?: Record<string, any>
+  liczbapojazdow?: number
+  liczbaprawjazdy?: number
+  wgkategorii?: Record<string, any>
+  wgmarki?: Record<string, any>
+  wgrodzaju?: Record<string, any>
+  wojewodztwo?: string
 }
 
 export interface Vehicle {
-  data_pierwszej_rejestracji?: string
+  datapierwszejrejestracji?: string
   id?: string
   marka?: string
-  masa_wlasna?: number
+  masawlasna?: number
   model?: string
   podrodzaj?: string
-  pojemnosc_silnika?: number
+  pojemnoscsilnika?: number
   rodzaj?: string
-  rok_produkcji?: number
+  rokprodukcji?: number
   wojewodztwo?: string
 }
 
 export interface VehicleListMatch {
-  data_pierwszej_rejestracji?: string
+  datapierwszejrejestracji?: string
   id?: string
   marka?: string
-  masa_wlasna?: number
+  masawlasna?: number
   model?: string
   podrodzaj?: string
-  pojemnosc_silnika?: number
+  pojemnoscsilnika?: number
   rodzaj?: string
-  rok_produkcji?: number
+  rokprodukcji?: number
   wojewodztwo?: string
 }
 

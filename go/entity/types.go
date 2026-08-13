@@ -6,12 +6,16 @@
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
 
-import "encoding/json"
+import (
+	"encoding/json"
+
+	"github.com/voxgig-sdk/cepik-sdk/go/core"
+)
 
 // DrivingLicense is the typed data model for the driving_license entity.
 type DrivingLicense struct {
-	DataWaznosci *string `json:"data_waznosci,omitempty"`
-	DataWydania *string `json:"data_wydania,omitempty"`
+	Datawaznosci *string `json:"datawaznosci,omitempty"`
+	Datawydania *string `json:"datawydania,omitempty"`
 	Id *string `json:"id,omitempty"`
 	Kategoria *string `json:"kategoria,omitempty"`
 	Wojewodztwo *string `json:"wojewodztwo,omitempty"`
@@ -19,8 +23,8 @@ type DrivingLicense struct {
 
 // DrivingLicenseListMatch is the typed request payload for DrivingLicense.ListTyped.
 type DrivingLicenseListMatch struct {
-	DataWaznosci *string `json:"data_waznosci,omitempty"`
-	DataWydania *string `json:"data_wydania,omitempty"`
+	Datawaznosci *string `json:"datawaznosci,omitempty"`
+	Datawydania *string `json:"datawydania,omitempty"`
 	Id *string `json:"id,omitempty"`
 	Kategoria *string `json:"kategoria,omitempty"`
 	Wojewodztwo *string `json:"wojewodztwo,omitempty"`
@@ -28,7 +32,7 @@ type DrivingLicenseListMatch struct {
 
 // Permission is the typed data model for the permission entity.
 type Permission struct {
-	DataUzyskania *string `json:"data_uzyskania,omitempty"`
+	Datauzyskania *string `json:"datauzyskania,omitempty"`
 	Id *string `json:"id,omitempty"`
 	Kategoria *string `json:"kategoria,omitempty"`
 	Wojewodztwo *string `json:"wojewodztwo,omitempty"`
@@ -36,7 +40,7 @@ type Permission struct {
 
 // PermissionListMatch is the typed request payload for Permission.ListTyped.
 type PermissionListMatch struct {
-	DataUzyskania *string `json:"data_uzyskania,omitempty"`
+	Datauzyskania *string `json:"datauzyskania,omitempty"`
 	Id *string `json:"id,omitempty"`
 	Kategoria *string `json:"kategoria,omitempty"`
 	Wojewodztwo *string `json:"wojewodztwo,omitempty"`
@@ -44,39 +48,49 @@ type PermissionListMatch struct {
 
 // Statistic is the typed data model for the statistic entity.
 type Statistic struct {
-	Data *map[string]any `json:"data,omitempty"`
+	Liczbapojazdow *int `json:"liczbapojazdow,omitempty"`
+	Liczbaprawjazdy *int `json:"liczbaprawjazdy,omitempty"`
+	Wgkategorii *map[string]any `json:"wgkategorii,omitempty"`
+	Wgmarki *map[string]any `json:"wgmarki,omitempty"`
+	Wgrodzaju *map[string]any `json:"wgrodzaju,omitempty"`
+	Wojewodztwo *string `json:"wojewodztwo,omitempty"`
 }
 
 // StatisticLoadMatch is the typed request payload for Statistic.LoadTyped.
 type StatisticLoadMatch struct {
-	Data *map[string]any `json:"data,omitempty"`
+	Liczbapojazdow *int `json:"liczbapojazdow,omitempty"`
+	Liczbaprawjazdy *int `json:"liczbaprawjazdy,omitempty"`
+	Wgkategorii *map[string]any `json:"wgkategorii,omitempty"`
+	Wgmarki *map[string]any `json:"wgmarki,omitempty"`
+	Wgrodzaju *map[string]any `json:"wgrodzaju,omitempty"`
+	Wojewodztwo *string `json:"wojewodztwo,omitempty"`
 }
 
 // Vehicle is the typed data model for the vehicle entity.
 type Vehicle struct {
-	DataPierwszejRejestracji *string `json:"data_pierwszej_rejestracji,omitempty"`
+	Datapierwszejrejestracji *string `json:"datapierwszejrejestracji,omitempty"`
 	Id *string `json:"id,omitempty"`
 	Marka *string `json:"marka,omitempty"`
-	MasaWlasna *int `json:"masa_wlasna,omitempty"`
+	Masawlasna *int `json:"masawlasna,omitempty"`
 	Model *string `json:"model,omitempty"`
 	Podrodzaj *string `json:"podrodzaj,omitempty"`
-	PojemnoscSilnika *int `json:"pojemnosc_silnika,omitempty"`
+	Pojemnoscsilnika *int `json:"pojemnoscsilnika,omitempty"`
 	Rodzaj *string `json:"rodzaj,omitempty"`
-	RokProdukcji *int `json:"rok_produkcji,omitempty"`
+	Rokprodukcji *int `json:"rokprodukcji,omitempty"`
 	Wojewodztwo *string `json:"wojewodztwo,omitempty"`
 }
 
 // VehicleListMatch is the typed request payload for Vehicle.ListTyped.
 type VehicleListMatch struct {
-	DataPierwszejRejestracji *string `json:"data_pierwszej_rejestracji,omitempty"`
+	Datapierwszejrejestracji *string `json:"datapierwszejrejestracji,omitempty"`
 	Id *string `json:"id,omitempty"`
 	Marka *string `json:"marka,omitempty"`
-	MasaWlasna *int `json:"masa_wlasna,omitempty"`
+	Masawlasna *int `json:"masawlasna,omitempty"`
 	Model *string `json:"model,omitempty"`
 	Podrodzaj *string `json:"podrodzaj,omitempty"`
-	PojemnoscSilnika *int `json:"pojemnosc_silnika,omitempty"`
+	Pojemnoscsilnika *int `json:"pojemnoscsilnika,omitempty"`
 	Rodzaj *string `json:"rodzaj,omitempty"`
-	RokProdukcji *int `json:"rok_produkcji,omitempty"`
+	Rokprodukcji *int `json:"rokprodukcji,omitempty"`
 	Wojewodztwo *string `json:"wojewodztwo,omitempty"`
 }
 
@@ -92,12 +106,26 @@ func asMap(v any) map[string]any {
 	return out
 }
 
-// typedFrom decodes a runtime value (a map[string]any produced by the op
-// pipeline) into a typed model T via a JSON round-trip. On any error it
-// returns the zero value of T; the op's own (value, error) tuple carries the
-// real error.
+// entityData unwraps an entity to its data map.
+//
+// Operations resolve to the ENTITY, not the raw data (see AGENTS.md), and an
+// entity's fields are UNEXPORTED — marshalling one directly yields `{}`, so
+// every typed accessor would silently hand back a zero-valued struct. The
+// typed boundary therefore takes the data hop first.
+func entityData(v any) any {
+	if ent, ok := v.(core.Entity); ok {
+		return ent.Data()
+	}
+	return v
+}
+
+// typedFrom decodes a runtime value (an entity, or the map[string]any the op
+// pipeline produced) into a typed model T via a JSON round-trip. On any error
+// it returns the zero value of T; the op's own (value, error) tuple carries
+// the real error.
 func typedFrom[T any](v any) T {
 	var out T
+	v = entityData(v)
 	if v == nil {
 		return out
 	}
@@ -109,12 +137,20 @@ func typedFrom[T any](v any) T {
 	return out
 }
 
-// typedSliceFrom decodes a runtime list value ([]any of maps) into a typed
-// slice []T via a JSON round-trip, for list ops.
+// typedSliceFrom decodes a runtime list value into a typed slice []T via a
+// JSON round-trip, for list ops. `list` resolves to a slice of ENTITY
+// instances, so each element takes the data hop.
 func typedSliceFrom[T any](v any) []T {
 	var out []T
 	if v == nil {
 		return out
+	}
+	if list, ok := v.([]any); ok {
+		unwrapped := make([]any, 0, len(list))
+		for _, item := range list {
+			unwrapped = append(unwrapped, entityData(item))
+		}
+		v = unwrapped
 	}
 	b, err := json.Marshal(v)
 	if err != nil {

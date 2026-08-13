@@ -105,8 +105,8 @@ driving_license = client.DrivingLicense
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data_waznosci` | `String` | No |  |
-| `data_wydania` | `String` | No |  |
+| `datawaznosci` | `String` | No |  |
+| `datawydania` | `String` | No |  |
 | `id` | `String` | No |  |
 | `kategoria` | `String` | No |  |
 | `wojewodztwo` | `String` | No |  |
@@ -161,7 +161,7 @@ permission = client.Permission
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data_uzyskania` | `String` | No |  |
+| `datauzyskania` | `String` | No |  |
 | `id` | `String` | No |  |
 | `kategoria` | `String` | No |  |
 | `wojewodztwo` | `String` | No |  |
@@ -216,7 +216,12 @@ statistic = client.Statistic
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | `Hash` | No |  |
+| `liczbapojazdow` | `Integer` | No |  |
+| `liczbaprawjazdy` | `Integer` | No |  |
+| `wgkategorii` | `Hash` | No |  |
+| `wgmarki` | `Hash` | No |  |
+| `wgrodzaju` | `Hash` | No |  |
+| `wojewodztwo` | `String` | No |  |
 
 ### Operations
 
@@ -268,15 +273,15 @@ vehicle = client.Vehicle
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data_pierwszej_rejestracji` | `String` | No |  |
+| `datapierwszejrejestracji` | `String` | No |  |
 | `id` | `String` | No |  |
 | `marka` | `String` | No |  |
-| `masa_wlasna` | `Integer` | No |  |
+| `masawlasna` | `Integer` | No |  |
 | `model` | `String` | No |  |
 | `podrodzaj` | `String` | No |  |
-| `pojemnosc_silnika` | `Integer` | No |  |
+| `pojemnoscsilnika` | `Integer` | No |  |
 | `rodzaj` | `String` | No |  |
-| `rok_produkcji` | `Integer` | No |  |
+| `rokprodukcji` | `Integer` | No |  |
 | `wojewodztwo` | `String` | No |  |
 
 ### Operations

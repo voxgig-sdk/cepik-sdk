@@ -29,14 +29,14 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"active": true,
-						"name": "data_waznosci",
+						"name": "datawaznosci",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 0,
 					},
 					map[string]any{
 						"active": true,
-						"name": "data_wydania",
+						"name": "datawydania",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 1,
@@ -117,6 +117,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/prawo-jazdy",
 								"parts": []any{
@@ -138,7 +139,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 				},
 				"relations": map[string]any{
@@ -149,7 +149,7 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"active": true,
-						"name": "data_uzyskania",
+						"name": "datauzyskania",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 0,
@@ -230,6 +230,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/uprawnienia",
 								"parts": []any{
@@ -251,7 +252,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 				},
 				"relations": map[string]any{
@@ -262,10 +262,45 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"active": true,
-						"name": "data",
+						"name": "liczbapojazdow",
+						"req": false,
+						"type": "`$INTEGER`",
+						"index$": 0,
+					},
+					map[string]any{
+						"active": true,
+						"name": "liczbaprawjazdy",
+						"req": false,
+						"type": "`$INTEGER`",
+						"index$": 1,
+					},
+					map[string]any{
+						"active": true,
+						"name": "wgkategorii",
 						"req": false,
 						"type": "`$OBJECT`",
-						"index$": 0,
+						"index$": 2,
+					},
+					map[string]any{
+						"active": true,
+						"name": "wgmarki",
+						"req": false,
+						"type": "`$OBJECT`",
+						"index$": 3,
+					},
+					map[string]any{
+						"active": true,
+						"name": "wgrodzaju",
+						"req": false,
+						"type": "`$OBJECT`",
+						"index$": 4,
+					},
+					map[string]any{
+						"active": true,
+						"name": "wojewodztwo",
+						"req": false,
+						"type": "`$STRING`",
+						"index$": 5,
 					},
 				},
 				"name": "statistic",
@@ -296,6 +331,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/statystyki/pojazdy",
 								"parts": []any{
@@ -310,7 +346,7 @@ func MakeConfig() map[string]any {
 								},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.data`",
 								},
 								"index$": 0,
 							},
@@ -336,6 +372,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/statystyki/prawo-jazdy",
 								"parts": []any{
@@ -350,12 +387,11 @@ func MakeConfig() map[string]any {
 								},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.data`",
 								},
 								"index$": 1,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -366,7 +402,7 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"active": true,
-						"name": "data_pierwszej_rejestracji",
+						"name": "datapierwszejrejestracji",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 0,
@@ -387,7 +423,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "masa_wlasna",
+						"name": "masawlasna",
 						"req": false,
 						"type": "`$INTEGER`",
 						"index$": 3,
@@ -408,7 +444,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "pojemnosc_silnika",
+						"name": "pojemnoscsilnika",
 						"req": false,
 						"type": "`$INTEGER`",
 						"index$": 6,
@@ -422,7 +458,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "rok_produkcji",
+						"name": "rokprodukcji",
 						"req": false,
 						"type": "`$INTEGER`",
 						"index$": 8,
@@ -489,6 +525,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/pojazdy",
 								"parts": []any{
@@ -510,7 +547,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 				},
 				"relations": map[string]any{

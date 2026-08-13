@@ -35,7 +35,9 @@ const client = new CepikSDK()
 
 ### 2. List drivinglicense records
 
-`list()` resolves to an array of DrivingLicense objects — iterate it directly:
+`list()` resolves to an array of DrivingLicense ENTITIES — every operation
+resolves to entities, not raw records. Iterate them directly, and call
+`.data()` on one for the record it holds:
 
 ```ts
 const drivinglicenses = await client.DrivingLicense().list()
@@ -52,10 +54,10 @@ Entity operations reject on failure, so wrap them in `try` / `catch`:
 
 ```ts
 try {
-  const drivinglicenses = await client.DrivingLicense().list()
-  console.log(drivinglicenses)
+  const statistic = await client.Statistic().load()
+  console.log(statistic)
 } catch (err) {
-  console.error('list failed:', err)
+  console.error('load failed:', err)
 }
 ```
 
@@ -119,9 +121,10 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = CepikSDK.test()
 
-const drivinglicense = await client.DrivingLicense().list()
-// drivinglicense is a bare entity populated with mock response data
-console.log(drivinglicense)
+const statistic = await client.Statistic().load()
+// statistic is the entity, populated with mock response data
+// — call statistic.data() for the record itself
+console.log(statistic)
 ```
 
 You can also use the instance method:
@@ -136,14 +139,14 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.DrivingLicense()
+const entity = client.Statistic()
 
 // First call runs the operation and stores its result
-await entity.list()
+await entity.load()
 
 // Subsequent calls reuse the stored state
 const data = entity.data()
-console.log(data.id)
+console.log(data)
 ```
 
 ### Add custom middleware
@@ -289,8 +292,8 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `data_waznosci` |  |
-| `data_wydania` |  |
+| `datawaznosci` |  |
+| `datawydania` |  |
 | `id` |  |
 | `kategoria` |  |
 | `wojewodztwo` |  |
@@ -303,7 +306,7 @@ API path: `/prawo-jazdy`
 
 | Field | Description |
 | --- | --- |
-| `data_uzyskania` |  |
+| `datauzyskania` |  |
 | `id` |  |
 | `kategoria` |  |
 | `wojewodztwo` |  |
@@ -316,7 +319,12 @@ API path: `/uprawnienia`
 
 | Field | Description |
 | --- | --- |
-| `data` |  |
+| `liczbapojazdow` |  |
+| `liczbaprawjazdy` |  |
+| `wgkategorii` |  |
+| `wgmarki` |  |
+| `wgrodzaju` |  |
+| `wojewodztwo` |  |
 
 Operations: load.
 
@@ -326,15 +334,15 @@ API path: `/statystyki/pojazdy`
 
 | Field | Description |
 | --- | --- |
-| `data_pierwszej_rejestracji` |  |
+| `datapierwszejrejestracji` |  |
 | `id` |  |
 | `marka` |  |
-| `masa_wlasna` |  |
+| `masawlasna` |  |
 | `model` |  |
 | `podrodzaj` |  |
-| `pojemnosc_silnika` |  |
+| `pojemnoscsilnika` |  |
 | `rodzaj` |  |
-| `rok_produkcji` |  |
+| `rokprodukcji` |  |
 | `wojewodztwo` |  |
 
 Operations: list.
@@ -360,8 +368,8 @@ Create an instance: `const driving_license = client.DrivingLicense()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data_waznosci` | `string` |  |
-| `data_wydania` | `string` |  |
+| `datawaznosci` | `string` |  |
+| `datawydania` | `string` |  |
 | `id` | `string` |  |
 | `kategoria` | `string` |  |
 | `wojewodztwo` | `string` |  |
@@ -387,7 +395,7 @@ Create an instance: `const permission = client.Permission()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data_uzyskania` | `string` |  |
+| `datauzyskania` | `string` |  |
 | `id` | `string` |  |
 | `kategoria` | `string` |  |
 | `wojewodztwo` | `string` |  |
@@ -413,7 +421,12 @@ Create an instance: `const statistic = client.Statistic()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | `Record<string, any>` |  |
+| `liczbapojazdow` | `number` |  |
+| `liczbaprawjazdy` | `number` |  |
+| `wgkategorii` | `Record<string, any>` |  |
+| `wgmarki` | `Record<string, any>` |  |
+| `wgrodzaju` | `Record<string, any>` |  |
+| `wojewodztwo` | `string` |  |
 
 #### Example: Load
 
@@ -436,15 +449,15 @@ Create an instance: `const vehicle = client.Vehicle()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data_pierwszej_rejestracji` | `string` |  |
+| `datapierwszejrejestracji` | `string` |  |
 | `id` | `string` |  |
 | `marka` | `string` |  |
-| `masa_wlasna` | `number` |  |
+| `masawlasna` | `number` |  |
 | `model` | `string` |  |
 | `podrodzaj` | `string` |  |
-| `pojemnosc_silnika` | `number` |  |
+| `pojemnoscsilnika` | `number` |  |
 | `rodzaj` | `string` |  |
-| `rok_produkcji` | `number` |  |
+| `rokprodukcji` | `number` |  |
 | `wojewodztwo` | `string` |  |
 
 #### Example: List
@@ -518,16 +531,16 @@ import { CepikSDK } from '@voxgig-sdk/cepik'
 
 ### Entity state
 
-Entity instances are stateful. After a successful `list`, the entity
+Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const drivinglicense = client.DrivingLicense()
-await drivinglicense.list()
+const statistic = client.Statistic()
+await statistic.load()
 
-// drivinglicense.data() now returns the drivinglicense data from the last `list`
-// drivinglicense.match() returns the last match criteria
+// statistic.data() now returns the statistic data from the last `load`
+// statistic.match() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

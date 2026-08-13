@@ -15,8 +15,8 @@ declare(strict_types=1);
 /** DrivingLicense entity data model. */
 class DrivingLicense
 {
-    public ?string $data_waznosci = null;
-    public ?string $data_wydania = null;
+    public ?string $datawaznosci = null;
+    public ?string $datawydania = null;
     public ?string $id = null;
     public ?string $kategoria = null;
     public ?string $wojewodztwo = null;
@@ -25,8 +25,8 @@ class DrivingLicense
 /** Request payload for DrivingLicense#list. */
 class DrivingLicenseListMatch
 {
-    public ?string $data_waznosci = null;
-    public ?string $data_wydania = null;
+    public ?string $datawaznosci = null;
+    public ?string $datawydania = null;
     public ?string $id = null;
     public ?string $kategoria = null;
     public ?string $wojewodztwo = null;
@@ -35,7 +35,7 @@ class DrivingLicenseListMatch
 /** Permission entity data model. */
 class Permission
 {
-    public ?string $data_uzyskania = null;
+    public ?string $datauzyskania = null;
     public ?string $id = null;
     public ?string $kategoria = null;
     public ?string $wojewodztwo = null;
@@ -44,7 +44,7 @@ class Permission
 /** Request payload for Permission#list. */
 class PermissionListMatch
 {
-    public ?string $data_uzyskania = null;
+    public ?string $datauzyskania = null;
     public ?string $id = null;
     public ?string $kategoria = null;
     public ?string $wojewodztwo = null;
@@ -53,42 +53,52 @@ class PermissionListMatch
 /** Statistic entity data model. */
 class Statistic
 {
-    public ?array $data = null;
+    public ?int $liczbapojazdow = null;
+    public ?int $liczbaprawjazdy = null;
+    public ?array $wgkategorii = null;
+    public ?array $wgmarki = null;
+    public ?array $wgrodzaju = null;
+    public ?string $wojewodztwo = null;
 }
 
 /** Request payload for Statistic#load. */
 class StatisticLoadMatch
 {
-    public ?array $data = null;
+    public ?int $liczbapojazdow = null;
+    public ?int $liczbaprawjazdy = null;
+    public ?array $wgkategorii = null;
+    public ?array $wgmarki = null;
+    public ?array $wgrodzaju = null;
+    public ?string $wojewodztwo = null;
 }
 
 /** Vehicle entity data model. */
 class Vehicle
 {
-    public ?string $data_pierwszej_rejestracji = null;
+    public ?string $datapierwszejrejestracji = null;
     public ?string $id = null;
     public ?string $marka = null;
-    public ?int $masa_wlasna = null;
+    public ?int $masawlasna = null;
     public ?string $model = null;
     public ?string $podrodzaj = null;
-    public ?int $pojemnosc_silnika = null;
+    public ?int $pojemnoscsilnika = null;
     public ?string $rodzaj = null;
-    public ?int $rok_produkcji = null;
+    public ?int $rokprodukcji = null;
     public ?string $wojewodztwo = null;
 }
 
 /** Request payload for Vehicle#list. */
 class VehicleListMatch
 {
-    public ?string $data_pierwszej_rejestracji = null;
+    public ?string $datapierwszejrejestracji = null;
     public ?string $id = null;
     public ?string $marka = null;
-    public ?int $masa_wlasna = null;
+    public ?int $masawlasna = null;
     public ?string $model = null;
     public ?string $podrodzaj = null;
-    public ?int $pojemnosc_silnika = null;
+    public ?int $pojemnoscsilnika = null;
     public ?string $rodzaj = null;
-    public ?int $rok_produkcji = null;
+    public ?int $rokprodukcji = null;
     public ?string $wojewodztwo = null;
 }
 

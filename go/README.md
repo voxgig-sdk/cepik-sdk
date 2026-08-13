@@ -68,12 +68,12 @@ Every entity operation returns `(value, error)`. Check `err` before
 using the value — there is no exception to catch:
 
 ```go
-drivinglicenses, err := client.DrivingLicense(nil).List(nil, nil)
+statistic, err := client.Statistic(nil).Load(nil, nil)
 if err != nil {
     // handle err
     return
 }
-_ = drivinglicenses
+_ = statistic
 ```
 
 `Direct` follows the same `(value, error)` convention:
@@ -137,13 +137,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-drivingLicense, err := client.DrivingLicense(nil).List(
+statistic, err := client.Statistic(nil).Load(
     nil, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(drivingLicense) // the returned mock data
+fmt.Println(statistic) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -265,8 +265,8 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"data_waznosci"` |  |
-| `"data_wydania"` |  |
+| `"datawaznosci"` |  |
+| `"datawydania"` |  |
 | `"id"` |  |
 | `"kategoria"` |  |
 | `"wojewodztwo"` |  |
@@ -279,7 +279,7 @@ API path: `/prawo-jazdy`
 
 | Field | Description |
 | --- | --- |
-| `"data_uzyskania"` |  |
+| `"datauzyskania"` |  |
 | `"id"` |  |
 | `"kategoria"` |  |
 | `"wojewodztwo"` |  |
@@ -292,7 +292,12 @@ API path: `/uprawnienia`
 
 | Field | Description |
 | --- | --- |
-| `"data"` |  |
+| `"liczbapojazdow"` |  |
+| `"liczbaprawjazdy"` |  |
+| `"wgkategorii"` |  |
+| `"wgmarki"` |  |
+| `"wgrodzaju"` |  |
+| `"wojewodztwo"` |  |
 
 Operations: Load.
 
@@ -302,15 +307,15 @@ API path: `/statystyki/pojazdy`
 
 | Field | Description |
 | --- | --- |
-| `"data_pierwszej_rejestracji"` |  |
+| `"datapierwszejrejestracji"` |  |
 | `"id"` |  |
 | `"marka"` |  |
-| `"masa_wlasna"` |  |
+| `"masawlasna"` |  |
 | `"model"` |  |
 | `"podrodzaj"` |  |
-| `"pojemnosc_silnika"` |  |
+| `"pojemnoscsilnika"` |  |
 | `"rodzaj"` |  |
-| `"rok_produkcji"` |  |
+| `"rokprodukcji"` |  |
 | `"wojewodztwo"` |  |
 
 Operations: List.
@@ -336,8 +341,8 @@ Create an instance: `drivingLicense := client.DrivingLicense(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data_waznosci` | `string` |  |
-| `data_wydania` | `string` |  |
+| `datawaznosci` | `string` |  |
+| `datawydania` | `string` |  |
 | `id` | `string` |  |
 | `kategoria` | `string` |  |
 | `wojewodztwo` | `string` |  |
@@ -367,7 +372,7 @@ Create an instance: `permission := client.Permission(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data_uzyskania` | `string` |  |
+| `datauzyskania` | `string` |  |
 | `id` | `string` |  |
 | `kategoria` | `string` |  |
 | `wojewodztwo` | `string` |  |
@@ -397,7 +402,12 @@ Create an instance: `statistic := client.Statistic(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | `map[string]any` |  |
+| `liczbapojazdow` | `int` |  |
+| `liczbaprawjazdy` | `int` |  |
+| `wgkategorii` | `map[string]any` |  |
+| `wgmarki` | `map[string]any` |  |
+| `wgrodzaju` | `map[string]any` |  |
+| `wojewodztwo` | `string` |  |
 
 #### Example: Load
 
@@ -424,15 +434,15 @@ Create an instance: `vehicle := client.Vehicle(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data_pierwszej_rejestracji` | `string` |  |
+| `datapierwszejrejestracji` | `string` |  |
 | `id` | `string` |  |
 | `marka` | `string` |  |
-| `masa_wlasna` | `int` |  |
+| `masawlasna` | `int` |  |
 | `model` | `string` |  |
 | `podrodzaj` | `string` |  |
-| `pojemnosc_silnika` | `int` |  |
+| `pojemnoscsilnika` | `int` |  |
 | `rodzaj` | `string` |  |
-| `rok_produkcji` | `int` |  |
+| `rokprodukcji` | `int` |  |
 | `wojewodztwo` | `string` |  |
 
 #### Example: List
@@ -515,15 +525,15 @@ like `core.ToMapAny`.
 
 ### Entity state
 
-Entity instances are stateful. After a successful `List`, the entity
+Entity instances are stateful. After a successful `Load`, the entity
 stores the returned data and match criteria internally.
 
 ```go
-drivinglicense := client.DrivingLicense(nil)
-drivinglicense.List(nil, nil)
+statistic := client.Statistic(nil)
+statistic.Load(nil, nil)
 
-// drivinglicense.Data() now returns the drivinglicense data from the last list
-// drivinglicense.Match() returns the last match criteria
+// statistic.Data() now returns the statistic data from the last load
+// statistic.Match() returns the last match criteria
 ```
 
 Call `Make()` to create a fresh instance with the same configuration

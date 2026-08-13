@@ -37,7 +37,7 @@ class DrivingLicenseEntity extends CepikEntityBase<DrivingLicense> {
 
 
 
-  async list(this: any, reqmatch?: DrivingLicenseListMatch, ctrl?: Control): Promise<DrivingLicense[]> {
+  async list(this: any, reqmatch?: DrivingLicenseListMatch, ctrl?: Control): Promise<DrivingLicenseEntity[]> {
 
     const utility = this._utility
 

@@ -63,7 +63,7 @@ describe('PermissionEntity', async () => {
     const permission_ref01_ent = client.Permission()
     const permission_ref01_match: any = {}
 
-    const permission_ref01_list = await permission_ref01_ent.list(permission_ref01_match)
+    const permission_ref01_list = (await permission_ref01_ent.list(permission_ref01_match)).map((e: any) => e.data())
 
 
   })

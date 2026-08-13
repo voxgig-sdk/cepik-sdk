@@ -20,9 +20,11 @@ guide: {
   entity: statistic: {
     path: "/statystyki/pojazdy": {
       op: load: method: *GET
+      op: load: transform: res: *("`body.data`")|top
     }
     path: "/statystyki/prawo-jazdy": {
       op: load: method: *GET
+      op: load: transform: res: *("`body.data`")|top
     }
   }
 

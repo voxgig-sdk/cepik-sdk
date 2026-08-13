@@ -102,8 +102,8 @@ local driving_license = client:DrivingLicense(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data_waznosci` | `string` | No |  |
-| `data_wydania` | `string` | No |  |
+| `datawaznosci` | `string` | No |  |
+| `datawydania` | `string` | No |  |
 | `id` | `string` | No |  |
 | `kategoria` | `string` | No |  |
 | `wojewodztwo` | `string` | No |  |
@@ -158,7 +158,7 @@ local permission = client:Permission(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data_uzyskania` | `string` | No |  |
+| `datauzyskania` | `string` | No |  |
 | `id` | `string` | No |  |
 | `kategoria` | `string` | No |  |
 | `wojewodztwo` | `string` | No |  |
@@ -213,7 +213,12 @@ local statistic = client:Statistic(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | `table` | No |  |
+| `liczbapojazdow` | `number` | No |  |
+| `liczbaprawjazdy` | `number` | No |  |
+| `wgkategorii` | `table` | No |  |
+| `wgmarki` | `table` | No |  |
+| `wgrodzaju` | `table` | No |  |
+| `wojewodztwo` | `string` | No |  |
 
 ### Operations
 
@@ -265,15 +270,15 @@ local vehicle = client:Vehicle(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data_pierwszej_rejestracji` | `string` | No |  |
+| `datapierwszejrejestracji` | `string` | No |  |
 | `id` | `string` | No |  |
 | `marka` | `string` | No |  |
-| `masa_wlasna` | `number` | No |  |
+| `masawlasna` | `number` | No |  |
 | `model` | `string` | No |  |
 | `podrodzaj` | `string` | No |  |
-| `pojemnosc_silnika` | `number` | No |  |
+| `pojemnoscsilnika` | `number` | No |  |
 | `rodzaj` | `string` | No |  |
-| `rok_produkcji` | `number` | No |  |
+| `rokprodukcji` | `number` | No |  |
 | `wojewodztwo` | `string` | No |  |
 
 ### Operations

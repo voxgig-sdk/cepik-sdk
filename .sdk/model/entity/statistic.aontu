@@ -6,9 +6,34 @@ main: kit: entity: statistic: {
 
   fields: [
     {
-      name: "data"
+      name: "liczbapojazdow"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "liczbaprawjazdy"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "wgkategorii"
       req: false
       type: "`$OBJECT`"
+    }
+    {
+      name: "wgmarki"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "wgrodzaju"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "wojewodztwo"
+      req: false
+      type: "`$STRING`"
     }
   ]
 
@@ -50,7 +75,7 @@ main: kit: entity: statistic: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.data`"
           }
         }
         {
@@ -86,7 +111,7 @@ main: kit: entity: statistic: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.data`"
           }
         }
       ]

@@ -152,8 +152,8 @@ const driving_license = client.DrivingLicense()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data_waznosci` | `string` | No |  |
-| `data_wydania` | `string` | No |  |
+| `datawaznosci` | `string` | No |  |
+| `datawydania` | `string` | No |  |
 | `id` | `string` | No |  |
 | `kategoria` | `string` | No |  |
 | `wojewodztwo` | `string` | No |  |
@@ -206,7 +206,7 @@ const permission = client.Permission()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data_uzyskania` | `string` | No |  |
+| `datauzyskania` | `string` | No |  |
 | `id` | `string` | No |  |
 | `kategoria` | `string` | No |  |
 | `wojewodztwo` | `string` | No |  |
@@ -259,7 +259,12 @@ const statistic = client.Statistic()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | `Record<string, any>` | No |  |
+| `liczbapojazdow` | `number` | No |  |
+| `liczbaprawjazdy` | `number` | No |  |
+| `wgkategorii` | `Record<string, any>` | No |  |
+| `wgmarki` | `Record<string, any>` | No |  |
+| `wgrodzaju` | `Record<string, any>` | No |  |
+| `wojewodztwo` | `string` | No |  |
 
 ### Operations
 
@@ -309,15 +314,15 @@ const vehicle = client.Vehicle()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data_pierwszej_rejestracji` | `string` | No |  |
+| `datapierwszejrejestracji` | `string` | No |  |
 | `id` | `string` | No |  |
 | `marka` | `string` | No |  |
-| `masa_wlasna` | `number` | No |  |
+| `masawlasna` | `number` | No |  |
 | `model` | `string` | No |  |
 | `podrodzaj` | `string` | No |  |
-| `pojemnosc_silnika` | `number` | No |  |
+| `pojemnoscsilnika` | `number` | No |  |
 | `rodzaj` | `string` | No |  |
-| `rok_produkcji` | `number` | No |  |
+| `rokprodukcji` | `number` | No |  |
 | `wojewodztwo` | `string` | No |  |
 
 ### Operations

@@ -6,12 +6,12 @@ main: kit: entity: driving_license: {
 
   fields: [
     {
-      name: "data_waznosci"
+      name: "datawaznosci"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "data_wydania"
+      name: "datawydania"
       req: false
       type: "`$STRING`"
     }

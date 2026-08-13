@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ CepikUtility.registrar = ->(u) {
   u.prepare_params = CepikUtilities::PrepareParams
   u.prepare_path = CepikUtilities::PreparePath
   u.prepare_query = CepikUtilities::PrepareQuery
+  u.graphql_body = CepikUtilities::GraphqlBody
+  u.graphql_errors = CepikUtilities::GraphqlErrors
   u.result_basic = CepikUtilities::ResultBasic
   u.result_body = CepikUtilities::ResultBody
   u.result_headers = CepikUtilities::ResultHeaders

@@ -57,10 +57,10 @@ Entity operations raise on failure, so wrap them in `try` / `except`:
 
 ```python
 try:
-    drivinglicenses = client.DrivingLicense().list()
-    print(drivinglicenses)
+    statistic = client.Statistic().load()
+    print(statistic)
 except Exception as err:
-    print(f"list failed: {err}")
+    print(f"load failed: {err}")
 ```
 
 `direct()` does **not** raise — it returns the result envelope. Branch
@@ -124,9 +124,10 @@ Create a mock client for unit testing — no server required:
 ```python
 client = CepikSDK.test()
 
-# Entity ops return the bare record and raise on error.
-drivinglicense = client.DrivingLicense().list()
-# drivinglicense contains the mock response record
+# Entity ops return the ENTITY and raises on error;
+# call data_get() for the record.
+statistic = client.Statistic().load()
+# statistic contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -224,7 +225,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (a `dict` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (a `dict` for single-entity
 ops, a `list` for `list`) and raise on error. Wrap calls in
 `try`/`except` to handle failures.
 
@@ -246,8 +247,8 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `data_waznosci` |  |
-| `data_wydania` |  |
+| `datawaznosci` |  |
+| `datawydania` |  |
 | `id` |  |
 | `kategoria` |  |
 | `wojewodztwo` |  |
@@ -260,7 +261,7 @@ API path: `/prawo-jazdy`
 
 | Field | Description |
 | --- | --- |
-| `data_uzyskania` |  |
+| `datauzyskania` |  |
 | `id` |  |
 | `kategoria` |  |
 | `wojewodztwo` |  |
@@ -273,7 +274,12 @@ API path: `/uprawnienia`
 
 | Field | Description |
 | --- | --- |
-| `data` |  |
+| `liczbapojazdow` |  |
+| `liczbaprawjazdy` |  |
+| `wgkategorii` |  |
+| `wgmarki` |  |
+| `wgrodzaju` |  |
+| `wojewodztwo` |  |
 
 Operations: Load.
 
@@ -283,15 +289,15 @@ API path: `/statystyki/pojazdy`
 
 | Field | Description |
 | --- | --- |
-| `data_pierwszej_rejestracji` |  |
+| `datapierwszejrejestracji` |  |
 | `id` |  |
 | `marka` |  |
-| `masa_wlasna` |  |
+| `masawlasna` |  |
 | `model` |  |
 | `podrodzaj` |  |
-| `pojemnosc_silnika` |  |
+| `pojemnoscsilnika` |  |
 | `rodzaj` |  |
-| `rok_produkcji` |  |
+| `rokprodukcji` |  |
 | `wojewodztwo` |  |
 
 Operations: List.
@@ -317,8 +323,8 @@ Create an instance: `driving_license = client.DrivingLicense()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data_waznosci` | `str` |  |
-| `data_wydania` | `str` |  |
+| `datawaznosci` | `str` |  |
+| `datawydania` | `str` |  |
 | `id` | `str` |  |
 | `kategoria` | `str` |  |
 | `wojewodztwo` | `str` |  |
@@ -344,7 +350,7 @@ Create an instance: `permission = client.Permission()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data_uzyskania` | `str` |  |
+| `datauzyskania` | `str` |  |
 | `id` | `str` |  |
 | `kategoria` | `str` |  |
 | `wojewodztwo` | `str` |  |
@@ -370,7 +376,12 @@ Create an instance: `statistic = client.Statistic()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | `dict` |  |
+| `liczbapojazdow` | `int` |  |
+| `liczbaprawjazdy` | `int` |  |
+| `wgkategorii` | `dict` |  |
+| `wgmarki` | `dict` |  |
+| `wgrodzaju` | `dict` |  |
+| `wojewodztwo` | `str` |  |
 
 #### Example: Load
 
@@ -393,15 +404,15 @@ Create an instance: `vehicle = client.Vehicle()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data_pierwszej_rejestracji` | `str` |  |
+| `datapierwszejrejestracji` | `str` |  |
 | `id` | `str` |  |
 | `marka` | `str` |  |
-| `masa_wlasna` | `int` |  |
+| `masawlasna` | `int` |  |
 | `model` | `str` |  |
 | `podrodzaj` | `str` |  |
-| `pojemnosc_silnika` | `int` |  |
+| `pojemnoscsilnika` | `int` |  |
 | `rodzaj` | `str` |  |
-| `rok_produkcji` | `int` |  |
+| `rokprodukcji` | `int` |  |
 | `wojewodztwo` | `str` |  |
 
 #### Example: List
@@ -482,15 +493,15 @@ Import entity or utility modules directly only when needed.
 
 ### Entity state
 
-Entity instances are stateful. After a successful `list`, the entity
+Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-drivinglicense = client.DrivingLicense()
-drivinglicense.list()
+statistic = client.Statistic()
+statistic.load()
 
-# drivinglicense.data_get() now returns the drivinglicense data from the last list
-# drivinglicense.match_get() returns the last match criteria
+# statistic.data_get() now returns the statistic data from the last load
+# statistic.match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

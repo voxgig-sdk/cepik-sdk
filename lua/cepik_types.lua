@@ -7,59 +7,69 @@
 -- edit by hand.
 
 ---@class DrivingLicense
----@field data_waznosci? string
----@field data_wydania? string
+---@field datawaznosci? string
+---@field datawydania? string
 ---@field id? string
 ---@field kategoria? string
 ---@field wojewodztwo? string
 
 ---@class DrivingLicenseListMatch
----@field data_waznosci? string
----@field data_wydania? string
+---@field datawaznosci? string
+---@field datawydania? string
 ---@field id? string
 ---@field kategoria? string
 ---@field wojewodztwo? string
 
 ---@class Permission
----@field data_uzyskania? string
+---@field datauzyskania? string
 ---@field id? string
 ---@field kategoria? string
 ---@field wojewodztwo? string
 
 ---@class PermissionListMatch
----@field data_uzyskania? string
+---@field datauzyskania? string
 ---@field id? string
 ---@field kategoria? string
 ---@field wojewodztwo? string
 
 ---@class Statistic
----@field data? table
+---@field liczbapojazdow? number
+---@field liczbaprawjazdy? number
+---@field wgkategorii? table
+---@field wgmarki? table
+---@field wgrodzaju? table
+---@field wojewodztwo? string
 
 ---@class StatisticLoadMatch
----@field data? table
+---@field liczbapojazdow? number
+---@field liczbaprawjazdy? number
+---@field wgkategorii? table
+---@field wgmarki? table
+---@field wgrodzaju? table
+---@field wojewodztwo? string
 
 ---@class Vehicle
----@field data_pierwszej_rejestracji? string
+---@field datapierwszejrejestracji? string
 ---@field id? string
 ---@field marka? string
----@field masa_wlasna? number
+---@field masawlasna? number
 ---@field model? string
 ---@field podrodzaj? string
----@field pojemnosc_silnika? number
+---@field pojemnoscsilnika? number
 ---@field rodzaj? string
----@field rok_produkcji? number
+---@field rokprodukcji? number
 ---@field wojewodztwo? string
 
 ---@class VehicleListMatch
----@field data_pierwszej_rejestracji? string
+---@field datapierwszejrejestracji? string
 ---@field id? string
 ---@field marka? string
----@field masa_wlasna? number
+---@field masawlasna? number
 ---@field model? string
 ---@field podrodzaj? string
----@field pojemnosc_silnika? number
+---@field pojemnoscsilnika? number
 ---@field rodzaj? string
----@field rok_produkcji? number
+---@field rokprodukcji? number
 ---@field wojewodztwo? string
 
 local M = {}

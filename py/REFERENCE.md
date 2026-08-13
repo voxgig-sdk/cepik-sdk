@@ -99,8 +99,8 @@ driving_license = client.DrivingLicense()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data_waznosci` | `str` | No |  |
-| `data_wydania` | `str` | No |  |
+| `datawaznosci` | `str` | No |  |
+| `datawydania` | `str` | No |  |
 | `id` | `str` | No |  |
 | `kategoria` | `str` | No |  |
 | `wojewodztwo` | `str` | No |  |
@@ -156,7 +156,7 @@ permission = client.Permission()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data_uzyskania` | `str` | No |  |
+| `datauzyskania` | `str` | No |  |
 | `id` | `str` | No |  |
 | `kategoria` | `str` | No |  |
 | `wojewodztwo` | `str` | No |  |
@@ -212,7 +212,12 @@ statistic = client.Statistic()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | `dict` | No |  |
+| `liczbapojazdow` | `int` | No |  |
+| `liczbaprawjazdy` | `int` | No |  |
+| `wgkategorii` | `dict` | No |  |
+| `wgmarki` | `dict` | No |  |
+| `wgrodzaju` | `dict` | No |  |
+| `wojewodztwo` | `str` | No |  |
 
 ### Operations
 
@@ -263,15 +268,15 @@ vehicle = client.Vehicle()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data_pierwszej_rejestracji` | `str` | No |  |
+| `datapierwszejrejestracji` | `str` | No |  |
 | `id` | `str` | No |  |
 | `marka` | `str` | No |  |
-| `masa_wlasna` | `int` | No |  |
+| `masawlasna` | `int` | No |  |
 | `model` | `str` | No |  |
 | `podrodzaj` | `str` | No |  |
-| `pojemnosc_silnika` | `int` | No |  |
+| `pojemnoscsilnika` | `int` | No |  |
 | `rodzaj` | `str` | No |  |
-| `rok_produkcji` | `int` | No |  |
+| `rokprodukcji` | `int` | No |  |
 | `wojewodztwo` | `str` | No |  |
 
 ### Operations

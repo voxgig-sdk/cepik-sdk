@@ -104,8 +104,8 @@ $driving_license = $client->DrivingLicense();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data_waznosci` | `string` | No |  |
-| `data_wydania` | `string` | No |  |
+| `datawaznosci` | `string` | No |  |
+| `datawydania` | `string` | No |  |
 | `id` | `string` | No |  |
 | `kategoria` | `string` | No |  |
 | `wojewodztwo` | `string` | No |  |
@@ -160,7 +160,7 @@ $permission = $client->Permission();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data_uzyskania` | `string` | No |  |
+| `datauzyskania` | `string` | No |  |
 | `id` | `string` | No |  |
 | `kategoria` | `string` | No |  |
 | `wojewodztwo` | `string` | No |  |
@@ -215,7 +215,12 @@ $statistic = $client->Statistic();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | `array` | No |  |
+| `liczbapojazdow` | `int` | No |  |
+| `liczbaprawjazdy` | `int` | No |  |
+| `wgkategorii` | `array` | No |  |
+| `wgmarki` | `array` | No |  |
+| `wgrodzaju` | `array` | No |  |
+| `wojewodztwo` | `string` | No |  |
 
 ### Operations
 
@@ -267,15 +272,15 @@ $vehicle = $client->Vehicle();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data_pierwszej_rejestracji` | `string` | No |  |
+| `datapierwszejrejestracji` | `string` | No |  |
 | `id` | `string` | No |  |
 | `marka` | `string` | No |  |
-| `masa_wlasna` | `int` | No |  |
+| `masawlasna` | `int` | No |  |
 | `model` | `string` | No |  |
 | `podrodzaj` | `string` | No |  |
-| `pojemnosc_silnika` | `int` | No |  |
+| `pojemnoscsilnika` | `int` | No |  |
 | `rodzaj` | `string` | No |  |
-| `rok_produkcji` | `int` | No |  |
+| `rokprodukcji` | `int` | No |  |
 | `wojewodztwo` | `string` | No |  |
 
 ### Operations
