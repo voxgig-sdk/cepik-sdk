@@ -40,7 +40,7 @@ class CepikSDK
         $utility = new CepikUtility();
         $this->_utility = $utility;
 
-        $config = CepikConfig::make_config();
+        $config = CepikConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

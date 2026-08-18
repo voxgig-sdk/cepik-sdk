@@ -14,7 +14,7 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from cepik_sdk.config import make_config
+from cepik_sdk.config import shared_config
 from cepik_sdk.features import _make_feature
 from cepik_sdk.core.control import CepikControl
 from cepik_sdk.core.error import CepikError
@@ -24,7 +24,7 @@ from cepik_sdk.core.spec import CepikSpec
 
 # True when this SDK was generated with the named feature.
 def has_feature(name):
-    feature = make_config().get("feature")
+    feature = shared_config().get("feature")
     return isinstance(feature, dict) and feature.get(name) is not None
 
 

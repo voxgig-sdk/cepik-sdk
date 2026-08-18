@@ -23,8 +23,8 @@ class CepikSDK:
         utility = CepikUtility()
         self._utility = utility
 
-        from cepik_sdk.config import make_config
-        config = make_config()
+        from cepik_sdk.config import shared_config
+        config = shared_config()
 
         self._rootctx = utility.make_context({
             "client": self,

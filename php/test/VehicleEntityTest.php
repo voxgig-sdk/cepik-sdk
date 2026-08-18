@@ -40,7 +40,7 @@ class VehicleEntityTest extends TestCase
         $this->assertCount(3, $seen);
 
         // Inbound: streaming active -> yields each item from the feature.
-        $cfg = CepikConfig::make_config();
+        $cfg = CepikConfig::shared_config();
         if (isset($cfg["feature"]) && is_array($cfg["feature"]) && isset($cfg["feature"]["streaming"])) {
             $sdk = CepikSDK::test($seed, ["feature" => ["streaming" => ["active" => true]]]);
             $got = [];

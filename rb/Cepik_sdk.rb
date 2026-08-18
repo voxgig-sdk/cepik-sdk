@@ -28,7 +28,7 @@ class CepikSDK
     utility = CepikUtility.new
     @_utility = utility
 
-    config = CepikConfig.make_config
+    config = CepikConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,
