@@ -99,11 +99,11 @@ driving_license = client.DrivingLicense()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `datawaznosci` | `str` | No |  |
-| `datawydania` | `str` | No |  |
-| `id` | `str` | No |  |
-| `kategoria` | `str` | No |  |
-| `wojewodztwo` | `str` | No |  |
+| `datawaznosci` | `str` | No | Expiry date |
+| `datawydania` | `str` | No | Date of issue |
+| `id` | `str` | No | Unique license identifier |
+| `kategoria` | `str` | No | License category |
+| `wojewodztwo` | `str` | No | Province/voivodeship of issue |
 
 ### Operations
 
@@ -156,10 +156,10 @@ permission = client.Permission()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `datauzyskania` | `str` | No |  |
-| `id` | `str` | No |  |
-| `kategoria` | `str` | No |  |
-| `wojewodztwo` | `str` | No |  |
+| `datauzyskania` | `str` | No | Date permission was obtained |
+| `id` | `str` | No | Unique permission identifier |
+| `kategoria` | `str` | No | Category of permission |
+| `wojewodztwo` | `str` | No | Province/voivodeship |
 
 ### Operations
 
@@ -212,12 +212,12 @@ statistic = client.Statistic()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `liczbapojazdow` | `int` | No |  |
-| `liczbaprawjazdy` | `int` | No |  |
-| `wgkategorii` | `dict` | No |  |
-| `wgmarki` | `dict` | No |  |
-| `wgrodzaju` | `dict` | No |  |
-| `wojewodztwo` | `str` | No |  |
+| `liczbapojazdow` | `int` | No | Total number of vehicles |
+| `liczbaprawjazdy` | `int` | No | Total number of driving licenses |
+| `wgkategorii` | `dict` | No | Breakdown by license category |
+| `wgmarki` | `dict` | No | Breakdown by brand |
+| `wgrodzaju` | `dict` | No | Breakdown by vehicle type |
+| `wojewodztwo` | `str` | No | Province/voivodeship |
 
 ### Operations
 
@@ -268,16 +268,16 @@ vehicle = client.Vehicle()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `datapierwszejrejestracji` | `str` | No |  |
-| `id` | `str` | No |  |
-| `marka` | `str` | No |  |
-| `masawlasna` | `int` | No |  |
-| `model` | `str` | No |  |
-| `podrodzaj` | `str` | No |  |
-| `pojemnoscsilnika` | `int` | No |  |
-| `rodzaj` | `str` | No |  |
-| `rokprodukcji` | `int` | No |  |
-| `wojewodztwo` | `str` | No |  |
+| `datapierwszejrejestracji` | `str` | No | Date of first registration |
+| `id` | `str` | No | Unique vehicle identifier |
+| `marka` | `str` | No | Vehicle brand/make |
+| `masawlasna` | `int` | No | Curb weight in kg |
+| `model` | `str` | No | Vehicle model |
+| `podrodzaj` | `str` | No | Vehicle subtype |
+| `pojemnoscsilnika` | `int` | No | Engine capacity in cm³ |
+| `rodzaj` | `str` | No | Vehicle type |
+| `rokprodukcji` | `int` | No | Year of production |
+| `wojewodztwo` | `str` | No | Province/voivodeship of registration |
 
 ### Operations
 

@@ -36,30 +36,35 @@
               "active": true,
               "name": "datawaznosci",
               "req": false,
+              "short": "Expiry date",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "datawydania",
               "req": false,
+              "short": "Date of issue",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "id",
               "req": false,
+              "short": "Unique license identifier",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "kategoria",
               "req": false,
+              "short": "License category",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "wojewodztwo",
               "req": false,
+              "short": "Province/voivodeship of issue",
               "type": "`$STRING`"
             }
           ],
@@ -158,24 +163,28 @@
               "active": true,
               "name": "datauzyskania",
               "req": false,
+              "short": "Date permission was obtained",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "id",
               "req": false,
+              "short": "Unique permission identifier",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "kategoria",
               "req": false,
+              "short": "Category of permission",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "wojewodztwo",
               "req": false,
+              "short": "Province/voivodeship",
               "type": "`$STRING`"
             }
           ],
@@ -274,36 +283,42 @@
               "active": true,
               "name": "liczbapojazdow",
               "req": false,
+              "short": "Total number of vehicles",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "liczbaprawjazdy",
               "req": false,
+              "short": "Total number of driving licenses",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "wgkategorii",
               "req": false,
+              "short": "Breakdown by license category",
               "type": "`$OBJECT`"
             },
             {
               "active": true,
               "name": "wgmarki",
               "req": false,
+              "short": "Breakdown by brand",
               "type": "`$OBJECT`"
             },
             {
               "active": true,
               "name": "wgrodzaju",
               "req": false,
+              "short": "Breakdown by vehicle type",
               "type": "`$OBJECT`"
             },
             {
               "active": true,
               "name": "wojewodztwo",
               "req": false,
+              "short": "Province/voivodeship",
               "type": "`$STRING`"
             }
           ],
@@ -410,60 +425,70 @@
               "active": true,
               "name": "datapierwszejrejestracji",
               "req": false,
+              "short": "Date of first registration",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "id",
               "req": false,
+              "short": "Unique vehicle identifier",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "marka",
               "req": false,
+              "short": "Vehicle brand/make",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "masawlasna",
               "req": false,
+              "short": "Curb weight in kg",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "model",
               "req": false,
+              "short": "Vehicle model",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "podrodzaj",
               "req": false,
+              "short": "Vehicle subtype",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "pojemnoscsilnika",
               "req": false,
+              "short": "Engine capacity in cm³",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "rodzaj",
               "req": false,
+              "short": "Vehicle type",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "rokprodukcji",
               "req": false,
+              "short": "Year of production",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "wojewodztwo",
               "req": false,
+              "short": "Province/voivodeship of registration",
               "type": "`$STRING`"
             }
           ],

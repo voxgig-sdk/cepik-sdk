@@ -102,11 +102,11 @@ local driving_license = client:DrivingLicense(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `datawaznosci` | `string` | No |  |
-| `datawydania` | `string` | No |  |
-| `id` | `string` | No |  |
-| `kategoria` | `string` | No |  |
-| `wojewodztwo` | `string` | No |  |
+| `datawaznosci` | `string` | No | Expiry date |
+| `datawydania` | `string` | No | Date of issue |
+| `id` | `string` | No | Unique license identifier |
+| `kategoria` | `string` | No | License category |
+| `wojewodztwo` | `string` | No | Province/voivodeship of issue |
 
 ### Operations
 
@@ -158,10 +158,10 @@ local permission = client:Permission(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `datauzyskania` | `string` | No |  |
-| `id` | `string` | No |  |
-| `kategoria` | `string` | No |  |
-| `wojewodztwo` | `string` | No |  |
+| `datauzyskania` | `string` | No | Date permission was obtained |
+| `id` | `string` | No | Unique permission identifier |
+| `kategoria` | `string` | No | Category of permission |
+| `wojewodztwo` | `string` | No | Province/voivodeship |
 
 ### Operations
 
@@ -213,12 +213,12 @@ local statistic = client:Statistic(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `liczbapojazdow` | `number` | No |  |
-| `liczbaprawjazdy` | `number` | No |  |
-| `wgkategorii` | `table` | No |  |
-| `wgmarki` | `table` | No |  |
-| `wgrodzaju` | `table` | No |  |
-| `wojewodztwo` | `string` | No |  |
+| `liczbapojazdow` | `number` | No | Total number of vehicles |
+| `liczbaprawjazdy` | `number` | No | Total number of driving licenses |
+| `wgkategorii` | `table` | No | Breakdown by license category |
+| `wgmarki` | `table` | No | Breakdown by brand |
+| `wgrodzaju` | `table` | No | Breakdown by vehicle type |
+| `wojewodztwo` | `string` | No | Province/voivodeship |
 
 ### Operations
 
@@ -270,16 +270,16 @@ local vehicle = client:Vehicle(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `datapierwszejrejestracji` | `string` | No |  |
-| `id` | `string` | No |  |
-| `marka` | `string` | No |  |
-| `masawlasna` | `number` | No |  |
-| `model` | `string` | No |  |
-| `podrodzaj` | `string` | No |  |
-| `pojemnoscsilnika` | `number` | No |  |
-| `rodzaj` | `string` | No |  |
-| `rokprodukcji` | `number` | No |  |
-| `wojewodztwo` | `string` | No |  |
+| `datapierwszejrejestracji` | `string` | No | Date of first registration |
+| `id` | `string` | No | Unique vehicle identifier |
+| `marka` | `string` | No | Vehicle brand/make |
+| `masawlasna` | `number` | No | Curb weight in kg |
+| `model` | `string` | No | Vehicle model |
+| `podrodzaj` | `string` | No | Vehicle subtype |
+| `pojemnoscsilnika` | `number` | No | Engine capacity in cm³ |
+| `rodzaj` | `string` | No | Vehicle type |
+| `rokprodukcji` | `number` | No | Year of production |
+| `wojewodztwo` | `string` | No | Province/voivodeship of registration |
 
 ### Operations
 

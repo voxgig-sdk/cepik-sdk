@@ -1,0 +1,6 @@
+# Entity Models
+
+@"driving_license.aon"
+@"permission.aon"
+@"statistic.aon"
+@"vehicle.aon"

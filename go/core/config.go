@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "Cepik",
+			"slug": "cepik",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -36,22 +39,27 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "datawaznosci",
+						"short": "Expiry date",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "datawydania",
+						"short": "Date of issue",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "Unique license identifier",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "kategoria",
+						"short": "License category",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "wojewodztwo",
+						"short": "Province/voivodeship of issue",
 						"type": "`$STRING`",
 					},
 				},
@@ -129,18 +137,22 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "datauzyskania",
+						"short": "Date permission was obtained",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "Unique permission identifier",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "kategoria",
+						"short": "Category of permission",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "wojewodztwo",
+						"short": "Province/voivodeship",
 						"type": "`$STRING`",
 					},
 				},
@@ -218,26 +230,32 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "liczbapojazdow",
+						"short": "Total number of vehicles",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "liczbaprawjazdy",
+						"short": "Total number of driving licenses",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "wgkategorii",
+						"short": "Breakdown by license category",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "wgmarki",
+						"short": "Breakdown by brand",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "wgrodzaju",
+						"short": "Breakdown by vehicle type",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "wojewodztwo",
+						"short": "Province/voivodeship",
 						"type": "`$STRING`",
 					},
 				},
@@ -328,42 +346,52 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "datapierwszejrejestracji",
+						"short": "Date of first registration",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "Unique vehicle identifier",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "marka",
+						"short": "Vehicle brand/make",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "masawlasna",
+						"short": "Curb weight in kg",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "model",
+						"short": "Vehicle model",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "podrodzaj",
+						"short": "Vehicle subtype",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "pojemnoscsilnika",
+						"short": "Engine capacity in cm³",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "rodzaj",
+						"short": "Vehicle type",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "rokprodukcji",
+						"short": "Year of production",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "wojewodztwo",
+						"short": "Province/voivodeship of registration",
 						"type": "`$STRING`",
 					},
 				},

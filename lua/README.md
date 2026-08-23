@@ -236,11 +236,11 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `datawaznosci` |  |
-| `datawydania` |  |
-| `id` |  |
-| `kategoria` |  |
-| `wojewodztwo` |  |
+| `datawaznosci` | Expiry date |
+| `datawydania` | Date of issue |
+| `id` | Unique license identifier |
+| `kategoria` | License category |
+| `wojewodztwo` | Province/voivodeship of issue |
 
 Operations: List.
 
@@ -250,10 +250,10 @@ API path: `/prawo-jazdy`
 
 | Field | Description |
 | --- | --- |
-| `datauzyskania` |  |
-| `id` |  |
-| `kategoria` |  |
-| `wojewodztwo` |  |
+| `datauzyskania` | Date permission was obtained |
+| `id` | Unique permission identifier |
+| `kategoria` | Category of permission |
+| `wojewodztwo` | Province/voivodeship |
 
 Operations: List.
 
@@ -263,12 +263,12 @@ API path: `/uprawnienia`
 
 | Field | Description |
 | --- | --- |
-| `liczbapojazdow` |  |
-| `liczbaprawjazdy` |  |
-| `wgkategorii` |  |
-| `wgmarki` |  |
-| `wgrodzaju` |  |
-| `wojewodztwo` |  |
+| `liczbapojazdow` | Total number of vehicles |
+| `liczbaprawjazdy` | Total number of driving licenses |
+| `wgkategorii` | Breakdown by license category |
+| `wgmarki` | Breakdown by brand |
+| `wgrodzaju` | Breakdown by vehicle type |
+| `wojewodztwo` | Province/voivodeship |
 
 Operations: Load.
 
@@ -278,16 +278,16 @@ API path: `/statystyki/pojazdy`
 
 | Field | Description |
 | --- | --- |
-| `datapierwszejrejestracji` |  |
-| `id` |  |
-| `marka` |  |
-| `masawlasna` |  |
-| `model` |  |
-| `podrodzaj` |  |
-| `pojemnoscsilnika` |  |
-| `rodzaj` |  |
-| `rokprodukcji` |  |
-| `wojewodztwo` |  |
+| `datapierwszejrejestracji` | Date of first registration |
+| `id` | Unique vehicle identifier |
+| `marka` | Vehicle brand/make |
+| `masawlasna` | Curb weight in kg |
+| `model` | Vehicle model |
+| `podrodzaj` | Vehicle subtype |
+| `pojemnoscsilnika` | Engine capacity in cm³ |
+| `rodzaj` | Vehicle type |
+| `rokprodukcji` | Year of production |
+| `wojewodztwo` | Province/voivodeship of registration |
 
 Operations: List.
 
@@ -312,11 +312,11 @@ Create an instance: `local driving_license = client:DrivingLicense(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `datawaznosci` | `string` |  |
-| `datawydania` | `string` |  |
-| `id` | `string` |  |
-| `kategoria` | `string` |  |
-| `wojewodztwo` | `string` |  |
+| `datawaznosci` | `string` | Expiry date |
+| `datawydania` | `string` | Date of issue |
+| `id` | `string` | Unique license identifier |
+| `kategoria` | `string` | License category |
+| `wojewodztwo` | `string` | Province/voivodeship of issue |
 
 #### Example: List
 
@@ -339,10 +339,10 @@ Create an instance: `local permission = client:Permission(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `datauzyskania` | `string` |  |
-| `id` | `string` |  |
-| `kategoria` | `string` |  |
-| `wojewodztwo` | `string` |  |
+| `datauzyskania` | `string` | Date permission was obtained |
+| `id` | `string` | Unique permission identifier |
+| `kategoria` | `string` | Category of permission |
+| `wojewodztwo` | `string` | Province/voivodeship |
 
 #### Example: List
 
@@ -365,12 +365,12 @@ Create an instance: `local statistic = client:Statistic(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `liczbapojazdow` | `number` |  |
-| `liczbaprawjazdy` | `number` |  |
-| `wgkategorii` | `table` |  |
-| `wgmarki` | `table` |  |
-| `wgrodzaju` | `table` |  |
-| `wojewodztwo` | `string` |  |
+| `liczbapojazdow` | `number` | Total number of vehicles |
+| `liczbaprawjazdy` | `number` | Total number of driving licenses |
+| `wgkategorii` | `table` | Breakdown by license category |
+| `wgmarki` | `table` | Breakdown by brand |
+| `wgrodzaju` | `table` | Breakdown by vehicle type |
+| `wojewodztwo` | `string` | Province/voivodeship |
 
 #### Example: Load
 
@@ -393,16 +393,16 @@ Create an instance: `local vehicle = client:Vehicle(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `datapierwszejrejestracji` | `string` |  |
-| `id` | `string` |  |
-| `marka` | `string` |  |
-| `masawlasna` | `number` |  |
-| `model` | `string` |  |
-| `podrodzaj` | `string` |  |
-| `pojemnoscsilnika` | `number` |  |
-| `rodzaj` | `string` |  |
-| `rokprodukcji` | `number` |  |
-| `wojewodztwo` | `string` |  |
+| `datapierwszejrejestracji` | `string` | Date of first registration |
+| `id` | `string` | Unique vehicle identifier |
+| `marka` | `string` | Vehicle brand/make |
+| `masawlasna` | `number` | Curb weight in kg |
+| `model` | `string` | Vehicle model |
+| `podrodzaj` | `string` | Vehicle subtype |
+| `pojemnoscsilnika` | `number` | Engine capacity in cm³ |
+| `rodzaj` | `string` | Vehicle type |
+| `rokprodukcji` | `number` | Year of production |
+| `wojewodztwo` | `string` | Province/voivodeship of registration |
 
 #### Example: List
 

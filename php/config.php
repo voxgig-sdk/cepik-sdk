@@ -33,6 +33,9 @@ class CepikConfig
         return [
             "main" => [
                 "name" => "Cepik",
+                "slug" => "cepik",
+                "version" => "0.0.1",
+                "target" => "php",
             ],
             "feature" => [
                 "test" => [
@@ -58,22 +61,27 @@ class CepikConfig
           'fields' => [
             [
               'name' => 'datawaznosci',
+              'short' => 'Expiry date',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'datawydania',
+              'short' => 'Date of issue',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'id',
+              'short' => 'Unique license identifier',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'kategoria',
+              'short' => 'License category',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'wojewodztwo',
+              'short' => 'Province/voivodeship of issue',
               'type' => '`$STRING`',
             ],
           ],
@@ -151,18 +159,22 @@ class CepikConfig
           'fields' => [
             [
               'name' => 'datauzyskania',
+              'short' => 'Date permission was obtained',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'id',
+              'short' => 'Unique permission identifier',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'kategoria',
+              'short' => 'Category of permission',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'wojewodztwo',
+              'short' => 'Province/voivodeship',
               'type' => '`$STRING`',
             ],
           ],
@@ -240,26 +252,32 @@ class CepikConfig
           'fields' => [
             [
               'name' => 'liczbapojazdow',
+              'short' => 'Total number of vehicles',
               'type' => '`$INTEGER`',
             ],
             [
               'name' => 'liczbaprawjazdy',
+              'short' => 'Total number of driving licenses',
               'type' => '`$INTEGER`',
             ],
             [
               'name' => 'wgkategorii',
+              'short' => 'Breakdown by license category',
               'type' => '`$OBJECT`',
             ],
             [
               'name' => 'wgmarki',
+              'short' => 'Breakdown by brand',
               'type' => '`$OBJECT`',
             ],
             [
               'name' => 'wgrodzaju',
+              'short' => 'Breakdown by vehicle type',
               'type' => '`$OBJECT`',
             ],
             [
               'name' => 'wojewodztwo',
+              'short' => 'Province/voivodeship',
               'type' => '`$STRING`',
             ],
           ],
@@ -350,42 +368,52 @@ class CepikConfig
           'fields' => [
             [
               'name' => 'datapierwszejrejestracji',
+              'short' => 'Date of first registration',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'id',
+              'short' => 'Unique vehicle identifier',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'marka',
+              'short' => 'Vehicle brand/make',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'masawlasna',
+              'short' => 'Curb weight in kg',
               'type' => '`$INTEGER`',
             ],
             [
               'name' => 'model',
+              'short' => 'Vehicle model',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'podrodzaj',
+              'short' => 'Vehicle subtype',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'pojemnoscsilnika',
+              'short' => 'Engine capacity in cm³',
               'type' => '`$INTEGER`',
             ],
             [
               'name' => 'rodzaj',
+              'short' => 'Vehicle type',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'rokprodukcji',
+              'short' => 'Year of production',
               'type' => '`$INTEGER`',
             ],
             [
               'name' => 'wojewodztwo',
+              'short' => 'Province/voivodeship of registration',
               'type' => '`$STRING`',
             ],
           ],

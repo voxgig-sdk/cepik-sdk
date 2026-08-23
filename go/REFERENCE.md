@@ -110,11 +110,11 @@ fmt.Println(drivingLicense.GetName()) // "driving_license"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `datawaznosci` | `string` | No |  |
-| `datawydania` | `string` | No |  |
-| `id` | `string` | No |  |
-| `kategoria` | `string` | No |  |
-| `wojewodztwo` | `string` | No |  |
+| `datawaznosci` | `string` | No | Expiry date |
+| `datawydania` | `string` | No | Date of issue |
+| `id` | `string` | No | Unique license identifier |
+| `kategoria` | `string` | No | License category |
+| `wojewodztwo` | `string` | No | Province/voivodeship of issue |
 
 ### Operations
 
@@ -165,10 +165,10 @@ fmt.Println(permission.GetName()) // "permission"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `datauzyskania` | `string` | No |  |
-| `id` | `string` | No |  |
-| `kategoria` | `string` | No |  |
-| `wojewodztwo` | `string` | No |  |
+| `datauzyskania` | `string` | No | Date permission was obtained |
+| `id` | `string` | No | Unique permission identifier |
+| `kategoria` | `string` | No | Category of permission |
+| `wojewodztwo` | `string` | No | Province/voivodeship |
 
 ### Operations
 
@@ -219,12 +219,12 @@ fmt.Println(statistic.GetName()) // "statistic"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `liczbapojazdow` | `int` | No |  |
-| `liczbaprawjazdy` | `int` | No |  |
-| `wgkategorii` | `map[string]any` | No |  |
-| `wgmarki` | `map[string]any` | No |  |
-| `wgrodzaju` | `map[string]any` | No |  |
-| `wojewodztwo` | `string` | No |  |
+| `liczbapojazdow` | `int` | No | Total number of vehicles |
+| `liczbaprawjazdy` | `int` | No | Total number of driving licenses |
+| `wgkategorii` | `map[string]any` | No | Breakdown by license category |
+| `wgmarki` | `map[string]any` | No | Breakdown by brand |
+| `wgrodzaju` | `map[string]any` | No | Breakdown by vehicle type |
+| `wojewodztwo` | `string` | No | Province/voivodeship |
 
 ### Operations
 
@@ -275,16 +275,16 @@ fmt.Println(vehicle.GetName()) // "vehicle"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `datapierwszejrejestracji` | `string` | No |  |
-| `id` | `string` | No |  |
-| `marka` | `string` | No |  |
-| `masawlasna` | `int` | No |  |
-| `model` | `string` | No |  |
-| `podrodzaj` | `string` | No |  |
-| `pojemnoscsilnika` | `int` | No |  |
-| `rodzaj` | `string` | No |  |
-| `rokprodukcji` | `int` | No |  |
-| `wojewodztwo` | `string` | No |  |
+| `datapierwszejrejestracji` | `string` | No | Date of first registration |
+| `id` | `string` | No | Unique vehicle identifier |
+| `marka` | `string` | No | Vehicle brand/make |
+| `masawlasna` | `int` | No | Curb weight in kg |
+| `model` | `string` | No | Vehicle model |
+| `podrodzaj` | `string` | No | Vehicle subtype |
+| `pojemnoscsilnika` | `int` | No | Engine capacity in cm³ |
+| `rodzaj` | `string` | No | Vehicle type |
+| `rokprodukcji` | `int` | No | Year of production |
+| `wojewodztwo` | `string` | No | Province/voivodeship of registration |
 
 ### Operations
 

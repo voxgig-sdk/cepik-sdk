@@ -104,11 +104,11 @@ $driving_license = $client->DrivingLicense();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `datawaznosci` | `string` | No |  |
-| `datawydania` | `string` | No |  |
-| `id` | `string` | No |  |
-| `kategoria` | `string` | No |  |
-| `wojewodztwo` | `string` | No |  |
+| `datawaznosci` | `string` | No | Expiry date |
+| `datawydania` | `string` | No | Date of issue |
+| `id` | `string` | No | Unique license identifier |
+| `kategoria` | `string` | No | License category |
+| `wojewodztwo` | `string` | No | Province/voivodeship of issue |
 
 ### Operations
 
@@ -160,10 +160,10 @@ $permission = $client->Permission();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `datauzyskania` | `string` | No |  |
-| `id` | `string` | No |  |
-| `kategoria` | `string` | No |  |
-| `wojewodztwo` | `string` | No |  |
+| `datauzyskania` | `string` | No | Date permission was obtained |
+| `id` | `string` | No | Unique permission identifier |
+| `kategoria` | `string` | No | Category of permission |
+| `wojewodztwo` | `string` | No | Province/voivodeship |
 
 ### Operations
 
@@ -215,12 +215,12 @@ $statistic = $client->Statistic();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `liczbapojazdow` | `int` | No |  |
-| `liczbaprawjazdy` | `int` | No |  |
-| `wgkategorii` | `array` | No |  |
-| `wgmarki` | `array` | No |  |
-| `wgrodzaju` | `array` | No |  |
-| `wojewodztwo` | `string` | No |  |
+| `liczbapojazdow` | `int` | No | Total number of vehicles |
+| `liczbaprawjazdy` | `int` | No | Total number of driving licenses |
+| `wgkategorii` | `array` | No | Breakdown by license category |
+| `wgmarki` | `array` | No | Breakdown by brand |
+| `wgrodzaju` | `array` | No | Breakdown by vehicle type |
+| `wojewodztwo` | `string` | No | Province/voivodeship |
 
 ### Operations
 
@@ -272,16 +272,16 @@ $vehicle = $client->Vehicle();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `datapierwszejrejestracji` | `string` | No |  |
-| `id` | `string` | No |  |
-| `marka` | `string` | No |  |
-| `masawlasna` | `int` | No |  |
-| `model` | `string` | No |  |
-| `podrodzaj` | `string` | No |  |
-| `pojemnoscsilnika` | `int` | No |  |
-| `rodzaj` | `string` | No |  |
-| `rokprodukcji` | `int` | No |  |
-| `wojewodztwo` | `string` | No |  |
+| `datapierwszejrejestracji` | `string` | No | Date of first registration |
+| `id` | `string` | No | Unique vehicle identifier |
+| `marka` | `string` | No | Vehicle brand/make |
+| `masawlasna` | `int` | No | Curb weight in kg |
+| `model` | `string` | No | Vehicle model |
+| `podrodzaj` | `string` | No | Vehicle subtype |
+| `pojemnoscsilnika` | `int` | No | Engine capacity in cm³ |
+| `rodzaj` | `string` | No | Vehicle type |
+| `rokprodukcji` | `int` | No | Year of production |
+| `wojewodztwo` | `string` | No | Province/voivodeship of registration |
 
 ### Operations
 
