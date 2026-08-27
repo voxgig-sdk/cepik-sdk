@@ -23,10 +23,10 @@ type DrivingLicense struct {
 
 // DrivingLicenseListMatch is the typed request payload for DrivingLicense.ListTyped.
 type DrivingLicenseListMatch struct {
-	Datawaznosci *string `json:"datawaznosci,omitempty"`
-	Datawydania *string `json:"datawydania,omitempty"`
-	Id *string `json:"id,omitempty"`
-	Kategoria *string `json:"kategoria,omitempty"`
+	DataDo *string `json:"data_do,omitempty"`
+	DataOd *string `json:"data_od,omitempty"`
+	Limit *int `json:"limit,omitempty"`
+	Page *int `json:"page,omitempty"`
 	Wojewodztwo *string `json:"wojewodztwo,omitempty"`
 }
 
@@ -40,9 +40,10 @@ type Permission struct {
 
 // PermissionListMatch is the typed request payload for Permission.ListTyped.
 type PermissionListMatch struct {
-	Datauzyskania *string `json:"datauzyskania,omitempty"`
-	Id *string `json:"id,omitempty"`
-	Kategoria *string `json:"kategoria,omitempty"`
+	DataDo *string `json:"data_do,omitempty"`
+	DataOd *string `json:"data_od,omitempty"`
+	Limit *int `json:"limit,omitempty"`
+	Page *int `json:"page,omitempty"`
 	Wojewodztwo *string `json:"wojewodztwo,omitempty"`
 }
 
@@ -58,11 +59,7 @@ type Statistic struct {
 
 // StatisticLoadMatch is the typed request payload for Statistic.LoadTyped.
 type StatisticLoadMatch struct {
-	Liczbapojazdow *int `json:"liczbapojazdow,omitempty"`
-	Liczbaprawjazdy *int `json:"liczbaprawjazdy,omitempty"`
-	Wgkategorii *map[string]any `json:"wgkategorii,omitempty"`
-	Wgmarki *map[string]any `json:"wgmarki,omitempty"`
-	Wgrodzaju *map[string]any `json:"wgrodzaju,omitempty"`
+	Rok *int `json:"rok,omitempty"`
 	Wojewodztwo *string `json:"wojewodztwo,omitempty"`
 }
 
@@ -82,15 +79,10 @@ type Vehicle struct {
 
 // VehicleListMatch is the typed request payload for Vehicle.ListTyped.
 type VehicleListMatch struct {
-	Datapierwszejrejestracji *string `json:"datapierwszejrejestracji,omitempty"`
-	Id *string `json:"id,omitempty"`
-	Marka *string `json:"marka,omitempty"`
-	Masawlasna *int `json:"masawlasna,omitempty"`
-	Model *string `json:"model,omitempty"`
-	Podrodzaj *string `json:"podrodzaj,omitempty"`
-	Pojemnoscsilnika *int `json:"pojemnoscsilnika,omitempty"`
-	Rodzaj *string `json:"rodzaj,omitempty"`
-	Rokprodukcji *int `json:"rokprodukcji,omitempty"`
+	DataDo *string `json:"data_do,omitempty"`
+	DataOd *string `json:"data_od,omitempty"`
+	Limit *int `json:"limit,omitempty"`
+	Page *int `json:"page,omitempty"`
 	Wojewodztwo *string `json:"wojewodztwo,omitempty"`
 }
 

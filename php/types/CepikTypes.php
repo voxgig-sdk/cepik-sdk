@@ -25,10 +25,10 @@ class DrivingLicense
 /** Request payload for DrivingLicense#list. */
 class DrivingLicenseListMatch
 {
-    public ?string $datawaznosci = null;
-    public ?string $datawydania = null;
-    public ?string $id = null;
-    public ?string $kategoria = null;
+    public ?string $data_do = null;
+    public ?string $data_od = null;
+    public ?int $limit = null;
+    public ?int $page = null;
     public ?string $wojewodztwo = null;
 }
 
@@ -44,9 +44,10 @@ class Permission
 /** Request payload for Permission#list. */
 class PermissionListMatch
 {
-    public ?string $datauzyskania = null;
-    public ?string $id = null;
-    public ?string $kategoria = null;
+    public ?string $data_do = null;
+    public ?string $data_od = null;
+    public ?int $limit = null;
+    public ?int $page = null;
     public ?string $wojewodztwo = null;
 }
 
@@ -64,11 +65,7 @@ class Statistic
 /** Request payload for Statistic#load. */
 class StatisticLoadMatch
 {
-    public ?int $liczbapojazdow = null;
-    public ?int $liczbaprawjazdy = null;
-    public ?array $wgkategorii = null;
-    public ?array $wgmarki = null;
-    public ?array $wgrodzaju = null;
+    public ?int $rok = null;
     public ?string $wojewodztwo = null;
 }
 
@@ -90,15 +87,10 @@ class Vehicle
 /** Request payload for Vehicle#list. */
 class VehicleListMatch
 {
-    public ?string $datapierwszejrejestracji = null;
-    public ?string $id = null;
-    public ?string $marka = null;
-    public ?int $masawlasna = null;
-    public ?string $model = null;
-    public ?string $podrodzaj = null;
-    public ?int $pojemnoscsilnika = null;
-    public ?string $rodzaj = null;
-    public ?int $rokprodukcji = null;
+    public ?string $data_do = null;
+    public ?string $data_od = null;
+    public ?int $limit = null;
+    public ?int $page = null;
     public ?string $wojewodztwo = null;
 }
 

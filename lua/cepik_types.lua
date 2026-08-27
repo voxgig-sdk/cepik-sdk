@@ -14,10 +14,10 @@
 ---@field wojewodztwo? string
 
 ---@class DrivingLicenseListMatch
----@field datawaznosci? string
----@field datawydania? string
----@field id? string
----@field kategoria? string
+---@field data_do? string
+---@field data_od? string
+---@field limit? number
+---@field page? number
 ---@field wojewodztwo? string
 
 ---@class Permission
@@ -27,9 +27,10 @@
 ---@field wojewodztwo? string
 
 ---@class PermissionListMatch
----@field datauzyskania? string
----@field id? string
----@field kategoria? string
+---@field data_do? string
+---@field data_od? string
+---@field limit? number
+---@field page? number
 ---@field wojewodztwo? string
 
 ---@class Statistic
@@ -41,11 +42,7 @@
 ---@field wojewodztwo? string
 
 ---@class StatisticLoadMatch
----@field liczbapojazdow? number
----@field liczbaprawjazdy? number
----@field wgkategorii? table
----@field wgmarki? table
----@field wgrodzaju? table
+---@field rok? number
 ---@field wojewodztwo? string
 
 ---@class Vehicle
@@ -61,15 +58,10 @@
 ---@field wojewodztwo? string
 
 ---@class VehicleListMatch
----@field datapierwszejrejestracji? string
----@field id? string
----@field marka? string
----@field masawlasna? number
----@field model? string
----@field podrodzaj? string
----@field pojemnoscsilnika? number
----@field rodzaj? string
----@field rokprodukcji? number
+---@field data_do? string
+---@field data_od? string
+---@field limit? number
+---@field page? number
 ---@field wojewodztwo? string
 
 local M = {}

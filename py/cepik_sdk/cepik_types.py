@@ -25,10 +25,10 @@ class DrivingLicense(TypedDict, total=False):
 
 
 class DrivingLicenseListMatch(TypedDict, total=False):
-    datawaznosci: str
-    datawydania: str
-    id: str
-    kategoria: str
+    data_do: str
+    data_od: str
+    limit: int
+    page: int
     wojewodztwo: str
 
 
@@ -40,9 +40,10 @@ class Permission(TypedDict, total=False):
 
 
 class PermissionListMatch(TypedDict, total=False):
-    datauzyskania: str
-    id: str
-    kategoria: str
+    data_do: str
+    data_od: str
+    limit: int
+    page: int
     wojewodztwo: str
 
 
@@ -56,11 +57,7 @@ class Statistic(TypedDict, total=False):
 
 
 class StatisticLoadMatch(TypedDict, total=False):
-    liczbapojazdow: int
-    liczbaprawjazdy: int
-    wgkategorii: dict
-    wgmarki: dict
-    wgrodzaju: dict
+    rok: int
     wojewodztwo: str
 
 
@@ -78,13 +75,8 @@ class Vehicle(TypedDict, total=False):
 
 
 class VehicleListMatch(TypedDict, total=False):
-    datapierwszejrejestracji: str
-    id: str
-    marka: str
-    masawlasna: int
-    model: str
-    podrodzaj: str
-    pojemnoscsilnika: int
-    rodzaj: str
-    rokprodukcji: int
+    data_do: str
+    data_od: str
+    limit: int
+    page: int
     wojewodztwo: str

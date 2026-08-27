@@ -14,10 +14,10 @@ export interface DrivingLicense {
 }
 
 export interface DrivingLicenseListMatch {
-  datawaznosci?: string
-  datawydania?: string
-  id?: string
-  kategoria?: string
+  data_do?: string
+  data_od?: string
+  limit?: number
+  page?: number
   wojewodztwo?: string
 }
 
@@ -29,9 +29,10 @@ export interface Permission {
 }
 
 export interface PermissionListMatch {
-  datauzyskania?: string
-  id?: string
-  kategoria?: string
+  data_do?: string
+  data_od?: string
+  limit?: number
+  page?: number
   wojewodztwo?: string
 }
 
@@ -45,11 +46,7 @@ export interface Statistic {
 }
 
 export interface StatisticLoadMatch {
-  liczbapojazdow?: number
-  liczbaprawjazdy?: number
-  wgkategorii?: Record<string, any>
-  wgmarki?: Record<string, any>
-  wgrodzaju?: Record<string, any>
+  rok?: number
   wojewodztwo?: string
 }
 
@@ -67,15 +64,10 @@ export interface Vehicle {
 }
 
 export interface VehicleListMatch {
-  datapierwszejrejestracji?: string
-  id?: string
-  marka?: string
-  masawlasna?: number
-  model?: string
-  podrodzaj?: string
-  pojemnoscsilnika?: number
-  rodzaj?: string
-  rokprodukcji?: number
+  data_do?: string
+  data_od?: string
+  limit?: number
+  page?: number
   wojewodztwo?: string
 }
 
