@@ -69,9 +69,13 @@ main: kit: entity: statistic: {
           }
           method: "GET"
           orig: "/statystyki/pojazdy"
-          parts: [
-            "statystyki"
-            "pojazdy"
+          segments: [
+            {
+              lit: "statystyki"
+            }
+            {
+              lit: "pojazdy"
+            }
           ]
           select: {
             exist: [
@@ -105,9 +109,13 @@ main: kit: entity: statistic: {
           }
           method: "GET"
           orig: "/statystyki/prawo-jazdy"
-          parts: [
-            "statystyki"
-            "prawo-jazdy"
+          segments: [
+            {
+              lit: "statystyki"
+            }
+            {
+              lit: "prawo-jazdy"
+            }
           ]
           select: {
             exist: [

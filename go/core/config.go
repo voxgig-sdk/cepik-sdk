@@ -39,11 +39,13 @@ func MakeConfig() map[string]any {
 			"driving_license": map[string]any{
 				"fields": []any{
 					map[string]any{
+						"format": "date",
 						"name": "datawaznosci",
 						"short": "Expiry date",
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "date",
 						"name": "datawydania",
 						"short": "Date of issue",
 						"type": "`$STRING`",
@@ -63,6 +65,10 @@ func MakeConfig() map[string]any {
 						"short": "Province/voivodeship of issue",
 						"type": "`$STRING`",
 					},
+				},
+				"id": map[string]any{
+					"field": "id",
+					"name": "id",
 				},
 				"name": "driving_license",
 				"op": map[string]any{
@@ -110,8 +116,10 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/prawo-jazdy",
-								"parts": []any{
-									"prawo-jazdy",
+								"segments": []any{
+									map[string]any{
+										"lit": "prawo-jazdy",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -126,6 +134,9 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
+								"parts": []any{
+									"prawo-jazdy",
+								},
 							},
 						},
 					},
@@ -137,6 +148,7 @@ func MakeConfig() map[string]any {
 			"permission": map[string]any{
 				"fields": []any{
 					map[string]any{
+						"format": "date",
 						"name": "datauzyskania",
 						"short": "Date permission was obtained",
 						"type": "`$STRING`",
@@ -156,6 +168,10 @@ func MakeConfig() map[string]any {
 						"short": "Province/voivodeship",
 						"type": "`$STRING`",
 					},
+				},
+				"id": map[string]any{
+					"field": "id",
+					"name": "id",
 				},
 				"name": "permission",
 				"op": map[string]any{
@@ -203,8 +219,10 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/uprawnienia",
-								"parts": []any{
-									"uprawnienia",
+								"segments": []any{
+									map[string]any{
+										"lit": "uprawnienia",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -218,6 +236,9 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"uprawnienia",
 								},
 							},
 						},
@@ -286,9 +307,13 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/statystyki/pojazdy",
-								"parts": []any{
-									"statystyki",
-									"pojazdy",
+								"segments": []any{
+									map[string]any{
+										"lit": "statystyki",
+									},
+									map[string]any{
+										"lit": "pojazdy",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -299,6 +324,10 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body.data`",
+								},
+								"parts": []any{
+									"statystyki",
+									"pojazdy",
 								},
 							},
 							map[string]any{
@@ -321,9 +350,13 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/statystyki/prawo-jazdy",
-								"parts": []any{
-									"statystyki",
-									"prawo-jazdy",
+								"segments": []any{
+									map[string]any{
+										"lit": "statystyki",
+									},
+									map[string]any{
+										"lit": "prawo-jazdy",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -334,6 +367,10 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body.data`",
+								},
+								"parts": []any{
+									"statystyki",
+									"prawo-jazdy",
 								},
 							},
 						},
@@ -346,6 +383,7 @@ func MakeConfig() map[string]any {
 			"vehicle": map[string]any{
 				"fields": []any{
 					map[string]any{
+						"format": "date",
 						"name": "datapierwszejrejestracji",
 						"short": "Date of first registration",
 						"type": "`$STRING`",
@@ -396,6 +434,10 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 				},
+				"id": map[string]any{
+					"field": "id",
+					"name": "id",
+				},
 				"name": "vehicle",
 				"op": map[string]any{
 					"list": map[string]any{
@@ -442,8 +484,10 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/pojazdy",
-								"parts": []any{
-									"pojazdy",
+								"segments": []any{
+									map[string]any{
+										"lit": "pojazdy",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -458,6 +502,9 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
+								"parts": []any{
+									"pojazdy",
+								},
 							},
 						},
 					},
@@ -468,6 +515,17 @@ func MakeConfig() map[string]any {
 			},
 		},
 	}
+}
+
+// The plugin definitions the model selected per feature, as []any so a
+// feature package can consume them without core naming its types. Empty
+// when no active feature declares active plugin groups for this target.
+var featurePlugins = map[string][]any{
+}
+
+// FeaturePlugins is the definitions list for one feature's chain.
+func FeaturePlugins(name string) []any {
+	return featurePlugins[name]
 }
 
 var (

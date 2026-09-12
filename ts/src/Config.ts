@@ -10,6 +10,17 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
+// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
+// the model's active plugin groups. A feature that takes a `plugins` option
+// (secrets over sekreto) reads its own entry; a feature with no plugins has
+// none. Named imports above make each definition statically reachable, so
+// an SDK carries exactly the plugin modules its model selects — the same
+// leanness the old side-effect registry imports bought, without a registry.
+const FEATURE_PLUGINS: Record<string, any[]> = {
+  
+}
+
+
 class Config {
 
   makeFeature(this: any, fn: string) {
@@ -76,11 +87,13 @@ class Config {
     "driving_license": {
       "fields": [
         {
+          "format": "date",
           "name": "datawaznosci",
           "short": "Expiry date",
           "type": "`$STRING`"
         },
         {
+          "format": "date",
           "name": "datawydania",
           "short": "Date of issue",
           "type": "`$STRING`"
@@ -101,6 +114,10 @@ class Config {
           "type": "`$STRING`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "driving_license",
       "op": {
         "list": {
@@ -147,8 +164,10 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/prawo-jazdy",
-              "parts": [
-                "prawo-jazdy"
+              "segments": [
+                {
+                  "lit": "prawo-jazdy"
+                }
               ],
               "select": {
                 "exist": [
@@ -162,7 +181,10 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "prawo-jazdy"
+              ]
             }
           ]
         }
@@ -174,6 +196,7 @@ class Config {
     "permission": {
       "fields": [
         {
+          "format": "date",
           "name": "datauzyskania",
           "short": "Date permission was obtained",
           "type": "`$STRING`"
@@ -194,6 +217,10 @@ class Config {
           "type": "`$STRING`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "permission",
       "op": {
         "list": {
@@ -240,8 +267,10 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/uprawnienia",
-              "parts": [
-                "uprawnienia"
+              "segments": [
+                {
+                  "lit": "uprawnienia"
+                }
               ],
               "select": {
                 "exist": [
@@ -255,7 +284,10 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "uprawnienia"
+              ]
             }
           ]
         }
@@ -323,9 +355,13 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/statystyki/pojazdy",
-              "parts": [
-                "statystyki",
-                "pojazdy"
+              "segments": [
+                {
+                  "lit": "statystyki"
+                },
+                {
+                  "lit": "pojazdy"
+                }
               ],
               "select": {
                 "exist": [
@@ -336,7 +372,11 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.data`"
-              }
+              },
+              "parts": [
+                "statystyki",
+                "pojazdy"
+              ]
             },
             {
               "args": {
@@ -358,9 +398,13 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/statystyki/prawo-jazdy",
-              "parts": [
-                "statystyki",
-                "prawo-jazdy"
+              "segments": [
+                {
+                  "lit": "statystyki"
+                },
+                {
+                  "lit": "prawo-jazdy"
+                }
               ],
               "select": {
                 "exist": [
@@ -371,7 +415,11 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.data`"
-              }
+              },
+              "parts": [
+                "statystyki",
+                "prawo-jazdy"
+              ]
             }
           ]
         }
@@ -383,6 +431,7 @@ class Config {
     "vehicle": {
       "fields": [
         {
+          "format": "date",
           "name": "datapierwszejrejestracji",
           "short": "Date of first registration",
           "type": "`$STRING`"
@@ -433,6 +482,10 @@ class Config {
           "type": "`$STRING`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "vehicle",
       "op": {
         "list": {
@@ -479,8 +532,10 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/pojazdy",
-              "parts": [
-                "pojazdy"
+              "segments": [
+                {
+                  "lit": "pojazdy"
+                }
               ],
               "select": {
                 "exist": [
@@ -494,7 +549,10 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "pojazdy"
+              ]
             }
           ]
         }
@@ -510,6 +568,7 @@ class Config {
 const config = new Config()
 
 export {
-  config
+  config,
+  FEATURE_PLUGINS,
 }
 

@@ -47,11 +47,13 @@ module CepikConfig
         "driving_license" => {
           "fields" => [
             {
+              "format" => "date",
               "name" => "datawaznosci",
               "short" => "Expiry date",
               "type" => "`$STRING`",
             },
             {
+              "format" => "date",
               "name" => "datawydania",
               "short" => "Date of issue",
               "type" => "`$STRING`",
@@ -72,6 +74,10 @@ module CepikConfig
               "type" => "`$STRING`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "driving_license",
           "op" => {
             "list" => {
@@ -118,8 +124,10 @@ module CepikConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/prawo-jazdy",
-                  "parts" => [
-                    "prawo-jazdy",
+                  "segments" => [
+                    {
+                      "lit" => "prawo-jazdy",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -134,6 +142,9 @@ module CepikConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "prawo-jazdy",
+                  ],
                 },
               ],
             },
@@ -145,6 +156,7 @@ module CepikConfig
         "permission" => {
           "fields" => [
             {
+              "format" => "date",
               "name" => "datauzyskania",
               "short" => "Date permission was obtained",
               "type" => "`$STRING`",
@@ -165,6 +177,10 @@ module CepikConfig
               "type" => "`$STRING`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "permission",
           "op" => {
             "list" => {
@@ -211,8 +227,10 @@ module CepikConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/uprawnienia",
-                  "parts" => [
-                    "uprawnienia",
+                  "segments" => [
+                    {
+                      "lit" => "uprawnienia",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -227,6 +245,9 @@ module CepikConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "uprawnienia",
+                  ],
                 },
               ],
             },
@@ -294,9 +315,13 @@ module CepikConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/statystyki/pojazdy",
-                  "parts" => [
-                    "statystyki",
-                    "pojazdy",
+                  "segments" => [
+                    {
+                      "lit" => "statystyki",
+                    },
+                    {
+                      "lit" => "pojazdy",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -308,6 +333,10 @@ module CepikConfig
                     "req" => "`reqdata`",
                     "res" => "`body.data`",
                   },
+                  "parts" => [
+                    "statystyki",
+                    "pojazdy",
+                  ],
                 },
                 {
                   "args" => {
@@ -329,9 +358,13 @@ module CepikConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/statystyki/prawo-jazdy",
-                  "parts" => [
-                    "statystyki",
-                    "prawo-jazdy",
+                  "segments" => [
+                    {
+                      "lit" => "statystyki",
+                    },
+                    {
+                      "lit" => "prawo-jazdy",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -343,6 +376,10 @@ module CepikConfig
                     "req" => "`reqdata`",
                     "res" => "`body.data`",
                   },
+                  "parts" => [
+                    "statystyki",
+                    "prawo-jazdy",
+                  ],
                 },
               ],
             },
@@ -354,6 +391,7 @@ module CepikConfig
         "vehicle" => {
           "fields" => [
             {
+              "format" => "date",
               "name" => "datapierwszejrejestracji",
               "short" => "Date of first registration",
               "type" => "`$STRING`",
@@ -404,6 +442,10 @@ module CepikConfig
               "type" => "`$STRING`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "vehicle",
           "op" => {
             "list" => {
@@ -450,8 +492,10 @@ module CepikConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/pojazdy",
-                  "parts" => [
-                    "pojazdy",
+                  "segments" => [
+                    {
+                      "lit" => "pojazdy",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -466,6 +510,9 @@ module CepikConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "pojazdy",
+                  ],
                 },
               ],
             },

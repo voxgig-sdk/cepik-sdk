@@ -6,6 +6,7 @@ main: kit: entity: vehicle: {
 
   fields: [
     {
+      format: "date"
       name: "datapierwszejrejestracji"
       req: false
       short: "Date of first registration"
@@ -121,8 +122,10 @@ main: kit: entity: vehicle: {
           }
           method: "GET"
           orig: "/pojazdy"
-          parts: [
-            "pojazdy"
+          segments: [
+            {
+              lit: "pojazdy"
+            }
           ]
           select: {
             exist: [

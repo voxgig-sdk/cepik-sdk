@@ -1,6 +1,14 @@
 # Cepik SDK configuration
 
 
+# The sekreto plugin DEFINITIONS the model selected per feature, imported
+# above by name from the modules the catalogue's active `plugin.def`
+# entries declare. Handed to each feature (secrets builds its Sekreto
+# with them): a provider kind not listed here is unknown to that SDK.
+FEATURE_PLUGINS = {
+}
+
+
 _shared_config = None
 
 
@@ -56,11 +64,13 @@ def make_config():
       "driving_license": {
         "fields": [
           {
+            "format": "date",
             "name": "datawaznosci",
             "short": "Expiry date",
             "type": "`$STRING`",
           },
           {
+            "format": "date",
             "name": "datawydania",
             "short": "Date of issue",
             "type": "`$STRING`",
@@ -81,6 +91,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "driving_license",
         "op": {
           "list": {
@@ -127,8 +141,10 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/prawo-jazdy",
-                "parts": [
-                  "prawo-jazdy",
+                "segments": [
+                  {
+                    "lit": "prawo-jazdy",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -143,6 +159,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "prawo-jazdy",
+                ],
               },
             ],
           },
@@ -154,6 +173,7 @@ def make_config():
       "permission": {
         "fields": [
           {
+            "format": "date",
             "name": "datauzyskania",
             "short": "Date permission was obtained",
             "type": "`$STRING`",
@@ -174,6 +194,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "permission",
         "op": {
           "list": {
@@ -220,8 +244,10 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/uprawnienia",
-                "parts": [
-                  "uprawnienia",
+                "segments": [
+                  {
+                    "lit": "uprawnienia",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -236,6 +262,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "uprawnienia",
+                ],
               },
             ],
           },
@@ -303,9 +332,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/statystyki/pojazdy",
-                "parts": [
-                  "statystyki",
-                  "pojazdy",
+                "segments": [
+                  {
+                    "lit": "statystyki",
+                  },
+                  {
+                    "lit": "pojazdy",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -317,6 +350,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.data`",
                 },
+                "parts": [
+                  "statystyki",
+                  "pojazdy",
+                ],
               },
               {
                 "args": {
@@ -338,9 +375,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/statystyki/prawo-jazdy",
-                "parts": [
-                  "statystyki",
-                  "prawo-jazdy",
+                "segments": [
+                  {
+                    "lit": "statystyki",
+                  },
+                  {
+                    "lit": "prawo-jazdy",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -352,6 +393,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.data`",
                 },
+                "parts": [
+                  "statystyki",
+                  "prawo-jazdy",
+                ],
               },
             ],
           },
@@ -363,6 +408,7 @@ def make_config():
       "vehicle": {
         "fields": [
           {
+            "format": "date",
             "name": "datapierwszejrejestracji",
             "short": "Date of first registration",
             "type": "`$STRING`",
@@ -413,6 +459,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "vehicle",
         "op": {
           "list": {
@@ -459,8 +509,10 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/pojazdy",
-                "parts": [
-                  "pojazdy",
+                "segments": [
+                  {
+                    "lit": "pojazdy",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -475,6 +527,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "pojazdy",
+                ],
               },
             ],
           },

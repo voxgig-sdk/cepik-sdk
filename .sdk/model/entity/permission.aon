@@ -6,6 +6,7 @@ main: kit: entity: permission: {
 
   fields: [
     {
+      format: "date"
       name: "datauzyskania"
       req: false
       short: "Date permission was obtained"
@@ -85,8 +86,10 @@ main: kit: entity: permission: {
           }
           method: "GET"
           orig: "/uprawnienia"
-          parts: [
-            "uprawnienia"
+          segments: [
+            {
+              lit: "uprawnienia"
+            }
           ]
           select: {
             exist: [

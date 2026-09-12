@@ -34,6 +34,7 @@
           "fields": [
             {
               "active": true,
+              "format": "date",
               "name": "datawaznosci",
               "req": false,
               "short": "Expiry date",
@@ -41,6 +42,7 @@
             },
             {
               "active": true,
+              "format": "date",
               "name": "datawydania",
               "req": false,
               "short": "Date of issue",
@@ -129,8 +131,10 @@
                   "kind": "http",
                   "method": "GET",
                   "orig": "/prawo-jazdy",
-                  "parts": [
-                    "prawo-jazdy"
+                  "segments": [
+                    {
+                      "lit": "prawo-jazdy"
+                    }
                   ],
                   "select": {
                     "exist": [
@@ -161,6 +165,7 @@
           "fields": [
             {
               "active": true,
+              "format": "date",
               "name": "datauzyskania",
               "req": false,
               "short": "Date permission was obtained",
@@ -249,8 +254,10 @@
                   "kind": "http",
                   "method": "GET",
                   "orig": "/uprawnienia",
-                  "parts": [
-                    "uprawnienia"
+                  "segments": [
+                    {
+                      "lit": "uprawnienia"
+                    }
                   ],
                   "select": {
                     "exist": [
@@ -353,9 +360,13 @@
                   "kind": "http",
                   "method": "GET",
                   "orig": "/statystyki/pojazdy",
-                  "parts": [
-                    "statystyki",
-                    "pojazdy"
+                  "segments": [
+                    {
+                      "lit": "statystyki"
+                    },
+                    {
+                      "lit": "pojazdy"
+                    }
                   ],
                   "select": {
                     "exist": [
@@ -393,9 +404,13 @@
                   "kind": "http",
                   "method": "GET",
                   "orig": "/statystyki/prawo-jazdy",
-                  "parts": [
-                    "statystyki",
-                    "prawo-jazdy"
+                  "segments": [
+                    {
+                      "lit": "statystyki"
+                    },
+                    {
+                      "lit": "prawo-jazdy"
+                    }
                   ],
                   "select": {
                     "exist": [
@@ -423,6 +438,7 @@
           "fields": [
             {
               "active": true,
+              "format": "date",
               "name": "datapierwszejrejestracji",
               "req": false,
               "short": "Date of first registration",
@@ -553,8 +569,10 @@
                   "kind": "http",
                   "method": "GET",
                   "orig": "/pojazdy",
-                  "parts": [
-                    "pojazdy"
+                  "segments": [
+                    {
+                      "lit": "pojazdy"
+                    }
                   ],
                   "select": {
                     "exist": [
@@ -642,8 +660,11 @@
             }
           },
           "name": "test",
+          "needs": {},
           "origname": "",
           "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
           "target": {
             "go": {
               "deps": {}
@@ -844,6 +865,9 @@
             "sdkrel": ""
           },
           "package": "@voxgig/sdkgen",
+          "provides": {
+            "sekreto": true
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -869,6 +893,10 @@
             "version": "0.0.1"
           },
           "srcfeature": false,
+          "superseded": [
+            "test/runner_test.go",
+            "test/struct_runner_test.go"
+          ],
           "title": "Golang"
         },
         "go-cli": {
@@ -920,6 +948,7 @@
               "active": false
             }
           },
+          "provides": {},
           "publish": {
             "registry": {
               "active": false,
@@ -944,6 +973,7 @@
             },
             "version": "0.0.1"
           },
+          "superseded": [],
           "title": "Go CLI"
         },
         "go-mcp": {
@@ -995,6 +1025,7 @@
               "active": false
             }
           },
+          "provides": {},
           "publish": {
             "registry": {
               "active": false,
@@ -1019,6 +1050,7 @@
             },
             "version": "0.0.1"
           },
+          "superseded": [],
           "title": "Go MCP server"
         },
         "lua": {
@@ -1059,6 +1091,9 @@
             "sdkrel": ""
           },
           "package": "@voxgig/sdkgen",
+          "provides": {
+            "sekreto": true
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -1084,6 +1119,9 @@
             "version": "0.0.1"
           },
           "srcfeature": false,
+          "superseded": [
+            "test/struct_runner.lua"
+          ],
           "title": "Lua"
         },
         "php": {
@@ -1118,6 +1156,9 @@
             "sdkrel": ""
           },
           "package": "@voxgig/sdkgen",
+          "provides": {
+            "sekreto": true
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -1143,6 +1184,9 @@
             "version": "0.0.1"
           },
           "srcfeature": false,
+          "superseded": [
+            "test/StructRunner.php"
+          ],
           "title": "PHP"
         },
         "py": {
@@ -1183,6 +1227,9 @@
             "sdkrel": ""
           },
           "package": "@voxgig/sdkgen",
+          "provides": {
+            "sekreto": true
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -1208,6 +1255,9 @@
             "version": "0.0.1"
           },
           "srcfeature": false,
+          "superseded": [
+            "test/struct_runner.py"
+          ],
           "title": "Python"
         },
         "rb": {
@@ -1253,6 +1303,9 @@
             "sdkrel": ""
           },
           "package": "@voxgig/sdkgen",
+          "provides": {
+            "sekreto": true
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -1278,6 +1331,9 @@
             "version": "0.0.1"
           },
           "srcfeature": false,
+          "superseded": [
+            "test/struct_runner.rb"
+          ],
           "title": "Ruby"
         },
         "ts": {
@@ -1295,11 +1351,6 @@
               "active": true,
               "kind": "dev",
               "version": "^25.6.0"
-            },
-            "dotenv": {
-              "active": true,
-              "kind": "dev",
-              "version": "^17.4.2"
             },
             "typescript": {
               "active": true,
@@ -1328,6 +1379,9 @@
             "sdkrel": ""
           },
           "package": "@voxgig/sdkgen",
+          "provides": {
+            "sekreto": true
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -1352,6 +1406,14 @@
             },
             "version": "0.0.1"
           },
+          "superseded": [
+            "test/runner.ts",
+            "test/vendor/omni/compat.ts",
+            "src/feature/secrets/sekreto/Providers.ts",
+            "src/feature/secrets/sekreto/Sigv4.ts",
+            "src/feature/secrets/sekreto/provider/Registry.ts",
+            "src/feature/secrets/sekreto/provider/http.ts"
+          ],
           "title": "TypeScript"
         }
       },
