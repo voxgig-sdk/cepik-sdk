@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { CepikSDK } from '@voxgig-sdk/cepik'
+import { CepikSDK } from '@voxgig-sdk/cepik-sdk'
 
 const client = new CepikSDK()
 ```
@@ -549,7 +549,7 @@ cepik/
 Import the SDK from the package root:
 
 ```ts
-import { CepikSDK } from '@voxgig-sdk/cepik'
+import { CepikSDK } from '@voxgig-sdk/cepik-sdk'
 ```
 
 ### Entity state

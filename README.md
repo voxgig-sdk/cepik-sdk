@@ -105,7 +105,7 @@ local result, err = client:Statistic():load()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/cepik` | publish pending — [install from git tag](https://github.com/voxgig-sdk/cepik-sdk/releases) |
+| TypeScript | `@voxgig-sdk/cepik-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/cepik-sdk/releases) |
 | Python | `voxgig-sdk-cepik` | publish pending — [install from git tag](https://github.com/voxgig-sdk/cepik-sdk/releases) |
 | PHP | `voxgig-sdk/cepik` | publish pending — [install from git tag](https://github.com/voxgig-sdk/cepik-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/cepik-sdk/go` | `go get github.com/voxgig-sdk/cepik-sdk/go@latest` |
@@ -119,7 +119,7 @@ local result, err = client:Statistic():load()
 ### TypeScript
 
 ```ts
-import { CepikSDK } from '@voxgig-sdk/cepik'
+import { CepikSDK } from '@voxgig-sdk/cepik-sdk'
 
 const client = new CepikSDK()
 
