@@ -4,7 +4,10 @@ declare(strict_types=1);
 // Cepik SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class CepikFeatures
@@ -14,8 +17,14 @@ class CepikFeatures
         switch ($name) {
             case "base":
                 return new CepikBaseFeature();
+            case "ratelimit":
+                return new CepikRatelimitFeature();
+            case "retry":
+                return new CepikRetryFeature();
             case "test":
                 return new CepikTestFeature();
+            case "timeout":
+                return new CepikTimeoutFeature();
             default:
                 return new CepikBaseFeature();
         }
@@ -31,7 +40,10 @@ class CepikFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;

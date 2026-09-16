@@ -1,12 +1,18 @@
 # Cepik SDK feature factory
 
 from cepik_sdk.feature.base_feature import CepikBaseFeature
+from cepik_sdk.feature.ratelimit_feature import CepikRatelimitFeature
+from cepik_sdk.feature.retry_feature import CepikRetryFeature
 from cepik_sdk.feature.test_feature import CepikTestFeature
+from cepik_sdk.feature.timeout_feature import CepikTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: CepikBaseFeature(),
+    "ratelimit": lambda: CepikRatelimitFeature(),
+    "retry": lambda: CepikRetryFeature(),
     "test": lambda: CepikTestFeature(),
+    "timeout": lambda: CepikTimeoutFeature(),
 }
 
 

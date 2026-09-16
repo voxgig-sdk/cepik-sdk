@@ -2,8 +2,8 @@
   "existing": {
     "statistic": {
       "STATISTIC00": {
-        "liczbapojazdow": "s3c",
-        "liczbaprawjazdy": "s3d",
+        "liczbapojazdow": 60,
+        "liczbaprawjazdy": 61,
         "wgkategorii": {},
         "wgmarki": {},
         "wgrodzaju": {},
@@ -11,8 +11,8 @@
         "id": "STATISTIC00"
       },
       "STATISTIC01": {
-        "liczbapojazdow": "s78",
-        "liczbaprawjazdy": "s79",
+        "liczbapojazdow": 120,
+        "liczbaprawjazdy": 121,
         "wgkategorii": {},
         "wgmarki": {},
         "wgrodzaju": {},
@@ -20,8 +20,8 @@
         "id": "STATISTIC01"
       },
       "STATISTIC02": {
-        "liczbapojazdow": "sb4",
-        "liczbaprawjazdy": "sb5",
+        "liczbapojazdow": 180,
+        "liczbaprawjazdy": 181,
         "wgkategorii": {},
         "wgmarki": {},
         "wgrodzaju": {},
@@ -33,12 +33,225 @@
   "new": {
     "statistic": {
       "statistic_ref01": {
-        "liczbapojazdow": "sf0",
-        "liczbaprawjazdy": "sf1",
+        "liczbapojazdow": 240,
+        "liczbaprawjazdy": 241,
         "wgkategorii": {},
         "wgmarki": {},
         "wgrodzaju": {},
         "wojewodztwo": "sf5"
+      }
+    }
+  },
+  "requests": {
+    "GET /statystyki/pojazdy": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getVehicleStatistics",
+        "parameters": [
+          {
+            "description": "Province/voivodeship filter",
+            "in": "query",
+            "name": "wojewodztwo",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Year for statistics",
+            "in": "query",
+            "name": "rok",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "data": {
+                      "properties": {
+                        "liczba-pojazdow": {
+                          "description": "Total number of vehicles",
+                          "type": "integer"
+                        },
+                        "wg-marki": {
+                          "additionalProperties": {
+                            "type": "integer"
+                          },
+                          "description": "Breakdown by brand",
+                          "type": "object"
+                        },
+                        "wg-rodzaju": {
+                          "additionalProperties": {
+                            "type": "integer"
+                          },
+                          "description": "Breakdown by vehicle type",
+                          "type": "object"
+                        },
+                        "wojewodztwo": {
+                          "description": "Province/voivodeship",
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response with vehicle statistics"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "code": {
+                      "description": "Error code",
+                      "type": "integer"
+                    },
+                    "message": {
+                      "description": "Error message",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Bad request - invalid parameters"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "code": {
+                      "description": "Error code",
+                      "type": "integer"
+                    },
+                    "message": {
+                      "description": "Error message",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Internal server error"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "GET /statystyki/prawo-jazdy": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getDrivingLicenseStatistics",
+        "parameters": [
+          {
+            "description": "Province/voivodeship filter",
+            "in": "query",
+            "name": "wojewodztwo",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Year for statistics",
+            "in": "query",
+            "name": "rok",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "data": {
+                      "properties": {
+                        "liczba-praw-jazdy": {
+                          "description": "Total number of driving licenses",
+                          "type": "integer"
+                        },
+                        "wg-kategorii": {
+                          "additionalProperties": {
+                            "type": "integer"
+                          },
+                          "description": "Breakdown by license category",
+                          "type": "object"
+                        },
+                        "wojewodztwo": {
+                          "description": "Province/voivodeship",
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response with driving license statistics"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "code": {
+                      "description": "Error code",
+                      "type": "integer"
+                    },
+                    "message": {
+                      "description": "Error message",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Bad request - invalid parameters"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "code": {
+                      "description": "Error code",
+                      "type": "integer"
+                    },
+                    "message": {
+                      "description": "Error message",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Internal server error"
+          }
+        },
+        "securitySource": "unspecified"
       }
     }
   }

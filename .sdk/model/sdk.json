@@ -24,7 +24,71 @@
         "repr": "auto"
       },
       "contributor": {},
-      "docs": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "driving_license": {
           "active": true,
@@ -127,6 +191,12 @@
                         "type": "`$STRING`"
                       }
                     ]
+                  },
+                  "contract": {
+                    "id": "GET /prawo-jazdy",
+                    "json": "{\"operationId\":\"getDrivingLicenses\",\"parameters\":[{\"description\":\"Province/voivodeship filter\",\"in\":\"query\",\"name\":\"wojewodztwo\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Start date for filtering (YYYY-MM-DD)\",\"in\":\"query\",\"name\":\"data-od\",\"required\":false,\"schema\":{\"format\":\"date\",\"type\":\"string\"}},{\"description\":\"End date for filtering (YYYY-MM-DD)\",\"in\":\"query\",\"name\":\"data-do\",\"required\":false,\"schema\":{\"format\":\"date\",\"type\":\"string\"}},{\"description\":\"Maximum number of results to return\",\"in\":\"query\",\"name\":\"limit\",\"required\":false,\"schema\":{\"default\":500,\"maximum\":500,\"minimum\":1,\"type\":\"integer\"}},{\"description\":\"Page number for pagination\",\"in\":\"query\",\"name\":\"page\",\"required\":false,\"schema\":{\"default\":1,\"minimum\":1,\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"data\":{\"items\":{\"properties\":{\"data-waznosci\":{\"description\":\"Expiry date\",\"format\":\"date\",\"type\":\"string\"},\"data-wydania\":{\"description\":\"Date of issue\",\"format\":\"date\",\"type\":\"string\"},\"id\":{\"description\":\"Unique license identifier\",\"type\":\"string\"},\"kategoria\":{\"description\":\"License category\",\"type\":\"string\"},\"wojewodztwo\":{\"description\":\"Province/voivodeship of issue\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"links\":{\"properties\":{\"first\":{\"description\":\"URL to first page\",\"type\":\"string\"},\"last\":{\"description\":\"URL to last page\",\"type\":\"string\"},\"next\":{\"description\":\"URL to next page\",\"nullable\":true,\"type\":\"string\"},\"prev\":{\"description\":\"URL to previous page\",\"nullable\":true,\"type\":\"string\"}},\"type\":\"object\"}},\"type\":\"object\"}}},\"description\":\"Successful response with driving license data\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"integer\"},\"message\":{\"description\":\"Error message\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Bad request - invalid parameters\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"integer\"},\"message\":{\"description\":\"Error message\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
                   },
                   "kind": "http",
                   "method": "GET",
@@ -251,6 +321,12 @@
                       }
                     ]
                   },
+                  "contract": {
+                    "id": "GET /uprawnienia",
+                    "json": "{\"operationId\":\"getPermissions\",\"parameters\":[{\"description\":\"Province/voivodeship filter\",\"in\":\"query\",\"name\":\"wojewodztwo\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Start date for filtering (YYYY-MM-DD)\",\"in\":\"query\",\"name\":\"data-od\",\"required\":false,\"schema\":{\"format\":\"date\",\"type\":\"string\"}},{\"description\":\"End date for filtering (YYYY-MM-DD)\",\"in\":\"query\",\"name\":\"data-do\",\"required\":false,\"schema\":{\"format\":\"date\",\"type\":\"string\"}},{\"description\":\"Maximum number of results to return\",\"in\":\"query\",\"name\":\"limit\",\"required\":false,\"schema\":{\"default\":500,\"maximum\":500,\"minimum\":1,\"type\":\"integer\"}},{\"description\":\"Page number for pagination\",\"in\":\"query\",\"name\":\"page\",\"required\":false,\"schema\":{\"default\":1,\"minimum\":1,\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"data\":{\"items\":{\"properties\":{\"data-uzyskania\":{\"description\":\"Date permission was obtained\",\"format\":\"date\",\"type\":\"string\"},\"id\":{\"description\":\"Unique permission identifier\",\"type\":\"string\"},\"kategoria\":{\"description\":\"Category of permission\",\"type\":\"string\"},\"wojewodztwo\":{\"description\":\"Province/voivodeship\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"links\":{\"properties\":{\"first\":{\"description\":\"URL to first page\",\"type\":\"string\"},\"last\":{\"description\":\"URL to last page\",\"type\":\"string\"},\"next\":{\"description\":\"URL to next page\",\"nullable\":true,\"type\":\"string\"},\"prev\":{\"description\":\"URL to previous page\",\"nullable\":true,\"type\":\"string\"}},\"type\":\"object\"}},\"type\":\"object\"}}},\"description\":\"Successful response with permissions data\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"integer\"},\"message\":{\"description\":\"Error message\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Bad request - invalid parameters\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"integer\"},\"message\":{\"description\":\"Error message\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "GET",
                   "orig": "/uprawnienia",
@@ -357,6 +433,12 @@
                       }
                     ]
                   },
+                  "contract": {
+                    "id": "GET /statystyki/pojazdy",
+                    "json": "{\"operationId\":\"getVehicleStatistics\",\"parameters\":[{\"description\":\"Province/voivodeship filter\",\"in\":\"query\",\"name\":\"wojewodztwo\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Year for statistics\",\"in\":\"query\",\"name\":\"rok\",\"required\":false,\"schema\":{\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"data\":{\"properties\":{\"liczba-pojazdow\":{\"description\":\"Total number of vehicles\",\"type\":\"integer\"},\"wg-marki\":{\"additionalProperties\":{\"type\":\"integer\"},\"description\":\"Breakdown by brand\",\"type\":\"object\"},\"wg-rodzaju\":{\"additionalProperties\":{\"type\":\"integer\"},\"description\":\"Breakdown by vehicle type\",\"type\":\"object\"},\"wojewodztwo\":{\"description\":\"Province/voivodeship\",\"type\":\"string\"}},\"type\":\"object\"}},\"type\":\"object\"}}},\"description\":\"Successful response with vehicle statistics\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"integer\"},\"message\":{\"description\":\"Error message\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Bad request - invalid parameters\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"integer\"},\"message\":{\"description\":\"Error message\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "GET",
                   "orig": "/statystyki/pojazdy",
@@ -400,6 +482,12 @@
                         "type": "`$STRING`"
                       }
                     ]
+                  },
+                  "contract": {
+                    "id": "GET /statystyki/prawo-jazdy",
+                    "json": "{\"operationId\":\"getDrivingLicenseStatistics\",\"parameters\":[{\"description\":\"Province/voivodeship filter\",\"in\":\"query\",\"name\":\"wojewodztwo\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Year for statistics\",\"in\":\"query\",\"name\":\"rok\",\"required\":false,\"schema\":{\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"data\":{\"properties\":{\"liczba-praw-jazdy\":{\"description\":\"Total number of driving licenses\",\"type\":\"integer\"},\"wg-kategorii\":{\"additionalProperties\":{\"type\":\"integer\"},\"description\":\"Breakdown by license category\",\"type\":\"object\"},\"wojewodztwo\":{\"description\":\"Province/voivodeship\",\"type\":\"string\"}},\"type\":\"object\"}},\"type\":\"object\"}}},\"description\":\"Successful response with driving license statistics\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"integer\"},\"message\":{\"description\":\"Error message\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Bad request - invalid parameters\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"integer\"},\"message\":{\"description\":\"Error message\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
                   },
                   "kind": "http",
                   "method": "GET",
@@ -566,6 +654,12 @@
                       }
                     ]
                   },
+                  "contract": {
+                    "id": "GET /pojazdy",
+                    "json": "{\"operationId\":\"getVehicles\",\"parameters\":[{\"description\":\"Province/voivodeship filter\",\"in\":\"query\",\"name\":\"wojewodztwo\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Start date for filtering (YYYY-MM-DD)\",\"in\":\"query\",\"name\":\"data-od\",\"required\":false,\"schema\":{\"format\":\"date\",\"type\":\"string\"}},{\"description\":\"End date for filtering (YYYY-MM-DD)\",\"in\":\"query\",\"name\":\"data-do\",\"required\":false,\"schema\":{\"format\":\"date\",\"type\":\"string\"}},{\"description\":\"Maximum number of results to return\",\"in\":\"query\",\"name\":\"limit\",\"required\":false,\"schema\":{\"default\":500,\"maximum\":500,\"minimum\":1,\"type\":\"integer\"}},{\"description\":\"Page number for pagination\",\"in\":\"query\",\"name\":\"page\",\"required\":false,\"schema\":{\"default\":1,\"minimum\":1,\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"data\":{\"items\":{\"properties\":{\"data-pierwszej-rejestracji\":{\"description\":\"Date of first registration\",\"format\":\"date\",\"type\":\"string\"},\"id\":{\"description\":\"Unique vehicle identifier\",\"type\":\"string\"},\"marka\":{\"description\":\"Vehicle brand/make\",\"type\":\"string\"},\"masa-wlasna\":{\"description\":\"Curb weight in kg\",\"type\":\"integer\"},\"model\":{\"description\":\"Vehicle model\",\"type\":\"string\"},\"podrodzaj\":{\"description\":\"Vehicle subtype\",\"type\":\"string\"},\"pojemnosc-silnika\":{\"description\":\"Engine capacity in cm³\",\"type\":\"integer\"},\"rodzaj\":{\"description\":\"Vehicle type\",\"type\":\"string\"},\"rok-produkcji\":{\"description\":\"Year of production\",\"type\":\"integer\"},\"wojewodztwo\":{\"description\":\"Province/voivodeship of registration\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"links\":{\"properties\":{\"first\":{\"description\":\"URL to first page\",\"type\":\"string\"},\"last\":{\"description\":\"URL to last page\",\"type\":\"string\"},\"next\":{\"description\":\"URL to next page\",\"nullable\":true,\"type\":\"string\"},\"prev\":{\"description\":\"URL to previous page\",\"nullable\":true,\"type\":\"string\"}},\"type\":\"object\"}},\"type\":\"object\"}}},\"description\":\"Successful response with vehicle data\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"integer\"},\"message\":{\"description\":\"Error message\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Bad request - invalid parameters\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"integer\"},\"message\":{\"description\":\"Error message\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "GET",
                   "orig": "/pojazdy",
@@ -597,13 +691,223 @@
         }
       },
       "feature": {
+        "ratelimit": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "burst": 5,
+              "rate": 5
+            },
+            "optspec": {
+              "now": "`$FUNCTION`",
+              "sleep": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "ratelimit",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Client-side rate limiting via a token bucket",
+          "transport": "wrap",
+          "version": "0.0.1"
+        },
+        "retry": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "factor": 2,
+              "maxDelay": 2000,
+              "minDelay": 50,
+              "retries": 2,
+              "statuses": [
+                408,
+                425,
+                429,
+                500,
+                502,
+                503,
+                504
+              ]
+            },
+            "optspec": {
+              "jitter": "`$BOOLEAN`",
+              "sleep": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "retry",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Automatic retry of transient failures with exponential backoff",
+          "transport": "wrap",
+          "version": "0.0.1"
+        },
         "test": {
           "active": true,
           "base": "node_modules/@voxgig/sdkgen/project/.sdk",
           "config": {
             "options": {
               "active": false
-            }
+            },
+            "optspec": {
+              "entity": "`$MAP`",
+              "net": "`$MAP`"
+            },
+            "strict": false
           },
           "hook": {
             "GetData": {
@@ -693,6 +997,102 @@
           },
           "title": "In-memory mock transport for testing without a live server",
           "transport": "base",
+          "version": "0.0.1"
+        },
+        "timeout": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "ms": 30000
+            },
+            "optspec": {
+              "clearTimer": "`$FUNCTION`",
+              "setTimer": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "timeout",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Per-request timeout with transport abort",
+          "transport": "wrap",
           "version": "0.0.1"
         }
       },
@@ -826,6 +1226,48 @@
         "website": "https://cepik.gov.pl"
       },
       "option": {},
+      "optspec": {
+        "allow": {
+          "method": "GET,PUT,POST,PATCH,DELETE,OPTIONS",
+          "op": "create,update,load,list,remove,command,direct,graphql"
+        },
+        "apikey": "",
+        "auth": {
+          "basic": false,
+          "prefix": ""
+        },
+        "base": "http://localhost:8000",
+        "clean": {
+          "keys": "key,token,id"
+        },
+        "entity": {
+          "`$CHILD`": {
+            "`$OPEN`": true,
+            "active": false,
+            "alias": {}
+          }
+        },
+        "extend": "`$ANY`",
+        "headers": {
+          "`$CHILD`": "`$STRING`"
+        },
+        "prefix": "",
+        "secret": "",
+        "server": {
+          "`$CHILD`": ""
+        },
+        "suffix": "",
+        "system": {
+          "fetch": "`$ANY`"
+        },
+        "test": {
+          "active": false,
+          "entity": {
+            "`$OPEN`": true
+          }
+        },
+        "utility": {}
+      },
       "repo": {
         "host": "github.com",
         "path": ""
@@ -1380,6 +1822,7 @@
           },
           "package": "@voxgig/sdkgen",
           "provides": {
+            "schema": true,
             "sekreto": true
           },
           "publish": {
@@ -1421,7 +1864,7 @@
         "live": {
           "app": false,
           "base": "",
-          "strict": false
+          "strict": true
         }
       }
     }

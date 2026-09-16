@@ -5,36 +5,36 @@
         "datapierwszejrejestracji": "s64",
         "id": "VEHICLE00",
         "marka": "s66",
-        "masawlasna": "s67",
+        "masawlasna": 103,
         "model": "s68",
         "podrodzaj": "s69",
-        "pojemnoscsilnika": "s6a",
+        "pojemnoscsilnika": 106,
         "rodzaj": "s6b",
-        "rokprodukcji": "s6c",
+        "rokprodukcji": 108,
         "wojewodztwo": "s6d"
       },
       "VEHICLE01": {
         "datapierwszejrejestracji": "sc8",
         "id": "VEHICLE01",
         "marka": "sca",
-        "masawlasna": "scb",
+        "masawlasna": 203,
         "model": "scc",
         "podrodzaj": "scd",
-        "pojemnoscsilnika": "sce",
+        "pojemnoscsilnika": 206,
         "rodzaj": "scf",
-        "rokprodukcji": "sd0",
+        "rokprodukcji": 208,
         "wojewodztwo": "sd1"
       },
       "VEHICLE02": {
         "datapierwszejrejestracji": "s12c",
         "id": "VEHICLE02",
         "marka": "s12e",
-        "masawlasna": "s12f",
+        "masawlasna": 303,
         "model": "s130",
         "podrodzaj": "s131",
-        "pojemnoscsilnika": "s132",
+        "pojemnoscsilnika": 306,
         "rodzaj": "s133",
-        "rokprodukcji": "s134",
+        "rokprodukcji": 308,
         "wojewodztwo": "s135"
       }
     }
@@ -44,13 +44,203 @@
       "vehicle_ref01": {
         "datapierwszejrejestracji": "s190",
         "marka": "s192",
-        "masawlasna": "s193",
+        "masawlasna": 403,
         "model": "s194",
         "podrodzaj": "s195",
-        "pojemnoscsilnika": "s196",
+        "pojemnoscsilnika": 406,
         "rodzaj": "s197",
-        "rokprodukcji": "s198",
+        "rokprodukcji": 408,
         "wojewodztwo": "s199"
+      }
+    }
+  },
+  "requests": {
+    "GET /pojazdy": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getVehicles",
+        "parameters": [
+          {
+            "description": "Province/voivodeship filter",
+            "in": "query",
+            "name": "wojewodztwo",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Start date for filtering (YYYY-MM-DD)",
+            "in": "query",
+            "name": "data-od",
+            "required": false,
+            "schema": {
+              "format": "date",
+              "type": "string"
+            }
+          },
+          {
+            "description": "End date for filtering (YYYY-MM-DD)",
+            "in": "query",
+            "name": "data-do",
+            "required": false,
+            "schema": {
+              "format": "date",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Maximum number of results to return",
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "default": 500,
+              "maximum": 500,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Page number for pagination",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "schema": {
+              "default": 1,
+              "minimum": 1,
+              "type": "integer"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "properties": {
+                          "data-pierwszej-rejestracji": {
+                            "description": "Date of first registration",
+                            "format": "date",
+                            "type": "string"
+                          },
+                          "id": {
+                            "description": "Unique vehicle identifier",
+                            "type": "string"
+                          },
+                          "marka": {
+                            "description": "Vehicle brand/make",
+                            "type": "string"
+                          },
+                          "masa-wlasna": {
+                            "description": "Curb weight in kg",
+                            "type": "integer"
+                          },
+                          "model": {
+                            "description": "Vehicle model",
+                            "type": "string"
+                          },
+                          "podrodzaj": {
+                            "description": "Vehicle subtype",
+                            "type": "string"
+                          },
+                          "pojemnosc-silnika": {
+                            "description": "Engine capacity in cm³",
+                            "type": "integer"
+                          },
+                          "rodzaj": {
+                            "description": "Vehicle type",
+                            "type": "string"
+                          },
+                          "rok-produkcji": {
+                            "description": "Year of production",
+                            "type": "integer"
+                          },
+                          "wojewodztwo": {
+                            "description": "Province/voivodeship of registration",
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "links": {
+                      "properties": {
+                        "first": {
+                          "description": "URL to first page",
+                          "type": "string"
+                        },
+                        "last": {
+                          "description": "URL to last page",
+                          "type": "string"
+                        },
+                        "next": {
+                          "description": "URL to next page",
+                          "nullable": true,
+                          "type": "string"
+                        },
+                        "prev": {
+                          "description": "URL to previous page",
+                          "nullable": true,
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response with vehicle data"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "code": {
+                      "description": "Error code",
+                      "type": "integer"
+                    },
+                    "message": {
+                      "description": "Error message",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Bad request - invalid parameters"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "code": {
+                      "description": "Error code",
+                      "type": "integer"
+                    },
+                    "message": {
+                      "description": "Error message",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Internal server error"
+          }
+        },
+        "securitySource": "unspecified"
       }
     }
   }

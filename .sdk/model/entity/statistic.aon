@@ -67,6 +67,12 @@ main: kit: entity: statistic: {
               }
             ]
           }
+          contract: {
+            id: "GET /statystyki/pojazdy"
+            json: "{\"operationId\":\"getVehicleStatistics\",\"parameters\":[{\"description\":\"Province/voivodeship filter\",\"in\":\"query\",\"name\":\"wojewodztwo\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Year for statistics\",\"in\":\"query\",\"name\":\"rok\",\"required\":false,\"schema\":{\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"data\":{\"properties\":{\"liczba-pojazdow\":{\"description\":\"Total number of vehicles\",\"type\":\"integer\"},\"wg-marki\":{\"additionalProperties\":{\"type\":\"integer\"},\"description\":\"Breakdown by brand\",\"type\":\"object\"},\"wg-rodzaju\":{\"additionalProperties\":{\"type\":\"integer\"},\"description\":\"Breakdown by vehicle type\",\"type\":\"object\"},\"wojewodztwo\":{\"description\":\"Province/voivodeship\",\"type\":\"string\"}},\"type\":\"object\"}},\"type\":\"object\"}}},\"description\":\"Successful response with vehicle statistics\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"integer\"},\"message\":{\"description\":\"Error message\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Bad request - invalid parameters\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"integer\"},\"message\":{\"description\":\"Error message\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/statystyki/pojazdy"
           segments: [
@@ -106,6 +112,12 @@ main: kit: entity: statistic: {
                 type: "`$STRING`"
               }
             ]
+          }
+          contract: {
+            id: "GET /statystyki/prawo-jazdy"
+            json: "{\"operationId\":\"getDrivingLicenseStatistics\",\"parameters\":[{\"description\":\"Province/voivodeship filter\",\"in\":\"query\",\"name\":\"wojewodztwo\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Year for statistics\",\"in\":\"query\",\"name\":\"rok\",\"required\":false,\"schema\":{\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"data\":{\"properties\":{\"liczba-praw-jazdy\":{\"description\":\"Total number of driving licenses\",\"type\":\"integer\"},\"wg-kategorii\":{\"additionalProperties\":{\"type\":\"integer\"},\"description\":\"Breakdown by license category\",\"type\":\"object\"},\"wojewodztwo\":{\"description\":\"Province/voivodeship\",\"type\":\"string\"}},\"type\":\"object\"}},\"type\":\"object\"}}},\"description\":\"Successful response with driving license statistics\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"integer\"},\"message\":{\"description\":\"Error message\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Bad request - invalid parameters\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"integer\"},\"message\":{\"description\":\"Error message\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
           }
           method: "GET"
           orig: "/statystyki/prawo-jazdy"

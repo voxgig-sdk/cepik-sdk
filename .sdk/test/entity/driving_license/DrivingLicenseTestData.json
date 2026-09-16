@@ -33,5 +33,176 @@
         "wojewodztwo": "scc"
       }
     }
+  },
+  "requests": {
+    "GET /prawo-jazdy": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getDrivingLicenses",
+        "parameters": [
+          {
+            "description": "Province/voivodeship filter",
+            "in": "query",
+            "name": "wojewodztwo",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Start date for filtering (YYYY-MM-DD)",
+            "in": "query",
+            "name": "data-od",
+            "required": false,
+            "schema": {
+              "format": "date",
+              "type": "string"
+            }
+          },
+          {
+            "description": "End date for filtering (YYYY-MM-DD)",
+            "in": "query",
+            "name": "data-do",
+            "required": false,
+            "schema": {
+              "format": "date",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Maximum number of results to return",
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "default": 500,
+              "maximum": 500,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Page number for pagination",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "schema": {
+              "default": 1,
+              "minimum": 1,
+              "type": "integer"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "properties": {
+                          "data-waznosci": {
+                            "description": "Expiry date",
+                            "format": "date",
+                            "type": "string"
+                          },
+                          "data-wydania": {
+                            "description": "Date of issue",
+                            "format": "date",
+                            "type": "string"
+                          },
+                          "id": {
+                            "description": "Unique license identifier",
+                            "type": "string"
+                          },
+                          "kategoria": {
+                            "description": "License category",
+                            "type": "string"
+                          },
+                          "wojewodztwo": {
+                            "description": "Province/voivodeship of issue",
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "links": {
+                      "properties": {
+                        "first": {
+                          "description": "URL to first page",
+                          "type": "string"
+                        },
+                        "last": {
+                          "description": "URL to last page",
+                          "type": "string"
+                        },
+                        "next": {
+                          "description": "URL to next page",
+                          "nullable": true,
+                          "type": "string"
+                        },
+                        "prev": {
+                          "description": "URL to previous page",
+                          "nullable": true,
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response with driving license data"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "code": {
+                      "description": "Error code",
+                      "type": "integer"
+                    },
+                    "message": {
+                      "description": "Error message",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Bad request - invalid parameters"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "code": {
+                      "description": "Error code",
+                      "type": "integer"
+                    },
+                    "message": {
+                      "description": "Error message",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Internal server error"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    }
   }
 }
