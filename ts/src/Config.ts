@@ -127,18 +127,18 @@ class Config {
 
     entity: {
       
-      driving_license: {
-      },
-
-      permission: {
-      },
-
-      statistic: {
-      },
-
-      vehicle: {
-      },
-
+        driving_license: {
+        },
+  
+        permission: {
+        },
+  
+        statistic: {
+        },
+  
+        vehicle: {
+        },
+  
     }
   }
 
