@@ -1,0 +1,165 @@
+# Entity: vehicle
+
+main: kit: entity: vehicle: {
+
+  alias: field: {}
+
+  fields: {
+    datapierwszejrejestracji: {
+      fo: "date"
+      h: "Datapierwszejrejestracji"
+      n: "datapierwszejrejestracji"
+      r: false
+      sh: "Date of first registration"
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      sh: "Unique vehicle identifier"
+      t: "`$STRING`"
+    }
+    marka: {
+      h: "Marka"
+      n: "marka"
+      r: false
+      sh: "Vehicle brand/make"
+      t: "`$STRING`"
+    }
+    masawlasna: {
+      h: "Masawlasna"
+      n: "masawlasna"
+      r: false
+      sh: "Curb weight in kg"
+      t: "`$INTEGER`"
+    }
+    model: {
+      h: "Model"
+      n: "model"
+      r: false
+      sh: "Vehicle model"
+      t: "`$STRING`"
+    }
+    podrodzaj: {
+      h: "Podrodzaj"
+      n: "podrodzaj"
+      r: false
+      sh: "Vehicle subtype"
+      t: "`$STRING`"
+    }
+    pojemnoscsilnika: {
+      h: "Pojemnoscsilnika"
+      n: "pojemnoscsilnika"
+      r: false
+      sh: "Engine capacity in cm³"
+      t: "`$INTEGER`"
+    }
+    rodzaj: {
+      h: "Rodzaj"
+      n: "rodzaj"
+      r: false
+      sh: "Vehicle type"
+      t: "`$STRING`"
+    }
+    rokprodukcji: {
+      h: "Rokprodukcji"
+      n: "rokprodukcji"
+      r: false
+      sh: "Year of production"
+      t: "`$INTEGER`"
+    }
+    wojewodztwo: {
+      h: "Wojewodztwo"
+      n: "wojewodztwo"
+      r: false
+      sh: "Province/voivodeship of registration"
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "vehicle"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /pojazdy"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "data_do"
+                or: "data_do"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "data_od"
+                or: "data_od"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 500
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "wojewodztwo"
+                or: "wojewodztwo"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/pojazdy"
+          q: {
+            exist: [
+              "data_do"
+              "data_od"
+              "limit"
+              "page"
+              "wojewodztwo"
+            ]
+          }
+          s: [
+            {
+              lit: "pojazdy"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DrivingLicenseEntity = void 0;
 const CepikEntityBase_1 = require("../CepikEntityBase");
-// TODO: needs Entity superclass
 class DrivingLicenseEntity extends CepikEntityBase_1.CepikEntityBase {
     constructor(client, entopts) {
         super(client, entopts);

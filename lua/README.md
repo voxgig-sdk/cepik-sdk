@@ -43,7 +43,7 @@ local drivinglicenses, err = client:DrivingLicense():list()
 if err then error(err) end
 
 for _, item in ipairs(drivinglicenses) do
-  print(item["id"], item["datawaznosci"])
+  print(item["id"])
 end
 ```
 

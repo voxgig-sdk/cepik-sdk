@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PermissionEntity = void 0;
 const CepikEntityBase_1 = require("../CepikEntityBase");
-// TODO: needs Entity superclass
 class PermissionEntity extends CepikEntityBase_1.CepikEntityBase {
     constructor(client, entopts) {
         super(client, entopts);

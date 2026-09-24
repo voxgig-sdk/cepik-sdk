@@ -19,7 +19,6 @@ import type {
   PermissionListMatch,
 } from '../CepikTypes'
 
-// TODO: needs Entity superclass
 class PermissionEntity extends CepikEntityBase<Permission> {
 
   constructor(client: CepikSDK, entopts: any) {

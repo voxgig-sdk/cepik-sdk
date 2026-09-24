@@ -1,0 +1,153 @@
+# Entity: statistic
+
+main: kit: entity: statistic: {
+
+  alias: field: {}
+
+  fields: {
+    liczbapojazdow: {
+      h: "Liczbapojazdow"
+      n: "liczbapojazdow"
+      r: false
+      sh: "Total number of vehicles"
+      t: "`$INTEGER`"
+    }
+    liczbaprawjazdy: {
+      h: "Liczbaprawjazdy"
+      n: "liczbaprawjazdy"
+      r: false
+      sh: "Total number of driving licenses"
+      t: "`$INTEGER`"
+    }
+    wgkategorii: {
+      h: "Wgkategorii"
+      n: "wgkategorii"
+      r: false
+      sh: "Breakdown by license category"
+      t: "`$OBJECT`"
+    }
+    wgmarki: {
+      h: "Wgmarki"
+      n: "wgmarki"
+      r: false
+      sh: "Breakdown by brand"
+      t: "`$OBJECT`"
+    }
+    wgrodzaju: {
+      h: "Wgrodzaju"
+      n: "wgrodzaju"
+      r: false
+      sh: "Breakdown by vehicle type"
+      t: "`$OBJECT`"
+    }
+    wojewodztwo: {
+      h: "Wojewodztwo"
+      n: "wojewodztwo"
+      r: false
+      sh: "Province/voivodeship"
+      t: "`$STRING`"
+    }
+  }
+
+  name: "statistic"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /statystyki/pojazdy"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "rok"
+                or: "rok"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "wojewodztwo"
+                or: "wojewodztwo"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/statystyki/pojazdy"
+          q: {
+            exist: [
+              "rok"
+              "wojewodztwo"
+            ]
+          }
+          s: [
+            {
+              lit: "statystyki"
+            }
+            {
+              lit: "pojazdy"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+        {
+          co: {
+            id: "GET /statystyki/prawo-jazdy"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "rok"
+                or: "rok"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "wojewodztwo"
+                or: "wojewodztwo"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/statystyki/prawo-jazdy"
+          q: {
+            exist: [
+              "rok"
+              "wojewodztwo"
+            ]
+          }
+          s: [
+            {
+              lit: "statystyki"
+            }
+            {
+              lit: "prawo-jazdy"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

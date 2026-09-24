@@ -93,31 +93,36 @@ func MakeConfig() map[string]any {
 			"driving_license": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"format": "date",
 						"name": "datawaznosci",
-						"short": "Expiry date",
+						"title": "Datawaznosci",
 						"type": "`$STRING`",
+						"short": "Expiry date",
+						"format": "date",
 					},
 					map[string]any{
-						"format": "date",
 						"name": "datawydania",
-						"short": "Date of issue",
+						"title": "Datawydania",
 						"type": "`$STRING`",
+						"short": "Date of issue",
+						"format": "date",
 					},
 					map[string]any{
 						"name": "id",
-						"short": "Unique license identifier",
+						"title": "Id",
 						"type": "`$STRING`",
+						"short": "Unique license identifier",
 					},
 					map[string]any{
 						"name": "kategoria",
-						"short": "License category",
+						"title": "Kategoria",
 						"type": "`$STRING`",
+						"short": "License category",
 					},
 					map[string]any{
 						"name": "wojewodztwo",
-						"short": "Province/voivodeship of issue",
+						"title": "Wojewodztwo",
 						"type": "`$STRING`",
+						"short": "Province/voivodeship of issue",
 					},
 				},
 				"id": map[string]any{
@@ -131,48 +136,56 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"kind": "query",
-											"name": "data_do",
-											"orig": "data_do",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "data_od",
-											"orig": "data_od",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": 500,
-											"kind": "query",
-											"name": "limit",
-											"orig": "limit",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"example": 1,
-											"kind": "query",
-											"name": "page",
-											"orig": "page",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "wojewodztwo",
-											"orig": "wojewodztwo",
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/prawo-jazdy",
 								"segments": []any{
 									map[string]any{
 										"lit": "prawo-jazdy",
+									},
+								},
+								"parts": []any{
+									"prawo-jazdy",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "data_do",
+											"orig": "data_do",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "data_od",
+											"orig": "data_od",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "limit",
+											"orig": "limit",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 500,
+										},
+										map[string]any{
+											"name": "page",
+											"orig": "page",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 1,
+										},
+										map[string]any{
+											"name": "wojewodztwo",
+											"orig": "wojewodztwo",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
 									},
 								},
 								"select": map[string]any{
@@ -183,13 +196,6 @@ func MakeConfig() map[string]any {
 										"page",
 										"wojewodztwo",
 									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"parts": []any{
-									"prawo-jazdy",
 								},
 							},
 						},
@@ -202,25 +208,29 @@ func MakeConfig() map[string]any {
 			"permission": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"format": "date",
 						"name": "datauzyskania",
-						"short": "Date permission was obtained",
+						"title": "Datauzyskania",
 						"type": "`$STRING`",
+						"short": "Date permission was obtained",
+						"format": "date",
 					},
 					map[string]any{
 						"name": "id",
-						"short": "Unique permission identifier",
+						"title": "Id",
 						"type": "`$STRING`",
+						"short": "Unique permission identifier",
 					},
 					map[string]any{
 						"name": "kategoria",
-						"short": "Category of permission",
+						"title": "Kategoria",
 						"type": "`$STRING`",
+						"short": "Category of permission",
 					},
 					map[string]any{
 						"name": "wojewodztwo",
-						"short": "Province/voivodeship",
+						"title": "Wojewodztwo",
 						"type": "`$STRING`",
+						"short": "Province/voivodeship",
 					},
 				},
 				"id": map[string]any{
@@ -234,48 +244,56 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"kind": "query",
-											"name": "data_do",
-											"orig": "data_do",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "data_od",
-											"orig": "data_od",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": 500,
-											"kind": "query",
-											"name": "limit",
-											"orig": "limit",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"example": 1,
-											"kind": "query",
-											"name": "page",
-											"orig": "page",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "wojewodztwo",
-											"orig": "wojewodztwo",
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/uprawnienia",
 								"segments": []any{
 									map[string]any{
 										"lit": "uprawnienia",
+									},
+								},
+								"parts": []any{
+									"uprawnienia",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "data_do",
+											"orig": "data_do",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "data_od",
+											"orig": "data_od",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "limit",
+											"orig": "limit",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 500,
+										},
+										map[string]any{
+											"name": "page",
+											"orig": "page",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 1,
+										},
+										map[string]any{
+											"name": "wojewodztwo",
+											"orig": "wojewodztwo",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
 									},
 								},
 								"select": map[string]any{
@@ -286,13 +304,6 @@ func MakeConfig() map[string]any {
 										"page",
 										"wojewodztwo",
 									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"parts": []any{
-									"uprawnienia",
 								},
 							},
 						},
@@ -306,33 +317,39 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "liczbapojazdow",
-						"short": "Total number of vehicles",
+						"title": "Liczbapojazdow",
 						"type": "`$INTEGER`",
+						"short": "Total number of vehicles",
 					},
 					map[string]any{
 						"name": "liczbaprawjazdy",
-						"short": "Total number of driving licenses",
+						"title": "Liczbaprawjazdy",
 						"type": "`$INTEGER`",
+						"short": "Total number of driving licenses",
 					},
 					map[string]any{
 						"name": "wgkategorii",
-						"short": "Breakdown by license category",
+						"title": "Wgkategorii",
 						"type": "`$OBJECT`",
+						"short": "Breakdown by license category",
 					},
 					map[string]any{
 						"name": "wgmarki",
-						"short": "Breakdown by brand",
+						"title": "Wgmarki",
 						"type": "`$OBJECT`",
+						"short": "Breakdown by brand",
 					},
 					map[string]any{
 						"name": "wgrodzaju",
-						"short": "Breakdown by vehicle type",
+						"title": "Wgrodzaju",
 						"type": "`$OBJECT`",
+						"short": "Breakdown by vehicle type",
 					},
 					map[string]any{
 						"name": "wojewodztwo",
-						"short": "Province/voivodeship",
+						"title": "Wojewodztwo",
 						"type": "`$STRING`",
+						"short": "Province/voivodeship",
 					},
 				},
 				"name": "statistic",
@@ -342,22 +359,6 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"kind": "query",
-											"name": "rok",
-											"orig": "rok",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "wojewodztwo",
-											"orig": "wojewodztwo",
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/statystyki/pojazdy",
@@ -369,38 +370,39 @@ func MakeConfig() map[string]any {
 										"lit": "pojazdy",
 									},
 								},
+								"parts": []any{
+									"statystyki",
+									"pojazdy",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body.data`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "rok",
+											"orig": "rok",
+											"type": "`$INTEGER`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "wojewodztwo",
+											"orig": "wojewodztwo",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+									},
+								},
 								"select": map[string]any{
 									"exist": []any{
 										"rok",
 										"wojewodztwo",
 									},
 								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body.data`",
-								},
-								"parts": []any{
-									"statystyki",
-									"pojazdy",
-								},
 							},
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"kind": "query",
-											"name": "rok",
-											"orig": "rok",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "wojewodztwo",
-											"orig": "wojewodztwo",
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/statystyki/prawo-jazdy",
@@ -412,19 +414,36 @@ func MakeConfig() map[string]any {
 										"lit": "prawo-jazdy",
 									},
 								},
+								"parts": []any{
+									"statystyki",
+									"prawo-jazdy",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body.data`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "rok",
+											"orig": "rok",
+											"type": "`$INTEGER`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "wojewodztwo",
+											"orig": "wojewodztwo",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+									},
+								},
 								"select": map[string]any{
 									"exist": []any{
 										"rok",
 										"wojewodztwo",
 									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body.data`",
-								},
-								"parts": []any{
-									"statystyki",
-									"prawo-jazdy",
 								},
 							},
 						},
@@ -437,55 +456,65 @@ func MakeConfig() map[string]any {
 			"vehicle": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"format": "date",
 						"name": "datapierwszejrejestracji",
-						"short": "Date of first registration",
+						"title": "Datapierwszejrejestracji",
 						"type": "`$STRING`",
+						"short": "Date of first registration",
+						"format": "date",
 					},
 					map[string]any{
 						"name": "id",
-						"short": "Unique vehicle identifier",
+						"title": "Id",
 						"type": "`$STRING`",
+						"short": "Unique vehicle identifier",
 					},
 					map[string]any{
 						"name": "marka",
-						"short": "Vehicle brand/make",
+						"title": "Marka",
 						"type": "`$STRING`",
+						"short": "Vehicle brand/make",
 					},
 					map[string]any{
 						"name": "masawlasna",
-						"short": "Curb weight in kg",
+						"title": "Masawlasna",
 						"type": "`$INTEGER`",
+						"short": "Curb weight in kg",
 					},
 					map[string]any{
 						"name": "model",
-						"short": "Vehicle model",
+						"title": "Model",
 						"type": "`$STRING`",
+						"short": "Vehicle model",
 					},
 					map[string]any{
 						"name": "podrodzaj",
-						"short": "Vehicle subtype",
+						"title": "Podrodzaj",
 						"type": "`$STRING`",
+						"short": "Vehicle subtype",
 					},
 					map[string]any{
 						"name": "pojemnoscsilnika",
-						"short": "Engine capacity in cm³",
+						"title": "Pojemnoscsilnika",
 						"type": "`$INTEGER`",
+						"short": "Engine capacity in cm³",
 					},
 					map[string]any{
 						"name": "rodzaj",
-						"short": "Vehicle type",
+						"title": "Rodzaj",
 						"type": "`$STRING`",
+						"short": "Vehicle type",
 					},
 					map[string]any{
 						"name": "rokprodukcji",
-						"short": "Year of production",
+						"title": "Rokprodukcji",
 						"type": "`$INTEGER`",
+						"short": "Year of production",
 					},
 					map[string]any{
 						"name": "wojewodztwo",
-						"short": "Province/voivodeship of registration",
+						"title": "Wojewodztwo",
 						"type": "`$STRING`",
+						"short": "Province/voivodeship of registration",
 					},
 				},
 				"id": map[string]any{
@@ -499,48 +528,56 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"kind": "query",
-											"name": "data_do",
-											"orig": "data_do",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "data_od",
-											"orig": "data_od",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": 500,
-											"kind": "query",
-											"name": "limit",
-											"orig": "limit",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"example": 1,
-											"kind": "query",
-											"name": "page",
-											"orig": "page",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "wojewodztwo",
-											"orig": "wojewodztwo",
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/pojazdy",
 								"segments": []any{
 									map[string]any{
 										"lit": "pojazdy",
+									},
+								},
+								"parts": []any{
+									"pojazdy",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "data_do",
+											"orig": "data_do",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "data_od",
+											"orig": "data_od",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "limit",
+											"orig": "limit",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 500,
+										},
+										map[string]any{
+											"name": "page",
+											"orig": "page",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 1,
+										},
+										map[string]any{
+											"name": "wojewodztwo",
+											"orig": "wojewodztwo",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
 									},
 								},
 								"select": map[string]any{
@@ -551,13 +588,6 @@ func MakeConfig() map[string]any {
 										"page",
 										"wojewodztwo",
 									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"parts": []any{
-									"pojazdy",
 								},
 							},
 						},

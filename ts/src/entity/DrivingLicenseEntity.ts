@@ -19,7 +19,6 @@ import type {
   DrivingLicenseListMatch,
 } from '../CepikTypes'
 
-// TODO: needs Entity superclass
 class DrivingLicenseEntity extends CepikEntityBase<DrivingLicense> {
 
   constructor(client: CepikSDK, entopts: any) {

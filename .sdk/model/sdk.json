@@ -24,51 +24,122 @@
         "repr": "auto"
       },
       "contributor": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "published": false,
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "driving_license": {
           "active": true,
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "format": "date",
-              "name": "datawaznosci",
-              "req": false,
-              "short": "Expiry date",
-              "type": "`$STRING`"
+          "fields": {
+            "datawaznosci": {
+              "a": true,
+              "fo": "date",
+              "h": "Datawaznosci",
+              "n": "datawaznosci",
+              "r": false,
+              "sh": "Expiry date",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "format": "date",
-              "name": "datawydania",
-              "req": false,
-              "short": "Date of issue",
-              "type": "`$STRING`"
+            "datawydania": {
+              "a": true,
+              "fo": "date",
+              "h": "Datawydania",
+              "n": "datawydania",
+              "r": false,
+              "sh": "Date of issue",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "id",
-              "req": false,
-              "short": "Unique license identifier",
-              "type": "`$STRING`"
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "sh": "Unique license identifier",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "kategoria",
-              "req": false,
-              "short": "License category",
-              "type": "`$STRING`"
+            "kategoria": {
+              "a": true,
+              "h": "Kategoria",
+              "n": "kategoria",
+              "r": false,
+              "sh": "License category",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "wojewodztwo",
-              "req": false,
-              "short": "Province/voivodeship of issue",
-              "type": "`$STRING`"
+            "wojewodztwo": {
+              "a": true,
+              "h": "Wojewodztwo",
+              "n": "wojewodztwo",
+              "r": false,
+              "sh": "Province/voivodeship of issue",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -80,68 +151,62 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /prawo-jazdy",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "data_do",
-                        "orig": "data_do",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "data_do",
+                        "or": "data_do",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "data_od",
-                        "orig": "data_od",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "data_od",
+                        "or": "data_od",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "example": 500,
-                        "kind": "query",
-                        "name": "limit",
-                        "orig": "limit",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 500,
+                        "k": "query",
+                        "n": "limit",
+                        "or": "limit",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "example": 1,
-                        "kind": "query",
-                        "name": "page",
-                        "orig": "page",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 1,
+                        "k": "query",
+                        "n": "page",
+                        "or": "page",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "wojewodztwo",
-                        "orig": "wojewodztwo",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "wojewodztwo",
+                        "or": "wojewodztwo",
+                        "r": false,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /prawo-jazdy",
-                    "json": "{\"operationId\":\"getDrivingLicenses\",\"parameters\":[{\"description\":\"Province/voivodeship filter\",\"in\":\"query\",\"name\":\"wojewodztwo\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Start date for filtering (YYYY-MM-DD)\",\"in\":\"query\",\"name\":\"data-od\",\"required\":false,\"schema\":{\"format\":\"date\",\"type\":\"string\"}},{\"description\":\"End date for filtering (YYYY-MM-DD)\",\"in\":\"query\",\"name\":\"data-do\",\"required\":false,\"schema\":{\"format\":\"date\",\"type\":\"string\"}},{\"description\":\"Maximum number of results to return\",\"in\":\"query\",\"name\":\"limit\",\"required\":false,\"schema\":{\"default\":500,\"maximum\":500,\"minimum\":1,\"type\":\"integer\"}},{\"description\":\"Page number for pagination\",\"in\":\"query\",\"name\":\"page\",\"required\":false,\"schema\":{\"default\":1,\"minimum\":1,\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"data\":{\"items\":{\"properties\":{\"data-waznosci\":{\"description\":\"Expiry date\",\"format\":\"date\",\"type\":\"string\"},\"data-wydania\":{\"description\":\"Date of issue\",\"format\":\"date\",\"type\":\"string\"},\"id\":{\"description\":\"Unique license identifier\",\"type\":\"string\"},\"kategoria\":{\"description\":\"License category\",\"type\":\"string\"},\"wojewodztwo\":{\"description\":\"Province/voivodeship of issue\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"links\":{\"properties\":{\"first\":{\"description\":\"URL to first page\",\"type\":\"string\"},\"last\":{\"description\":\"URL to last page\",\"type\":\"string\"},\"next\":{\"description\":\"URL to next page\",\"nullable\":true,\"type\":\"string\"},\"prev\":{\"description\":\"URL to previous page\",\"nullable\":true,\"type\":\"string\"}},\"type\":\"object\"}},\"type\":\"object\"}}},\"description\":\"Successful response with driving license data\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"integer\"},\"message\":{\"description\":\"Error message\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Bad request - invalid parameters\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"integer\"},\"message\":{\"description\":\"Error message\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/prawo-jazdy",
-                  "segments": [
-                    {
-                      "lit": "prawo-jazdy"
-                    }
-                  ],
-                  "select": {
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/prawo-jazdy",
+                  "q": {
                     "exist": [
                       "data_do",
                       "data_od",
@@ -150,7 +215,13 @@
                       "wojewodztwo"
                     ]
                   },
-                  "transform": {
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "prawo-jazdy"
+                    }
+                  ],
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -167,37 +238,41 @@
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "format": "date",
-              "name": "datauzyskania",
-              "req": false,
-              "short": "Date permission was obtained",
-              "type": "`$STRING`"
+          "fields": {
+            "datauzyskania": {
+              "a": true,
+              "fo": "date",
+              "h": "Datauzyskania",
+              "n": "datauzyskania",
+              "r": false,
+              "sh": "Date permission was obtained",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "id",
-              "req": false,
-              "short": "Unique permission identifier",
-              "type": "`$STRING`"
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "sh": "Unique permission identifier",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "kategoria",
-              "req": false,
-              "short": "Category of permission",
-              "type": "`$STRING`"
+            "kategoria": {
+              "a": true,
+              "h": "Kategoria",
+              "n": "kategoria",
+              "r": false,
+              "sh": "Category of permission",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "wojewodztwo",
-              "req": false,
-              "short": "Province/voivodeship",
-              "type": "`$STRING`"
+            "wojewodztwo": {
+              "a": true,
+              "h": "Wojewodztwo",
+              "n": "wojewodztwo",
+              "r": false,
+              "sh": "Province/voivodeship",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -209,68 +284,62 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /uprawnienia",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "data_do",
-                        "orig": "data_do",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "data_do",
+                        "or": "data_do",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "data_od",
-                        "orig": "data_od",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "data_od",
+                        "or": "data_od",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "example": 500,
-                        "kind": "query",
-                        "name": "limit",
-                        "orig": "limit",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 500,
+                        "k": "query",
+                        "n": "limit",
+                        "or": "limit",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "example": 1,
-                        "kind": "query",
-                        "name": "page",
-                        "orig": "page",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 1,
+                        "k": "query",
+                        "n": "page",
+                        "or": "page",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "wojewodztwo",
-                        "orig": "wojewodztwo",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "wojewodztwo",
+                        "or": "wojewodztwo",
+                        "r": false,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /uprawnienia",
-                    "json": "{\"operationId\":\"getPermissions\",\"parameters\":[{\"description\":\"Province/voivodeship filter\",\"in\":\"query\",\"name\":\"wojewodztwo\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Start date for filtering (YYYY-MM-DD)\",\"in\":\"query\",\"name\":\"data-od\",\"required\":false,\"schema\":{\"format\":\"date\",\"type\":\"string\"}},{\"description\":\"End date for filtering (YYYY-MM-DD)\",\"in\":\"query\",\"name\":\"data-do\",\"required\":false,\"schema\":{\"format\":\"date\",\"type\":\"string\"}},{\"description\":\"Maximum number of results to return\",\"in\":\"query\",\"name\":\"limit\",\"required\":false,\"schema\":{\"default\":500,\"maximum\":500,\"minimum\":1,\"type\":\"integer\"}},{\"description\":\"Page number for pagination\",\"in\":\"query\",\"name\":\"page\",\"required\":false,\"schema\":{\"default\":1,\"minimum\":1,\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"data\":{\"items\":{\"properties\":{\"data-uzyskania\":{\"description\":\"Date permission was obtained\",\"format\":\"date\",\"type\":\"string\"},\"id\":{\"description\":\"Unique permission identifier\",\"type\":\"string\"},\"kategoria\":{\"description\":\"Category of permission\",\"type\":\"string\"},\"wojewodztwo\":{\"description\":\"Province/voivodeship\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"links\":{\"properties\":{\"first\":{\"description\":\"URL to first page\",\"type\":\"string\"},\"last\":{\"description\":\"URL to last page\",\"type\":\"string\"},\"next\":{\"description\":\"URL to next page\",\"nullable\":true,\"type\":\"string\"},\"prev\":{\"description\":\"URL to previous page\",\"nullable\":true,\"type\":\"string\"}},\"type\":\"object\"}},\"type\":\"object\"}}},\"description\":\"Successful response with permissions data\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"integer\"},\"message\":{\"description\":\"Error message\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Bad request - invalid parameters\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"integer\"},\"message\":{\"description\":\"Error message\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/uprawnienia",
-                  "segments": [
-                    {
-                      "lit": "uprawnienia"
-                    }
-                  ],
-                  "select": {
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/uprawnienia",
+                  "q": {
                     "exist": [
                       "data_do",
                       "data_od",
@@ -279,7 +348,13 @@
                       "wojewodztwo"
                     ]
                   },
-                  "transform": {
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "uprawnienia"
+                    }
+                  ],
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -296,50 +371,56 @@
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "liczbapojazdow",
-              "req": false,
-              "short": "Total number of vehicles",
-              "type": "`$INTEGER`"
+          "fields": {
+            "liczbapojazdow": {
+              "a": true,
+              "h": "Liczbapojazdow",
+              "n": "liczbapojazdow",
+              "r": false,
+              "sh": "Total number of vehicles",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "liczbaprawjazdy",
-              "req": false,
-              "short": "Total number of driving licenses",
-              "type": "`$INTEGER`"
+            "liczbaprawjazdy": {
+              "a": true,
+              "h": "Liczbaprawjazdy",
+              "n": "liczbaprawjazdy",
+              "r": false,
+              "sh": "Total number of driving licenses",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "wgkategorii",
-              "req": false,
-              "short": "Breakdown by license category",
-              "type": "`$OBJECT`"
+            "wgkategorii": {
+              "a": true,
+              "h": "Wgkategorii",
+              "n": "wgkategorii",
+              "r": false,
+              "sh": "Breakdown by license category",
+              "t": "`$OBJECT`"
             },
-            {
-              "active": true,
-              "name": "wgmarki",
-              "req": false,
-              "short": "Breakdown by brand",
-              "type": "`$OBJECT`"
+            "wgmarki": {
+              "a": true,
+              "h": "Wgmarki",
+              "n": "wgmarki",
+              "r": false,
+              "sh": "Breakdown by brand",
+              "t": "`$OBJECT`"
             },
-            {
-              "active": true,
-              "name": "wgrodzaju",
-              "req": false,
-              "short": "Breakdown by vehicle type",
-              "type": "`$OBJECT`"
+            "wgrodzaju": {
+              "a": true,
+              "h": "Wgrodzaju",
+              "n": "wgrodzaju",
+              "r": false,
+              "sh": "Breakdown by vehicle type",
+              "t": "`$OBJECT`"
             },
-            {
-              "active": true,
-              "name": "wojewodztwo",
-              "req": false,
-              "short": "Province/voivodeship",
-              "type": "`$STRING`"
+            "wojewodztwo": {
+              "a": true,
+              "h": "Wojewodztwo",
+              "n": "wojewodztwo",
+              "r": false,
+              "sh": "Province/voivodeship",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "name": "statistic",
           "op": {
             "load": {
@@ -347,37 +428,43 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /statystyki/pojazdy",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "rok",
-                        "orig": "rok",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "rok",
+                        "or": "rok",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "wojewodztwo",
-                        "orig": "wojewodztwo",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "wojewodztwo",
+                        "or": "wojewodztwo",
+                        "r": false,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /statystyki/pojazdy",
-                    "json": "{\"operationId\":\"getVehicleStatistics\",\"parameters\":[{\"description\":\"Province/voivodeship filter\",\"in\":\"query\",\"name\":\"wojewodztwo\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Year for statistics\",\"in\":\"query\",\"name\":\"rok\",\"required\":false,\"schema\":{\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"data\":{\"properties\":{\"liczba-pojazdow\":{\"description\":\"Total number of vehicles\",\"type\":\"integer\"},\"wg-marki\":{\"additionalProperties\":{\"type\":\"integer\"},\"description\":\"Breakdown by brand\",\"type\":\"object\"},\"wg-rodzaju\":{\"additionalProperties\":{\"type\":\"integer\"},\"description\":\"Breakdown by vehicle type\",\"type\":\"object\"},\"wojewodztwo\":{\"description\":\"Province/voivodeship\",\"type\":\"string\"}},\"type\":\"object\"}},\"type\":\"object\"}}},\"description\":\"Successful response with vehicle statistics\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"integer\"},\"message\":{\"description\":\"Error message\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Bad request - invalid parameters\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"integer\"},\"message\":{\"description\":\"Error message\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/statystyki/pojazdy",
+                  "q": {
+                    "exist": [
+                      "rok",
+                      "wojewodztwo"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/statystyki/pojazdy",
-                  "segments": [
+                  "r": {},
+                  "s": [
                     {
                       "lit": "statystyki"
                     },
@@ -385,49 +472,49 @@
                       "lit": "pojazdy"
                     }
                   ],
-                  "select": {
-                    "exist": [
-                      "rok",
-                      "wojewodztwo"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body.data`"
                   }
                 },
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /statystyki/prawo-jazdy",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "rok",
-                        "orig": "rok",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "rok",
+                        "or": "rok",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "wojewodztwo",
-                        "orig": "wojewodztwo",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "wojewodztwo",
+                        "or": "wojewodztwo",
+                        "r": false,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /statystyki/prawo-jazdy",
-                    "json": "{\"operationId\":\"getDrivingLicenseStatistics\",\"parameters\":[{\"description\":\"Province/voivodeship filter\",\"in\":\"query\",\"name\":\"wojewodztwo\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Year for statistics\",\"in\":\"query\",\"name\":\"rok\",\"required\":false,\"schema\":{\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"data\":{\"properties\":{\"liczba-praw-jazdy\":{\"description\":\"Total number of driving licenses\",\"type\":\"integer\"},\"wg-kategorii\":{\"additionalProperties\":{\"type\":\"integer\"},\"description\":\"Breakdown by license category\",\"type\":\"object\"},\"wojewodztwo\":{\"description\":\"Province/voivodeship\",\"type\":\"string\"}},\"type\":\"object\"}},\"type\":\"object\"}}},\"description\":\"Successful response with driving license statistics\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"integer\"},\"message\":{\"description\":\"Error message\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Bad request - invalid parameters\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"integer\"},\"message\":{\"description\":\"Error message\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/statystyki/prawo-jazdy",
+                  "q": {
+                    "exist": [
+                      "rok",
+                      "wojewodztwo"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/statystyki/prawo-jazdy",
-                  "segments": [
+                  "r": {},
+                  "s": [
                     {
                       "lit": "statystyki"
                     },
@@ -435,13 +522,7 @@
                       "lit": "prawo-jazdy"
                     }
                   ],
-                  "select": {
-                    "exist": [
-                      "rok",
-                      "wojewodztwo"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body.data`"
                   }
@@ -458,79 +539,89 @@
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "format": "date",
-              "name": "datapierwszejrejestracji",
-              "req": false,
-              "short": "Date of first registration",
-              "type": "`$STRING`"
+          "fields": {
+            "datapierwszejrejestracji": {
+              "a": true,
+              "fo": "date",
+              "h": "Datapierwszejrejestracji",
+              "n": "datapierwszejrejestracji",
+              "r": false,
+              "sh": "Date of first registration",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "id",
-              "req": false,
-              "short": "Unique vehicle identifier",
-              "type": "`$STRING`"
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "sh": "Unique vehicle identifier",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "marka",
-              "req": false,
-              "short": "Vehicle brand/make",
-              "type": "`$STRING`"
+            "marka": {
+              "a": true,
+              "h": "Marka",
+              "n": "marka",
+              "r": false,
+              "sh": "Vehicle brand/make",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "masawlasna",
-              "req": false,
-              "short": "Curb weight in kg",
-              "type": "`$INTEGER`"
+            "masawlasna": {
+              "a": true,
+              "h": "Masawlasna",
+              "n": "masawlasna",
+              "r": false,
+              "sh": "Curb weight in kg",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "model",
-              "req": false,
-              "short": "Vehicle model",
-              "type": "`$STRING`"
+            "model": {
+              "a": true,
+              "h": "Model",
+              "n": "model",
+              "r": false,
+              "sh": "Vehicle model",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "podrodzaj",
-              "req": false,
-              "short": "Vehicle subtype",
-              "type": "`$STRING`"
+            "podrodzaj": {
+              "a": true,
+              "h": "Podrodzaj",
+              "n": "podrodzaj",
+              "r": false,
+              "sh": "Vehicle subtype",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "pojemnoscsilnika",
-              "req": false,
-              "short": "Engine capacity in cm³",
-              "type": "`$INTEGER`"
+            "pojemnoscsilnika": {
+              "a": true,
+              "h": "Pojemnoscsilnika",
+              "n": "pojemnoscsilnika",
+              "r": false,
+              "sh": "Engine capacity in cm³",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "rodzaj",
-              "req": false,
-              "short": "Vehicle type",
-              "type": "`$STRING`"
+            "rodzaj": {
+              "a": true,
+              "h": "Rodzaj",
+              "n": "rodzaj",
+              "r": false,
+              "sh": "Vehicle type",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "rokprodukcji",
-              "req": false,
-              "short": "Year of production",
-              "type": "`$INTEGER`"
+            "rokprodukcji": {
+              "a": true,
+              "h": "Rokprodukcji",
+              "n": "rokprodukcji",
+              "r": false,
+              "sh": "Year of production",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "wojewodztwo",
-              "req": false,
-              "short": "Province/voivodeship of registration",
-              "type": "`$STRING`"
+            "wojewodztwo": {
+              "a": true,
+              "h": "Wojewodztwo",
+              "n": "wojewodztwo",
+              "r": false,
+              "sh": "Province/voivodeship of registration",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -542,68 +633,62 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /pojazdy",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "data_do",
-                        "orig": "data_do",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "data_do",
+                        "or": "data_do",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "data_od",
-                        "orig": "data_od",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "data_od",
+                        "or": "data_od",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "example": 500,
-                        "kind": "query",
-                        "name": "limit",
-                        "orig": "limit",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 500,
+                        "k": "query",
+                        "n": "limit",
+                        "or": "limit",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "example": 1,
-                        "kind": "query",
-                        "name": "page",
-                        "orig": "page",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 1,
+                        "k": "query",
+                        "n": "page",
+                        "or": "page",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "wojewodztwo",
-                        "orig": "wojewodztwo",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "wojewodztwo",
+                        "or": "wojewodztwo",
+                        "r": false,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /pojazdy",
-                    "json": "{\"operationId\":\"getVehicles\",\"parameters\":[{\"description\":\"Province/voivodeship filter\",\"in\":\"query\",\"name\":\"wojewodztwo\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Start date for filtering (YYYY-MM-DD)\",\"in\":\"query\",\"name\":\"data-od\",\"required\":false,\"schema\":{\"format\":\"date\",\"type\":\"string\"}},{\"description\":\"End date for filtering (YYYY-MM-DD)\",\"in\":\"query\",\"name\":\"data-do\",\"required\":false,\"schema\":{\"format\":\"date\",\"type\":\"string\"}},{\"description\":\"Maximum number of results to return\",\"in\":\"query\",\"name\":\"limit\",\"required\":false,\"schema\":{\"default\":500,\"maximum\":500,\"minimum\":1,\"type\":\"integer\"}},{\"description\":\"Page number for pagination\",\"in\":\"query\",\"name\":\"page\",\"required\":false,\"schema\":{\"default\":1,\"minimum\":1,\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"data\":{\"items\":{\"properties\":{\"data-pierwszej-rejestracji\":{\"description\":\"Date of first registration\",\"format\":\"date\",\"type\":\"string\"},\"id\":{\"description\":\"Unique vehicle identifier\",\"type\":\"string\"},\"marka\":{\"description\":\"Vehicle brand/make\",\"type\":\"string\"},\"masa-wlasna\":{\"description\":\"Curb weight in kg\",\"type\":\"integer\"},\"model\":{\"description\":\"Vehicle model\",\"type\":\"string\"},\"podrodzaj\":{\"description\":\"Vehicle subtype\",\"type\":\"string\"},\"pojemnosc-silnika\":{\"description\":\"Engine capacity in cm³\",\"type\":\"integer\"},\"rodzaj\":{\"description\":\"Vehicle type\",\"type\":\"string\"},\"rok-produkcji\":{\"description\":\"Year of production\",\"type\":\"integer\"},\"wojewodztwo\":{\"description\":\"Province/voivodeship of registration\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"links\":{\"properties\":{\"first\":{\"description\":\"URL to first page\",\"type\":\"string\"},\"last\":{\"description\":\"URL to last page\",\"type\":\"string\"},\"next\":{\"description\":\"URL to next page\",\"nullable\":true,\"type\":\"string\"},\"prev\":{\"description\":\"URL to previous page\",\"nullable\":true,\"type\":\"string\"}},\"type\":\"object\"}},\"type\":\"object\"}}},\"description\":\"Successful response with vehicle data\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"integer\"},\"message\":{\"description\":\"Error message\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Bad request - invalid parameters\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"integer\"},\"message\":{\"description\":\"Error message\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/pojazdy",
-                  "segments": [
-                    {
-                      "lit": "pojazdy"
-                    }
-                  ],
-                  "select": {
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/pojazdy",
+                  "q": {
                     "exist": [
                       "data_do",
                       "data_od",
@@ -612,7 +697,13 @@
                       "wojewodztwo"
                     ]
                   },
-                  "transform": {
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "pojazdy"
+                    }
+                  ],
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -1041,13 +1132,13 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {
@@ -1067,13 +1158,13 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {
@@ -1093,17 +1184,17 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "statistic_ref01",
                 "srcdatavar": "statistic_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {},
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "m": {},
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {
@@ -1123,13 +1214,13 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {

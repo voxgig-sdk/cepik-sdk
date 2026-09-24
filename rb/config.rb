@@ -101,31 +101,36 @@ module CepikConfig
         "driving_license" => {
           "fields" => [
             {
-              "format" => "date",
               "name" => "datawaznosci",
-              "short" => "Expiry date",
+              "title" => "Datawaznosci",
               "type" => "`$STRING`",
+              "short" => "Expiry date",
+              "format" => "date",
             },
             {
-              "format" => "date",
               "name" => "datawydania",
-              "short" => "Date of issue",
+              "title" => "Datawydania",
               "type" => "`$STRING`",
+              "short" => "Date of issue",
+              "format" => "date",
             },
             {
               "name" => "id",
-              "short" => "Unique license identifier",
+              "title" => "Id",
               "type" => "`$STRING`",
+              "short" => "Unique license identifier",
             },
             {
               "name" => "kategoria",
-              "short" => "License category",
+              "title" => "Kategoria",
               "type" => "`$STRING`",
+              "short" => "License category",
             },
             {
               "name" => "wojewodztwo",
-              "short" => "Province/voivodeship of issue",
+              "title" => "Wojewodztwo",
               "type" => "`$STRING`",
+              "short" => "Province/voivodeship of issue",
             },
           ],
           "id" => {
@@ -139,42 +144,6 @@ module CepikConfig
               "name" => "list",
               "points" => [
                 {
-                  "args" => {
-                    "query" => [
-                      {
-                        "kind" => "query",
-                        "name" => "data_do",
-                        "orig" => "data_do",
-                        "type" => "`$STRING`",
-                      },
-                      {
-                        "kind" => "query",
-                        "name" => "data_od",
-                        "orig" => "data_od",
-                        "type" => "`$STRING`",
-                      },
-                      {
-                        "example" => 500,
-                        "kind" => "query",
-                        "name" => "limit",
-                        "orig" => "limit",
-                        "type" => "`$INTEGER`",
-                      },
-                      {
-                        "example" => 1,
-                        "kind" => "query",
-                        "name" => "page",
-                        "orig" => "page",
-                        "type" => "`$INTEGER`",
-                      },
-                      {
-                        "kind" => "query",
-                        "name" => "wojewodztwo",
-                        "orig" => "wojewodztwo",
-                        "type" => "`$STRING`",
-                      },
-                    ],
-                  },
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/prawo-jazdy",
@@ -183,6 +152,50 @@ module CepikConfig
                       "lit" => "prawo-jazdy",
                     },
                   ],
+                  "parts" => [
+                    "prawo-jazdy",
+                  ],
+                  "rename" => {},
+                  "transform" => {
+                    "req" => "`reqdata`",
+                    "res" => "`body`",
+                  },
+                  "args" => {
+                    "query" => [
+                      {
+                        "name" => "data_do",
+                        "orig" => "data_do",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                      },
+                      {
+                        "name" => "data_od",
+                        "orig" => "data_od",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                      },
+                      {
+                        "name" => "limit",
+                        "orig" => "limit",
+                        "type" => "`$INTEGER`",
+                        "kind" => "query",
+                        "example" => 500,
+                      },
+                      {
+                        "name" => "page",
+                        "orig" => "page",
+                        "type" => "`$INTEGER`",
+                        "kind" => "query",
+                        "example" => 1,
+                      },
+                      {
+                        "name" => "wojewodztwo",
+                        "orig" => "wojewodztwo",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                      },
+                    ],
+                  },
                   "select" => {
                     "exist" => [
                       "data_do",
@@ -192,13 +205,6 @@ module CepikConfig
                       "wojewodztwo",
                     ],
                   },
-                  "transform" => {
-                    "req" => "`reqdata`",
-                    "res" => "`body`",
-                  },
-                  "parts" => [
-                    "prawo-jazdy",
-                  ],
                 },
               ],
             },
@@ -210,25 +216,29 @@ module CepikConfig
         "permission" => {
           "fields" => [
             {
-              "format" => "date",
               "name" => "datauzyskania",
-              "short" => "Date permission was obtained",
+              "title" => "Datauzyskania",
               "type" => "`$STRING`",
+              "short" => "Date permission was obtained",
+              "format" => "date",
             },
             {
               "name" => "id",
-              "short" => "Unique permission identifier",
+              "title" => "Id",
               "type" => "`$STRING`",
+              "short" => "Unique permission identifier",
             },
             {
               "name" => "kategoria",
-              "short" => "Category of permission",
+              "title" => "Kategoria",
               "type" => "`$STRING`",
+              "short" => "Category of permission",
             },
             {
               "name" => "wojewodztwo",
-              "short" => "Province/voivodeship",
+              "title" => "Wojewodztwo",
               "type" => "`$STRING`",
+              "short" => "Province/voivodeship",
             },
           ],
           "id" => {
@@ -242,42 +252,6 @@ module CepikConfig
               "name" => "list",
               "points" => [
                 {
-                  "args" => {
-                    "query" => [
-                      {
-                        "kind" => "query",
-                        "name" => "data_do",
-                        "orig" => "data_do",
-                        "type" => "`$STRING`",
-                      },
-                      {
-                        "kind" => "query",
-                        "name" => "data_od",
-                        "orig" => "data_od",
-                        "type" => "`$STRING`",
-                      },
-                      {
-                        "example" => 500,
-                        "kind" => "query",
-                        "name" => "limit",
-                        "orig" => "limit",
-                        "type" => "`$INTEGER`",
-                      },
-                      {
-                        "example" => 1,
-                        "kind" => "query",
-                        "name" => "page",
-                        "orig" => "page",
-                        "type" => "`$INTEGER`",
-                      },
-                      {
-                        "kind" => "query",
-                        "name" => "wojewodztwo",
-                        "orig" => "wojewodztwo",
-                        "type" => "`$STRING`",
-                      },
-                    ],
-                  },
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/uprawnienia",
@@ -286,6 +260,50 @@ module CepikConfig
                       "lit" => "uprawnienia",
                     },
                   ],
+                  "parts" => [
+                    "uprawnienia",
+                  ],
+                  "rename" => {},
+                  "transform" => {
+                    "req" => "`reqdata`",
+                    "res" => "`body`",
+                  },
+                  "args" => {
+                    "query" => [
+                      {
+                        "name" => "data_do",
+                        "orig" => "data_do",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                      },
+                      {
+                        "name" => "data_od",
+                        "orig" => "data_od",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                      },
+                      {
+                        "name" => "limit",
+                        "orig" => "limit",
+                        "type" => "`$INTEGER`",
+                        "kind" => "query",
+                        "example" => 500,
+                      },
+                      {
+                        "name" => "page",
+                        "orig" => "page",
+                        "type" => "`$INTEGER`",
+                        "kind" => "query",
+                        "example" => 1,
+                      },
+                      {
+                        "name" => "wojewodztwo",
+                        "orig" => "wojewodztwo",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                      },
+                    ],
+                  },
                   "select" => {
                     "exist" => [
                       "data_do",
@@ -295,13 +313,6 @@ module CepikConfig
                       "wojewodztwo",
                     ],
                   },
-                  "transform" => {
-                    "req" => "`reqdata`",
-                    "res" => "`body`",
-                  },
-                  "parts" => [
-                    "uprawnienia",
-                  ],
                 },
               ],
             },
@@ -314,33 +325,39 @@ module CepikConfig
           "fields" => [
             {
               "name" => "liczbapojazdow",
-              "short" => "Total number of vehicles",
+              "title" => "Liczbapojazdow",
               "type" => "`$INTEGER`",
+              "short" => "Total number of vehicles",
             },
             {
               "name" => "liczbaprawjazdy",
-              "short" => "Total number of driving licenses",
+              "title" => "Liczbaprawjazdy",
               "type" => "`$INTEGER`",
+              "short" => "Total number of driving licenses",
             },
             {
               "name" => "wgkategorii",
-              "short" => "Breakdown by license category",
+              "title" => "Wgkategorii",
               "type" => "`$OBJECT`",
+              "short" => "Breakdown by license category",
             },
             {
               "name" => "wgmarki",
-              "short" => "Breakdown by brand",
+              "title" => "Wgmarki",
               "type" => "`$OBJECT`",
+              "short" => "Breakdown by brand",
             },
             {
               "name" => "wgrodzaju",
-              "short" => "Breakdown by vehicle type",
+              "title" => "Wgrodzaju",
               "type" => "`$OBJECT`",
+              "short" => "Breakdown by vehicle type",
             },
             {
               "name" => "wojewodztwo",
-              "short" => "Province/voivodeship",
+              "title" => "Wojewodztwo",
               "type" => "`$STRING`",
+              "short" => "Province/voivodeship",
             },
           ],
           "name" => "statistic",
@@ -350,22 +367,6 @@ module CepikConfig
               "name" => "load",
               "points" => [
                 {
-                  "args" => {
-                    "query" => [
-                      {
-                        "kind" => "query",
-                        "name" => "rok",
-                        "orig" => "rok",
-                        "type" => "`$INTEGER`",
-                      },
-                      {
-                        "kind" => "query",
-                        "name" => "wojewodztwo",
-                        "orig" => "wojewodztwo",
-                        "type" => "`$STRING`",
-                      },
-                    ],
-                  },
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/statystyki/pojazdy",
@@ -377,38 +378,39 @@ module CepikConfig
                       "lit" => "pojazdy",
                     },
                   ],
+                  "parts" => [
+                    "statystyki",
+                    "pojazdy",
+                  ],
+                  "rename" => {},
+                  "transform" => {
+                    "req" => "`reqdata`",
+                    "res" => "`body.data`",
+                  },
+                  "args" => {
+                    "query" => [
+                      {
+                        "name" => "rok",
+                        "orig" => "rok",
+                        "type" => "`$INTEGER`",
+                        "kind" => "query",
+                      },
+                      {
+                        "name" => "wojewodztwo",
+                        "orig" => "wojewodztwo",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                      },
+                    ],
+                  },
                   "select" => {
                     "exist" => [
                       "rok",
                       "wojewodztwo",
                     ],
                   },
-                  "transform" => {
-                    "req" => "`reqdata`",
-                    "res" => "`body.data`",
-                  },
-                  "parts" => [
-                    "statystyki",
-                    "pojazdy",
-                  ],
                 },
                 {
-                  "args" => {
-                    "query" => [
-                      {
-                        "kind" => "query",
-                        "name" => "rok",
-                        "orig" => "rok",
-                        "type" => "`$INTEGER`",
-                      },
-                      {
-                        "kind" => "query",
-                        "name" => "wojewodztwo",
-                        "orig" => "wojewodztwo",
-                        "type" => "`$STRING`",
-                      },
-                    ],
-                  },
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/statystyki/prawo-jazdy",
@@ -420,20 +422,37 @@ module CepikConfig
                       "lit" => "prawo-jazdy",
                     },
                   ],
+                  "parts" => [
+                    "statystyki",
+                    "prawo-jazdy",
+                  ],
+                  "rename" => {},
+                  "transform" => {
+                    "req" => "`reqdata`",
+                    "res" => "`body.data`",
+                  },
+                  "args" => {
+                    "query" => [
+                      {
+                        "name" => "rok",
+                        "orig" => "rok",
+                        "type" => "`$INTEGER`",
+                        "kind" => "query",
+                      },
+                      {
+                        "name" => "wojewodztwo",
+                        "orig" => "wojewodztwo",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                      },
+                    ],
+                  },
                   "select" => {
                     "exist" => [
                       "rok",
                       "wojewodztwo",
                     ],
                   },
-                  "transform" => {
-                    "req" => "`reqdata`",
-                    "res" => "`body.data`",
-                  },
-                  "parts" => [
-                    "statystyki",
-                    "prawo-jazdy",
-                  ],
                 },
               ],
             },
@@ -445,55 +464,65 @@ module CepikConfig
         "vehicle" => {
           "fields" => [
             {
-              "format" => "date",
               "name" => "datapierwszejrejestracji",
-              "short" => "Date of first registration",
+              "title" => "Datapierwszejrejestracji",
               "type" => "`$STRING`",
+              "short" => "Date of first registration",
+              "format" => "date",
             },
             {
               "name" => "id",
-              "short" => "Unique vehicle identifier",
+              "title" => "Id",
               "type" => "`$STRING`",
+              "short" => "Unique vehicle identifier",
             },
             {
               "name" => "marka",
-              "short" => "Vehicle brand/make",
+              "title" => "Marka",
               "type" => "`$STRING`",
+              "short" => "Vehicle brand/make",
             },
             {
               "name" => "masawlasna",
-              "short" => "Curb weight in kg",
+              "title" => "Masawlasna",
               "type" => "`$INTEGER`",
+              "short" => "Curb weight in kg",
             },
             {
               "name" => "model",
-              "short" => "Vehicle model",
+              "title" => "Model",
               "type" => "`$STRING`",
+              "short" => "Vehicle model",
             },
             {
               "name" => "podrodzaj",
-              "short" => "Vehicle subtype",
+              "title" => "Podrodzaj",
               "type" => "`$STRING`",
+              "short" => "Vehicle subtype",
             },
             {
               "name" => "pojemnoscsilnika",
-              "short" => "Engine capacity in cm³",
+              "title" => "Pojemnoscsilnika",
               "type" => "`$INTEGER`",
+              "short" => "Engine capacity in cm³",
             },
             {
               "name" => "rodzaj",
-              "short" => "Vehicle type",
+              "title" => "Rodzaj",
               "type" => "`$STRING`",
+              "short" => "Vehicle type",
             },
             {
               "name" => "rokprodukcji",
-              "short" => "Year of production",
+              "title" => "Rokprodukcji",
               "type" => "`$INTEGER`",
+              "short" => "Year of production",
             },
             {
               "name" => "wojewodztwo",
-              "short" => "Province/voivodeship of registration",
+              "title" => "Wojewodztwo",
               "type" => "`$STRING`",
+              "short" => "Province/voivodeship of registration",
             },
           ],
           "id" => {
@@ -507,42 +536,6 @@ module CepikConfig
               "name" => "list",
               "points" => [
                 {
-                  "args" => {
-                    "query" => [
-                      {
-                        "kind" => "query",
-                        "name" => "data_do",
-                        "orig" => "data_do",
-                        "type" => "`$STRING`",
-                      },
-                      {
-                        "kind" => "query",
-                        "name" => "data_od",
-                        "orig" => "data_od",
-                        "type" => "`$STRING`",
-                      },
-                      {
-                        "example" => 500,
-                        "kind" => "query",
-                        "name" => "limit",
-                        "orig" => "limit",
-                        "type" => "`$INTEGER`",
-                      },
-                      {
-                        "example" => 1,
-                        "kind" => "query",
-                        "name" => "page",
-                        "orig" => "page",
-                        "type" => "`$INTEGER`",
-                      },
-                      {
-                        "kind" => "query",
-                        "name" => "wojewodztwo",
-                        "orig" => "wojewodztwo",
-                        "type" => "`$STRING`",
-                      },
-                    ],
-                  },
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/pojazdy",
@@ -551,6 +544,50 @@ module CepikConfig
                       "lit" => "pojazdy",
                     },
                   ],
+                  "parts" => [
+                    "pojazdy",
+                  ],
+                  "rename" => {},
+                  "transform" => {
+                    "req" => "`reqdata`",
+                    "res" => "`body`",
+                  },
+                  "args" => {
+                    "query" => [
+                      {
+                        "name" => "data_do",
+                        "orig" => "data_do",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                      },
+                      {
+                        "name" => "data_od",
+                        "orig" => "data_od",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                      },
+                      {
+                        "name" => "limit",
+                        "orig" => "limit",
+                        "type" => "`$INTEGER`",
+                        "kind" => "query",
+                        "example" => 500,
+                      },
+                      {
+                        "name" => "page",
+                        "orig" => "page",
+                        "type" => "`$INTEGER`",
+                        "kind" => "query",
+                        "example" => 1,
+                      },
+                      {
+                        "name" => "wojewodztwo",
+                        "orig" => "wojewodztwo",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                      },
+                    ],
+                  },
                   "select" => {
                     "exist" => [
                       "data_do",
@@ -560,13 +597,6 @@ module CepikConfig
                       "wojewodztwo",
                     ],
                   },
-                  "transform" => {
-                    "req" => "`reqdata`",
-                    "res" => "`body`",
-                  },
-                  "parts" => [
-                    "pojazdy",
-                  ],
                 },
               ],
             },

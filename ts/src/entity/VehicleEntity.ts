@@ -19,7 +19,6 @@ import type {
   VehicleListMatch,
 } from '../CepikTypes'
 
-// TODO: needs Entity superclass
 class VehicleEntity extends CepikEntityBase<Vehicle> {
 
   constructor(client: CepikSDK, entopts: any) {

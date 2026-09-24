@@ -1,0 +1,123 @@
+# Entity: permission
+
+main: kit: entity: permission: {
+
+  alias: field: {}
+
+  fields: {
+    datauzyskania: {
+      fo: "date"
+      h: "Datauzyskania"
+      n: "datauzyskania"
+      r: false
+      sh: "Date permission was obtained"
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      sh: "Unique permission identifier"
+      t: "`$STRING`"
+    }
+    kategoria: {
+      h: "Kategoria"
+      n: "kategoria"
+      r: false
+      sh: "Category of permission"
+      t: "`$STRING`"
+    }
+    wojewodztwo: {
+      h: "Wojewodztwo"
+      n: "wojewodztwo"
+      r: false
+      sh: "Province/voivodeship"
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "permission"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /uprawnienia"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "data_do"
+                or: "data_do"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "data_od"
+                or: "data_od"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 500
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "wojewodztwo"
+                or: "wojewodztwo"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/uprawnienia"
+          q: {
+            exist: [
+              "data_do"
+              "data_od"
+              "limit"
+              "page"
+              "wojewodztwo"
+            ]
+          }
+          s: [
+            {
+              lit: "uprawnienia"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

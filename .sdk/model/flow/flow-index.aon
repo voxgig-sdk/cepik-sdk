@@ -1,6 +1,0 @@
-# Flows
-
-@"./BasicDrivingLicenseFlow.aon"
-@"./BasicPermissionFlow.aon"
-@"./BasicStatisticFlow.aon"
-@"./BasicVehicleFlow.aon"
